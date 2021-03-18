@@ -3,6 +3,7 @@ library(sp)
 library(shinydashboard)
 library(leaflet)
 library(tidyverse)  
+library(here)
 
 
 #### Make a spatial data frame 
@@ -27,11 +28,8 @@ ui <- dashboardPage(
     h5("Click anywhere to draw a circle", align="center"),
     leafletOutput("mymap", width="100%", height="500px"),
     actionButton("clear", "Clear Markers")
-  ),
+  )
 )
-
-#will have to change this to debug output
-outputDir <- "/Users/aashaiavadhani/Desktop/Sports Analytics-Capstone"
 
 saveData <- function(data) {
   # Create a unique file name
@@ -39,7 +37,7 @@ saveData <- function(data) {
   # Write the file to the local system
   write.csv(
     x = data,
-    file = file.path(outputDir, fileName), 
+    file = here(fileName), 
     row.names = FALSE, quote = TRUE
   )
 }
