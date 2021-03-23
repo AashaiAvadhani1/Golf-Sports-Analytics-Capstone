@@ -3,6 +3,7 @@ library(sp)
 library(shinydashboard)
 library(leaflet)
 library(tidyverse)  
+library(here)
 
 
 #### Make a spatial data frame 
@@ -25,12 +26,10 @@ ui <- dashboardPage(
   dashboardBody(
     h2("My Map", align="center"),
     h5("Click anywhere to draw a circle", align="center"),
-    leafletOutput("mymap", width="100%", height="500px")
-  ),
+    leafletOutput("mymap", width="100%", height="500px"),
+    actionButton("clear", "Clear Markers")
+  )
 )
-
-#will have to change this to debug output
-outputDir <- "/Users/aashaiavadhani/Desktop/Sports Analytics-Capstone"
 
 saveData <- function(data) {
   # Create a unique file name
@@ -38,7 +37,7 @@ saveData <- function(data) {
   # Write the file to the local system
   write.csv(
     x = data,
-    file = file.path(outputDir, fileName), 
+    file = here(fileName), 
     row.names = FALSE, quote = TRUE
   )
 }
@@ -56,8 +55,6 @@ loadData <- function() {
 #df <- data.frame(matrix(NA, nrow=0, ncol=2))
 dataframe_click <- data.frame(matrix(NA, nrow=0, ncol=2))
 names(dataframe_click) <- c('Longitude', 'Latitude')
-print("initialize dataframe")
-print(dataframe_click)
 
 #### Define server logic required to draw a histogram
 server <- function(input, output) {
@@ -74,14 +71,11 @@ server <- function(input, output) {
       setView(lat = 40.47942168506459, lng=-79.85795114512402, zoom=17)
   })
   
-  
-  
   # Whenever a field is filled, aggregate all form data
   formData <- reactive({
     data <- sapply(fields, function(x) input[[x]])
     data
   })
-  
   
   #initialize a dataframe
   observeEvent(input$mymap_click, {
@@ -105,6 +99,12 @@ server <- function(input, output) {
     dataframe_click <<- dataframe_click %>% add_row(Longitude = click$lng, Latitude = click$lat)
     saveData(dataframe_click)
 
+  })
+  
+  #code to clear all markers
+  observeEvent(input$clear, {
+    leafletProxy("mymap") %>% 
+      clearGroup("new_point")
   })
   
   print(nrow(dataframe_click))
