@@ -1,91 +1,40 @@
+################## Defines server logic for golf application ##################
+
 library(shiny)
 library(sp)
 library(tidyverse)  
-library(here)
 
-saveData <- function(data) {
-  # Create a unique file name
-  fileName <- sprintf("server/data/shot_data.csv", as.integer(Sys.time()), digest::digest(data))
-  # Write the file to the local system
-  write.csv(
-    x = data,
-    file = here(fileName), 
-    row.names = FALSE, quote = TRUE
-  )
-}
+source("server/server_helpers.R")
 
-loadData <- function() {
-  # Read all the files into a list
-  files <- list.files(outputDir, full.names = TRUE)
-  data <- lapply(files, read.csv, stringsAsFactors = FALSE) 
-  # Concatenate all data together into one data.frame
-  data <- do.call(rbind, data)
-  data
-}
+# This is the dataframe in which data from each click is stored
+click_dataframe <- initialize_click_dataframe()
 
-#### Make a spatial data frame 
-lats <- c(37.38,39)
-lons <- c(-94,-95,-96)
-df <- data.frame(cbind(lons,lats))
-coordinates(df) <-~ lons+lats
-
-#df <- data.frame(matrix(NA, nrow=0, ncol=2))
-dataframe_click <- data.frame(matrix(NA, nrow=0, ncol=2))
-names(dataframe_click) <- c('Longitude', 'Latitude')
-
-#### Define server logic required to draw a histogram
 server <- function(input, output) {
   
   output$mymap <- renderLeaflet({
-    x=1 
-    y=2
-    print(x)
+    x = 1 
+    y = 2
     
-    
-    m = leaflet(df,width="100%",height="100%") %>% 
-      addTiles()    %>%
+    m = leaflet(initialize_spatial(), width="100%", height="100%") %>% 
+      addTiles() %>%
       addCircleMarkers() %>%
       setView(lat = 40.47942168506459, lng=-79.85795114512402, zoom=17)
   })
   
-  # Whenever a field is filled, aggregate all form data
-  formData <- reactive({
-    data <- sapply(fields, function(x) input[[x]])
-    data
-  })
-  
-  #initialize a dataframe
+  # Clicking to add a marker
   observeEvent(input$mymap_click, {
     
-    #df = data.frame(name = input$mymap_click, used_shiny = input$used_shiny)
-    click <- input$mymap_click #stores the data of each click, might have to populate a dataframe for every click
-    text<-paste("Latitude ", round(click$lat,2), "Longtitude ", round(click$lng,2))
-    
-    proxy <- leafletProxy("mymap")
-    
-    ## This displays the pin drop circle
-    proxy %>% 
-      #clearGroup("new_point") %>% #remove this line
-      #clearMarkers(layerId=input$mymap_click$id) %>%
-      #addPopups(click$lng, click$lat) %>%  #try uncommenting this 
+    click <- input$mymap_click
+    leafletProxy("mymap") %>% 
       addCircles(click$lng, click$lat, radius=2, color="red", group = "new_point")
-    
-    marker_long = click$lng
-    marker_lat = click$lat
-    
-    dataframe_click <<- dataframe_click %>% add_row(Longitude = click$lng, Latitude = click$lat)
-    saveData(dataframe_click)
+    click_dataframe <<- click_dataframe %>% add_row(Longitude = click$lng, Latitude = click$lat)
+    saveData(click_dataframe)
     
   })
   
-  #code to clear all markers
+  # When "clear" button is clicked
   observeEvent(input$clear, {
     leafletProxy("mymap") %>% 
       clearGroup("new_point")
   })
-  
-  print(nrow(dataframe_click))
-  #saveData(dataframe_click)
-  
-  
 }

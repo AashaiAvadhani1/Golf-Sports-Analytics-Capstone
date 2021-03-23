@@ -1,7 +1,10 @@
+#################### Defines ui logic for golf application ####################
+
 library(shinydashboard)
 library(leaflet)
 
-#### Define UI for golf application
+source("ui/ui_helpers.R")
+
 ui <- dashboardPage(
   
   dashboardHeader(
