@@ -16,8 +16,8 @@ initialize_spatial <- function() {
 
 # Initialize the click dataframe
 initialize_click_dataframe <- function() {
-  dataframe_click <- data.frame(matrix(NA, nrow=0, ncol=2))
-  names(dataframe_click) <- c('Longitude', 'Latitude')
+  dataframe_click <- data.frame(matrix(NA, nrow=0, ncol=3))
+  names(dataframe_click) <- c('Longitude', 'Latitude', 'ShotId')
   dataframe_click
 }
 
