@@ -54,4 +54,9 @@ server <- function(input, output) {
     leafletProxy("mymap") %>% 
       clearGroup("new_point")
   })
+  
+  # When "submit" button is clicked
+  observeEvent(input$submit, {
+    saveData(click_dataframe)
+  })
 }
