@@ -71,9 +71,6 @@ server <- function(input, output) {
       
       click_dataframe <<- click_dataframe %>% 
         update_shot(update, c("Latitude", "Longitude"))
-      
-      # click_dataframe$Longitude[click_dataframe$ShotId == drag$id] = drag$lng
-      # click_dataframe$Latitude[click_dataframe$ShotId == drag$id] = drag$lat
     })
     
   })
