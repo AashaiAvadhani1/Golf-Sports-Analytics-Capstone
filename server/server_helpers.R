@@ -7,7 +7,7 @@ library(here)
 
 # Make a spatial data frame for initialization purposes
 initialize_spatial <- function() {
-  lats <- c(37.38,39)
+  lats <- c(37,38,39)
   lons <- c(-94,-95,-96)
   df <- data.frame(cbind(lons,lats))
   coordinates(df) <-~ lons+lats
@@ -15,10 +15,25 @@ initialize_spatial <- function() {
 }
 
 # Initialize the click dataframe
-initialize_click_dataframe <- function() {
-  dataframe_click <- data.frame(matrix(NA, nrow=0, ncol=3))
-  names(dataframe_click) <- c('Longitude', 'Latitude', 'ShotId')
-  dataframe_click
+initialize_click_dataframe <- function(col_names = c('Longitude', 'Latitude')) {
+  dataframe_click <- data.frame(matrix(NA, nrow=0, ncol=length(col_names)))
+  names(dataframe_click) <- col_names
+  dataframe_click %>% mutate_all(as.character)
+}
+
+
+### For updating the click dataframe
+
+# To add a new shot
+add_shot <- function(df, params) {
+  df %>% {do.call(add_row, c(list(`.data` = .), lapply(params, as.character)))}
+}
+
+# To update a shot (after dragging)
+update_shot <- function(df, update, cols_to_update) {
+  cols_to_identify <- setdiff(colnames(update), cols_to_update)
+  df %>% 
+    rows_update(update %>% mutate_all(as.character), by=cols_to_identify, copy=TRUE)
 }
 
 
@@ -47,3 +62,14 @@ loadData <- function(output_dir) {
   data
 }
 
+
+### Miscellaneous helper functions
+# Checks if a string is empty
+is_empty <- function(str) {
+  str == ""
+}
+
+# Checks if a dataframe is empty
+is_empty_df <- function(df) {
+  nrow(df) == 0
+}
