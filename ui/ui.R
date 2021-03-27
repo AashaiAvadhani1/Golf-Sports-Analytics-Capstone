@@ -58,7 +58,8 @@ ui <- dashboardPage(
       
       # Second tab content
       tabItem(tabName = "widgets",
-              h2("Widgets tab content")
+              h2("Report"),
+              DT::dataTableOutput("mytable")
       )    
     )
 
