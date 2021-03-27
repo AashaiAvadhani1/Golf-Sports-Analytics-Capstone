@@ -6,8 +6,8 @@ ui <- dashboardPage(
   ## Sidebar content
   dashboardSidebar(
     sidebarMenu(
-      menuItem("Dashboard", tabName = "dashboard", icon = icon("dashboard")),
-      menuItem("Widgets", tabName = "widgets", icon = icon("th"))
+      menuItem("dashboard", tabName = "dashboard", icon = icon("dashboard")),
+      menuItem("widgets", tabName = "widgets", icon = icon("th"))
     )
   ),
   
