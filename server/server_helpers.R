@@ -7,7 +7,7 @@ library(here)
 
 # Make a spatial data frame for initialization purposes
 initialize_spatial <- function() {
-  lats <- c(37.38,39)
+  lats <- c(37,38,39)
   lons <- c(-94,-95,-96)
   df <- data.frame(cbind(lons,lats))
   coordinates(df) <-~ lons+lats
@@ -62,3 +62,14 @@ loadData <- function(output_dir) {
   data
 }
 
+
+### Miscellaneous helper functions
+# Checks if a string is empty
+is_empty <- function(str) {
+  str == ""
+}
+
+# Checks if a dataframe is empty
+is_empty_df <- function(df) {
+  nrow(df) == 0
+}
