@@ -14,8 +14,8 @@ ui <- dashboardPage(
   ## Sidebar content
   dashboardSidebar(
     sidebarMenu(
-      menuItem("Dashboard", tabName = "dashboard", icon = icon("dashboard")),
-      menuItem("Widgets", tabName = "widgets", icon = icon("th"))
+      menuItem("Golf-Map", tabName = "Golf-Map", icon = icon("dashboard")),
+      menuItem("Report", tabName = "Report", icon = icon("th"))
     )
   ),
   
@@ -23,7 +23,7 @@ ui <- dashboardPage(
   dashboardBody(
     tabItems( 
       # First tab content
-      tabItem(tabName = "dashboard",
+      tabItem(tabName = "Golf-Map",
               # Form for metadata entry
               
               h2("Data Entry App for CMU Golf Team", align="center"), 
@@ -57,9 +57,9 @@ ui <- dashboardPage(
       
       
       # Second tab content
-      tabItem(tabName = "widgets",
+      tabItem(tabName = "Report",
               h2("Report"),
-              DT::dataTableOutput("mytable")
+              DT::dataTableOutput("click_dataframe")
       )    
     )
 

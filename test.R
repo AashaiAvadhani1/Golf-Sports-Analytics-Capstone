@@ -6,8 +6,8 @@ ui <- dashboardPage(
   ## Sidebar content
   dashboardSidebar(
     sidebarMenu(
-      menuItem("dashboard", tabName = "dashboard", icon = icon("dashboard")),
-      menuItem("widgets", tabName = "widgets", icon = icon("th"))
+      menuItem("Golf-Map", tabName = "Golf-Map", icon = icon("dashboard")),
+      menuItem("report", tabName = "report", icon = icon("th"))
     )
   ),
   
@@ -15,7 +15,7 @@ ui <- dashboardPage(
   dashboardBody(
     tabItems(
       # First tab content
-      tabItem(tabName = "dashboard",
+      tabItem(tabName = "Golf-Map",
               fluidRow(
                 box(plotOutput("plot1", height = 250)),
                 
@@ -27,7 +27,7 @@ ui <- dashboardPage(
       ),
       
       # Second tab content
-      tabItem(tabName = "widgets",
+      tabItem(tabName = "report",
               h2("Widgets tab content")
       )
     )

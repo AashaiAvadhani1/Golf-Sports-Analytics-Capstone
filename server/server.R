@@ -85,7 +85,7 @@ server <- function(input, output) {
       ))
   })
   
-  output$mytable = DT::renderDataTable({
+  output$click_dataframe = DT::renderDataTable({
     click_dataframe
   })
   
@@ -106,6 +106,7 @@ server <- function(input, output) {
     
     click_dataframe <<- click_dataframe %>% 
       update_shot(update, c("Latitude", "Longitude"))
+
   })
 
   # When "clear" button is clicked
