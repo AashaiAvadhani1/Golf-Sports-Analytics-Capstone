@@ -33,6 +33,8 @@ server <- function(input, output) {
     }
   })
   
+  
+  
   # When "submit-metadata" button is clicked
   observeEvent(input$submit_meta, {
     output$description <- renderText("Click anywhere to draw a circle")
@@ -83,6 +85,10 @@ server <- function(input, output) {
       ))
   })
   
+  output$click_dataframe = DT::renderDataTable({
+    click_dataframe
+  })
+  
   # Observe event for dragging markers after initializing them
   observeEvent(input$mymap_marker_dragend, {
     drag <- input$mymap_marker_dragend
@@ -100,6 +106,7 @@ server <- function(input, output) {
     
     click_dataframe <<- click_dataframe %>% 
       update_shot(update, c("Latitude", "Longitude"))
+
   })
 
   # When "clear" button is clicked
