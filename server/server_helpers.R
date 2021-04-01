@@ -40,7 +40,7 @@ update_shot <- function(df, update, cols_to_update) {
 ### Loading/saving data
 
 # Writes data from a dataframe to a csv file
-saveData <- function(data, filename="shot_data.csv") {
+save_data <- function(data, filename="shot_data.csv") {
   full_filepath <- paste("server/data", filename, sep="/")
   # Create a unique file name
   fileName <- sprintf(full_filepath, as.integer(Sys.time()), digest::digest(data))
@@ -52,18 +52,15 @@ saveData <- function(data, filename="shot_data.csv") {
   )
 }
 
-# Loads data from files (currently not being used)
-loadData <- function(output_dir) {
-  # Read all the files into a list
-  files <- list.files(output_dir, full.names = TRUE)
-  data <- lapply(files, read.csv, stringsAsFactors = FALSE) 
-  # Concatenate all data together into one data.frame
-  data <- do.call(rbind, data)
-  data
+# Loads data from a file into a data.frame
+load_data <- function(path, headers=TRUE) {
+  filepath <- paste(path, collapse="/")
+  read_csv(filepath, col_names=headers)
 }
 
 
 ### Miscellaneous helper functions
+
 # Checks if a string is empty
 is_empty <- function(str) {
   str == ""

@@ -5,6 +5,7 @@ library(sp)
 library(tidyverse)  
 library(leaflet)
 library(leaflet.extras)
+library(DT)
 
 source("server/server_helpers.R")
 
@@ -32,8 +33,6 @@ server <- function(input, output) {
       actionButton("submit_meta", "Submit Metadata")
     }
   })
-  
-  
   
   # When "submit-metadata" button is clicked
   observeEvent(input$submit_meta, {
@@ -85,7 +84,8 @@ server <- function(input, output) {
       ))
   })
   
-  output$click_dataframe = DT::renderDataTable({
+  # This lets reports tab know what to render (to be changed maybe)
+  output$click_dataframe <- renderDataTable({
     click_dataframe
   })
   
@@ -118,6 +118,6 @@ server <- function(input, output) {
   
   # When "submit_data" button is clicked
   observeEvent(input$submit_data, {
-    saveData(click_dataframe)
+    save_data(click_dataframe)
   })
 }
