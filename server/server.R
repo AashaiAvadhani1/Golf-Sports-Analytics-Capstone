@@ -48,7 +48,7 @@ server <- function(input, output) {
     output$map_buttons <- renderUI({
       fluidRow(
         column(2, actionButton("clear", "Clear Markers")),
-        column(10, actionButton("submit", "Submit Markers"))
+        column(10, actionButton("submit_data", "Submit Markers"))
       )
     })
   })
@@ -116,8 +116,8 @@ server <- function(input, output) {
     click_dataframe <<- initialize_click_dataframe(dataframe_column_names)
   })
   
-  # When "submit" button is clicked
-  observeEvent(input$submit, {
+  # When "submit_data" button is clicked
+  observeEvent(input$submit_data, {
     saveData(click_dataframe)
   })
 }
