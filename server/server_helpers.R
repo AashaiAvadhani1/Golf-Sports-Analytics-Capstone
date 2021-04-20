@@ -40,22 +40,29 @@ update_shot <- function(df, update, cols_to_update) {
 ### Loading/saving data
 
 # Writes data from a dataframe to a csv file
-save_data <- function(data, filename="shot_data.csv") {
-  full_filepath <- paste("server/data", filename, sep="/")
+save_data <- function(data, folder="data", filename="shot_data.csv") {
+  full_filepath <- paste(c(folder, filename), collapse="/")
   # Create a unique file name
-  fileName <- sprintf(full_filepath, as.integer(Sys.time()), digest::digest(data))
+  filepath <- here(sprintf(full_filepath, as.integer(Sys.time()), digest::digest(data)))
+  if(!file.exists(filepath)) {
+    file.create(filepath, showWarnings = FALSE)
+  }
   # Write the file to the local system
   write.csv(
     x = data,
-    file = here(fileName), 
+    file = filepath, 
     row.names = FALSE, quote = TRUE
   )
 }
 
 # Loads data from a file into a data.frame
 load_data <- function(path, headers=TRUE) {
-  filepath <- paste(path, collapse="/")
-  read_csv(filepath, col_names=headers)
+  filepath <- here(sprintf(path, as.integer(Sys.time()), digest::digest(data)))
+  if(!file.exists(filepath)) {
+    data.frame()
+  } else {
+    read_csv(filepath, col_names=headers)
+  }
 }
 
 
