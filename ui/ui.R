@@ -28,8 +28,6 @@ ui <- dashboardPage(
       # Data entry tab content
       tabItem(
         tabName = "Golf-Map",
-        # Form for metadata entry
-        
         h2("Data Entry App for CMU Golf Team", align="center"), 
         br(),
         uiOutput("metadata_form"),
@@ -62,6 +60,7 @@ ui <- dashboardPage(
       tabItem(
         tabName = "Report",
         h2("Report", align="center"),
+        uiOutput("search_form"),
         dataTableOutput("click_dataframe")
       )    
     )
