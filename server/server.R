@@ -5,6 +5,8 @@ library(sp)
 library(tidyverse)  
 library(leaflet)
 library(leaflet.extras)
+library(oce)
+library(raster)
 
 source("server/server_helpers.R")
 
@@ -38,17 +40,32 @@ server <- function(input, output) {
   # When "submit-metadata" button is clicked
   observeEvent(input$submit_meta, {
     output$description <- renderText("Click anywhere to draw a circle")
+    
+
+    
+    
     output$mymap <- renderLeaflet({
       m = leaflet(initialize_spatial(), width="100%", height="100%") %>%
-        addDrawToolbar(circleOptions=NA, markerOptions=NA, polygonOptions=NA,
-                       rectangleOptions=NA, polylineOptions=NA, circleMarkerOptions=NA) %>%
+      
+        
+        addDrawToolbar(circleOptions=NA, markerOptions= NA,
+                       rectangleOptions= markerOptions(draggable = TRUE), polylineOptions=NA, circleMarkerOptions=NA,
+                       polygonOptions = drawPolygonOptions(showArea = TRUE, shapeOptions = drawShapeOptions(fill = FALSE))) %>%
+        
+       
+        
         addTiles() %>%
+        addGraticule(interval = 1) %>%
         setView(lat = 40.47942168506459, lng=-79.85795114512402, zoom=17)
+      #m %>% addTiles() %>% addPolygons(opacity = 1,lat = 40.47942168506459, lng=-79.85795114512402,fillOpacity = 0.5, smoothFactor = 0.5, color="black",weight = 0.5)
+      #get the 4 coordinates from the polygon
+      #anchor has to be the center of the green, lower point of the green
     })
     output$map_buttons <- renderUI({
       fluidRow(
         column(2, actionButton("clear", "Clear Markers")),
-        column(10, actionButton("submit", "Submit Markers"))
+        column(10, actionButton("submit", "Submit Markers")), 
+        column(20, actionButton("gridLocation", "Submit Grid Location"))
       )
     })
   })
@@ -62,15 +79,29 @@ server <- function(input, output) {
     data
   })
   
+  
+  #have a diffrent obeserve event for the grid markers ( )
+  
+  
   # Clicking to add a marker
+  #make user input the fairway crosss to the green
+  #
   observeEvent(input$mymap_click, {
     
     click <- input$mymap_click
     shot_num <<- shot_num + 1
     
+    temp <- input$mymap_draw_all_features 
+    print(temp)
+    print(click)
+    
+    #using the layerID, we can manually plot the lines using the markers 
+    #have a new dropdown for the grid, "set green markers" and save those points of the green 
+    #make a different toolbar for setting the green markers for the grid
     leafletProxy("mymap") %>%
       addCircleMarkers(click$lng, click$lat, radius=4, color="black", group="new_point",
-                     layerId=shot_num, options=markerOptions(draggable = TRUE))
+                     layerId=shot_num, options=markerOptions(draggable = TRUE)) %>%    addTiles()
+      #addGraticule()
     
     click_dataframe <<- click_dataframe %>% 
       add_shot(list(
@@ -85,9 +116,30 @@ server <- function(input, output) {
       ))
   })
   
-  output$click_dataframe = DT::renderDataTable({
-    click_dataframe
-  })
+  
+  # Clicking to add a grid
+ # observeEvent(input$mymap_click, {
+    
+  #  grd <- st_sf(geom=st_make_grid(qk_sf), crs=4326)
+    
+   # leafletProxy("mymap") %>%
+    #  addTiles() %>% 
+     # addGraticule()
+    
+    #sfc = st_sfc(st_polygon(list(rbind(c(0,0), c(1,0), c(1,1), c(0,0)))))
+    #plot(st_make_grid(sfc, cellsize = .1, square = FALSE))
+    
+    #p <- as(r, 'SpatialPolygonsDataFrame')
+    #r <- disaggregate(r, 2)
+    #values(r) <- 1:ncell(r)
+    #plot(r)
+    #plot(p, add=TRUE)
+    
+   # }
+  #)
+  
+  
+  
   
   # Observe event for dragging markers after initializing them
   observeEvent(input$mymap_marker_dragend, {
@@ -103,6 +155,8 @@ server <- function(input, output) {
       Latitude = drag$lat,
       Longitude = drag$lng
     )
+    
+
     
     click_dataframe <<- click_dataframe %>% 
       update_shot(update, c("Latitude", "Longitude"))
