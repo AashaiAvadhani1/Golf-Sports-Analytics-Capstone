@@ -28,35 +28,7 @@ server <- function(input, output) {
   
   # Metadata entry form 
   output$metadata_form <- metadata_form(input)
-  # output$metadata_form <- renderUI({
-  #   box(
-  #     title = "Metadata Entry",
-  #     width = "100%",
-  #     fluidRow(
-  #       column(3, dateInput("date", "Date:", value = Sys.Date(), width="100px")),
-  #       column(9, selectInput("tournament", "Tournament name:", c("", load_data("data/tournaments.csv")$Tournaments), width="70%"))
-  #     ),
-  #     fluidRow(
-  #       column(6, selectInput("player", "Player name:", c("", "Set Markers", load_data("data/players.csv")$Players))),
-  #       column(3, selectInput("round", "Round Number:", c("", "NA (Setting markers)", 1:3))),
-  #       column(3, selectInput("hole",
-  #                             "Choose the hole:",
-  #                             list(`not chosen` = "", `front half` = 1:9, `back half` = 10:18),
-  #                             width="150px"))
-  #     ),
-  #     
-  #     # Submission button only appears when all fields are filled
-  #     renderUI({
-  #       if (is_empty(input$tournament) || is_empty(input$player) || 
-  #           is_empty(input$round) || is_empty(input$hole)) {
-  #         return(NULL)
-  #       } else {
-  #         actionButton("submit_meta", "Submit Metadata")
-  #       }
-  #     })
-  #   )
-  # })
-  
+
   # When "submit-metadata" button is clicked
   observeEvent(input$submit_meta, {
     hole_locations_filename <- str_interp("data/tournament_hole_locations/${metadata()$tournament}.csv")
@@ -84,6 +56,7 @@ server <- function(input, output) {
         column(10, actionButton("submit_data", "Submit Markers"))
       )
     })
+    click_dataframe <<- initialize_click_dataframe(dataframe_column_names)
   })
   metadata <- eventReactive(input$submit_meta, {
     data <- list()
@@ -107,11 +80,6 @@ server <- function(input, output) {
     
     click_dataframe <<- click_dataframe %>% 
       add_shot(list(
-        # Date = metadata()$date,
-        # `Tournament Name` = metadata()$tournament,
-        # Round = metadata()$round,
-        # Player = metadata()$player,
-        # Hole = metadata()$hole,
         Shot = shot_num,
         Latitude = click$lat,
         Longitude = click$lng
@@ -123,11 +91,6 @@ server <- function(input, output) {
     drag <- input$mymap_marker_dragend
     
     update <- tibble(
-      # Date = metadata()$date,
-      # `Tournament Name` = metadata()$tournament,
-      # Round = metadata()$round,
-      # Player = metadata()$player,
-      # Hole = metadata()$hole,
       Shot = drag$id,
       Latitude = drag$lat,
       Longitude = drag$lng
