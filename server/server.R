@@ -11,17 +11,11 @@ source("server/server_helpers.R")
 
 # This is the dataframe in which data from each click is stored
 dataframe_column_names <- c(
-  # "Date",
-  # "Tournament Name",
-  # "Round",
-  # "Player",
-  # "Hole",
   "Shot",
   "Latitude",
   "Longitude"
 )
 click_dataframe <- initialize_click_dataframe(dataframe_column_names)
-shot_num <- 0
 
 server <- function(input, output) {
   ################## Main Tab Logic #######################
@@ -72,7 +66,7 @@ server <- function(input, output) {
   observeEvent(input$mymap_click, {
     
     click <- input$mymap_click
-    shot_num <<- shot_num + 1
+    shot_num <- nrow(click_dataframe) + 1
     
     leafletProxy("mymap") %>%
       addCircleMarkers(click$lng, click$lat, radius=4, color="black", group="new_point",
