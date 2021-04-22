@@ -40,8 +40,16 @@ update_shot <- function(df, update, cols_to_update) {
 ### Loading/saving data
 
 # Writes data from a dataframe to a csv file
-save_data <- function(data, folder="data", filename="shot_data.csv") {
-  full_filepath <- paste(c(folder, filename), collapse="/")
+save_data <- function(data, folders="data", filename="shot_data.csv") {
+  folders_path <- ""
+  for(folder in folders) {
+    folders_path <- paste0(folders_path, folder)
+    if(!dir.exists(folders_path)) {
+      dir.create(folders_path, showWarnings = FALSE)
+    }
+    folders_path <- paste0(folders_path, "/")
+  }
+  full_filepath <- paste0(folders_path, filename)
   # Create a unique file name
   filepath <- here(sprintf(full_filepath, as.integer(Sys.time()), digest::digest(data)))
   if(!file.exists(filepath)) {

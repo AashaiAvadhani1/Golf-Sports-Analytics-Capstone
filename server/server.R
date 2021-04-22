@@ -202,7 +202,7 @@ server <- function(input, output) {
         )
     }
     
-    save_data(hole_locations, folder="data/tournament_hole_locations", filename=holes_filename)
+    save_data(hole_locations, folder=c("data", "tournament_hole_locations"), filename=holes_filename)
     
     # Clear all inputs
     updateTextInput(inputId="new_tournament", value="")
