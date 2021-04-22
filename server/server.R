@@ -11,11 +11,11 @@ source("server/server_helpers.R")
 
 # This is the dataframe in which data from each click is stored
 dataframe_column_names <- c(
-  "Date",
-  "Tournament Name",
-  "Round",
-  "Player",
-  "Hole",
+  # "Date",
+  # "Tournament Name",
+  # "Round",
+  # "Player",
+  # "Hole",
   "Shot",
   "Latitude",
   "Longitude"
@@ -104,11 +104,11 @@ server <- function(input, output) {
     
     click_dataframe <<- click_dataframe %>% 
       add_shot(list(
-        Date = metadata()$date,
-        `Tournament Name` = metadata()$tournament,
-        Round = metadata()$round,
-        Player = metadata()$player,
-        Hole = metadata()$hole,
+        # Date = metadata()$date,
+        # `Tournament Name` = metadata()$tournament,
+        # Round = metadata()$round,
+        # Player = metadata()$player,
+        # Hole = metadata()$hole,
         Shot = shot_num,
         Latitude = click$lat,
         Longitude = click$lng
@@ -125,11 +125,11 @@ server <- function(input, output) {
     drag <- input$mymap_marker_dragend
     
     update <- tibble(
-      Date = metadata()$date,
-      `Tournament Name` = metadata()$tournament,
-      Round = metadata()$round,
-      Player = metadata()$player,
-      Hole = metadata()$hole,
+      # Date = metadata()$date,
+      # `Tournament Name` = metadata()$tournament,
+      # Round = metadata()$round,
+      # Player = metadata()$player,
+      # Hole = metadata()$hole,
       Shot = drag$id,
       Latitude = drag$lat,
       Longitude = drag$lng
@@ -149,7 +149,16 @@ server <- function(input, output) {
   
   # When "submit_data" button is clicked
   observeEvent(input$submit_data, {
-    save_data(click_dataframe, folder="data", filename="shot_data.csv")
+    folders_path <- c(
+      "data",
+      "shot_data",
+      as.character(metadata()$date),
+      as.character(metadata()$tournament),
+      as.character(metadata()$player),
+      str_interp("Round ${metadata()$round}")
+    )
+    file_name <- str_interp("hole_${metadata()$hole}.csv")
+    save_data(click_dataframe, folders=folders_path, filename=file_name)
   })
   
   # Button for adding a new player
@@ -165,7 +174,7 @@ server <- function(input, output) {
         players <- rbind(players, new_player_name)
       }
     }
-    save_data(players, folder="data", filename="players.csv")
+    save_data(players, folders="data", filename="players.csv")
     updateTextInput(inputId="new_player", value="")
   })
   
@@ -183,7 +192,7 @@ server <- function(input, output) {
         tournaments <- rbind(tournaments, new_tournament_name)
       }
     }
-    save_data(tournaments, folder="data", filename="tournaments.csv")
+    save_data(tournaments, folders="data", filename="tournaments.csv")
     
     # Save hole locations
     holes_filename <- paste0(new_tournament_name, ".csv")
@@ -202,7 +211,7 @@ server <- function(input, output) {
         )
     }
     
-    save_data(hole_locations, folder=c("data", "tournament_hole_locations"), filename=holes_filename)
+    save_data(hole_locations, folders=c("data", "tournament_hole_locations"), filename=holes_filename)
     
     # Clear all inputs
     updateTextInput(inputId="new_tournament", value="")
