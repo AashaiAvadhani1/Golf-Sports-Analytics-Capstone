@@ -40,9 +40,7 @@ server <- function(input, output) {
   # When "submit-metadata" button is clicked
   observeEvent(input$submit_meta, {
     output$description <- renderText("Click anywhere to draw a circle")
-    
-
-    
+    data <- reactiveValues(lat = NULL, lon = NULL)
     
     output$mymap <- renderLeaflet({
       m = leaflet(initialize_spatial(), width="100%", height="100%") %>%
@@ -52,15 +50,14 @@ server <- function(input, output) {
                        rectangleOptions= markerOptions(draggable = TRUE), polylineOptions=NA, circleMarkerOptions=NA,
                        polygonOptions = drawPolygonOptions(showArea = TRUE, shapeOptions = drawShapeOptions(fill = FALSE))) %>%
         
-       
-        
         addTiles() %>%
         addGraticule(interval = 1) %>%
         setView(lat = 40.47942168506459, lng=-79.85795114512402, zoom=17)
       #m %>% addTiles() %>% addPolygons(opacity = 1,lat = 40.47942168506459, lng=-79.85795114512402,fillOpacity = 0.5, smoothFactor = 0.5, color="black",weight = 0.5)
       #get the 4 coordinates from the polygon
       #anchor has to be the center of the green, lower point of the green
-    })
+    
+    
     output$map_buttons <- renderUI({
       fluidRow(
         column(2, actionButton("clear", "Clear Markers")),
@@ -68,7 +65,10 @@ server <- function(input, output) {
         column(20, actionButton("gridLocation", "Submit Grid Location"))
       )
     })
-  })
+    })
+  }
+  )
+    
   metadata <- eventReactive(input$submit_meta, {
     data <- list()
     data$date <- input$date
@@ -87,14 +87,13 @@ server <- function(input, output) {
   #make user input the fairway crosss to the green
   #
   observeEvent(input$mymap_click, {
-    
+  
     click <- input$mymap_click
     shot_num <<- shot_num + 1
     
-    temp <- input$mymap_draw_all_features 
-    print(temp)
-    print(click)
-    
+    temp <- input$leafmap_draw_all_features 
+    #print(click)
+
     #using the layerID, we can manually plot the lines using the markers 
     #have a new dropdown for the grid, "set green markers" and save those points of the green 
     #make a different toolbar for setting the green markers for the grid
@@ -114,6 +113,14 @@ server <- function(input, output) {
         Latitude = click$lat,
         Longitude = click$lng
       ))
+  })
+  
+  
+  observeEvent(input$map_draw_new_feature, {
+    click_lat <- input$map_draw_new_feature$geometry$coordinates[[2]]
+    click_lon <- input$map_draw_new_feature$geometry$coordinates[[1]]
+    data$lat <- c(data$lat,click_lat)
+    data$lon <- c(data$lon,click_lon)
   })
   
   
