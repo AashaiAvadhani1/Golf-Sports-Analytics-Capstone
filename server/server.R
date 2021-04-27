@@ -50,7 +50,9 @@ server <- function(input, output) {
         column(10, actionButton("submit_data", "Submit Markers"))
       )
     })
-    click_dataframe <<- initialize_click_dataframe(dataframe_column_names)
+    file_to_check <- metadata_to_filepath(metadata())
+    click_dataframe <<- initialize_click_dataframe(dataframe_column_names, file_to_check)
+    populate_map(leafletProxy("mymap"), click_dataframe)
   })
   metadata <- eventReactive(input$submit_meta, {
     data <- list()
@@ -68,9 +70,7 @@ server <- function(input, output) {
     click <- input$mymap_click
     shot_num <- nrow(click_dataframe) + 1
     
-    leafletProxy("mymap") %>%
-      addCircleMarkers(click$lng, click$lat, radius=4, color="black", group="new_point",
-                     layerId=shot_num, options=markerOptions(draggable = TRUE))
+    add_shot_to_map(leafletProxy("mymap"), click$lng, click$lat, shot_num)
     
     click_dataframe <<- click_dataframe %>% 
       add_shot(list(

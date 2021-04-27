@@ -15,10 +15,11 @@ initialize_spatial <- function() {
 }
 
 # Initialize the click dataframe
-initialize_click_dataframe <- function(col_names = c('Longitude', 'Latitude')) {
-  dataframe_click <- data.frame(matrix(NA, nrow=0, ncol=length(col_names)))
+initialize_click_dataframe <- function(col_names=c('Longitude', 'Latitude'),
+                                       file_to_check = "") {
+  dataframe_click <- load_data(file_to_check, num_cols=length(col_names))
   names(dataframe_click) <- col_names
-  dataframe_click %>% mutate_all(as.character)
+  dataframe_click %>% mutate_all(as.numeric)
 }
 
 
@@ -26,14 +27,14 @@ initialize_click_dataframe <- function(col_names = c('Longitude', 'Latitude')) {
 
 # To add a new shot
 add_shot <- function(df, params) {
-  df %>% {do.call(add_row, c(list(`.data` = .), lapply(params, as.character)))}
+  df %>% {do.call(add_row, c(list(`.data` = .), lapply(params, as.numeric)))}
 }
 
 # To update a shot (after dragging)
 update_shot <- function(df, update, cols_to_update) {
   cols_to_identify <- setdiff(colnames(update), cols_to_update)
   df %>% 
-    rows_update(update %>% mutate_all(as.character), by=cols_to_identify, copy=TRUE)
+    rows_update(update %>% mutate_all(as.numeric), by=cols_to_identify, copy=TRUE)
 }
 
 
@@ -65,12 +66,29 @@ save_data <- function(data, folders="data", filename="shot_data.csv") {
 }
 
 # Loads data from a file into a data.frame
-load_data <- function(path, headers=TRUE) {
+load_data <- function(path, num_cols=1, headers=TRUE) {
   filepath <- here(sprintf(path, as.integer(Sys.time()), digest::digest(data)))
-  if (!file.exists(filepath)) {
-    data.frame()
+  if (is_empty(path) || (!file.exists(filepath))) {
+    data.frame(matrix(NA, nrow=0, ncol=num_cols))
   } else {
     read_csv(filepath, col_names=headers)
+  }
+}
+
+
+### Map interaction
+
+# To add a shot to the map
+add_shot_to_map <- function(map, lon, lat, shot_num) {
+  map %>% addCircleMarkers(lon, lat, radius=4, color="black", group="new_point",
+                     layerId=shot_num, options=markerOptions(draggable = TRUE))
+}
+
+# To populate the map using a dataframe
+populate_map <- function(map, shot_df) {
+  for(row in 1:(nrow(shot_df))) {
+    shot <- shot_df %>% slice(row)
+    add_shot_to_map(map, shot$Longitude, shot$Latitude, shot$Shot)
   }
 }
 
@@ -111,7 +129,7 @@ metadata_form <- function(input, for_report=FALSE) {
       ),
       fluidRow(
         column(6, selectInput(player_label, "Player name:", c("", "Set Markers", load_data("data/players.csv")$Players))),
-        column(3, selectInput(round_label, "Round Number:", c("", "NA (Setting markers)", 1:3))),
+        column(3, selectInput(round_label, "Round Number:", c("", 1:3))),
         column(3, selectInput(hole_label,
                               "Choose the hole:",
                               list(`not chosen` = "", `front half` = 1:9, `back half` = 10:18),
@@ -129,4 +147,18 @@ metadata_form <- function(input, for_report=FALSE) {
       })
     )
   })
+}
+
+# To convert metadata into a filepath
+metadata_to_filepath <- function(metadata) {
+  folders_path <- c(
+    "data",
+    "shot_data",
+    as.character(metadata$date),
+    as.character(metadata$tournament),
+    as.character(metadata$player),
+    str_interp("Round ${metadata$round}"),
+    str_interp("hole_${metadata$hole}.csv")
+  )
+  paste0(folders_path, collapse="/")
 }
