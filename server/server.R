@@ -11,49 +11,18 @@ source("server/server_helpers.R")
 
 # This is the dataframe in which data from each click is stored
 dataframe_column_names <- c(
-  "Date",
-  "Tournament Name",
-  "Round",
-  "Player",
-  "Hole",
   "Shot",
   "Latitude",
   "Longitude"
 )
 click_dataframe <- initialize_click_dataframe(dataframe_column_names)
-shot_num <- 0
 
 server <- function(input, output) {
-  # Submission button only appears when all fields are filled
-  output$metadata_form <- renderUI({
-    box(
-      title = "Metadata Entry",
-      width = "100%",
-      fluidRow(
-        column(3, dateInput("date", "Date:", value = Sys.Date(), width="100px")),
-        column(9, selectInput("tournament", "Tournament name:", c("", load_data("data/tournaments.csv")$Tournaments), width="70%"))
-      ),
-      fluidRow(
-        column(6, selectInput("player", "Player name:", c("", "Set Markers", load_data("data/players.csv")$Players))),
-        column(3, selectInput("round", "Round Number:", c("", "NA (Setting markers)", 1:3))),
-        column(3, selectInput("hole",
-                              "Choose the hole:",
-                              list(`not chosen` = "", `front half` = 1:9, `back half` = 10:18),
-                              width="150px"))
-      ),
-      
-      # Submission button only appears when all fields are filled
-      renderUI({
-        if (is_empty(input$tournament) || is_empty(input$player) || 
-            is_empty(input$round) || is_empty(input$hole)) {
-          return(NULL)
-        } else {
-          actionButton("submit_meta", "Submit Metadata")
-        }
-      })
-    )
-  })
+  ################## Main Tab Logic #######################
   
+  # Metadata entry form 
+  output$metadata_form <- metadata_form(input)
+
   # When "submit-metadata" button is clicked
   observeEvent(input$submit_meta, {
     hole_locations_filename <- str_interp("data/tournament_hole_locations/${metadata()$tournament}.csv")
@@ -81,6 +50,9 @@ server <- function(input, output) {
         column(10, actionButton("submit_data", "Submit Markers"))
       )
     })
+    file_to_check <- metadata_to_filepath(metadata())
+    click_dataframe <<- initialize_click_dataframe(dataframe_column_names, file_to_check)
+    populate_map(leafletProxy("mymap"), click_dataframe)
   })
   metadata <- eventReactive(input$submit_meta, {
     data <- list()
@@ -96,28 +68,16 @@ server <- function(input, output) {
   observeEvent(input$mymap_click, {
     
     click <- input$mymap_click
-    shot_num <<- shot_num + 1
+    shot_num <- nrow(click_dataframe) + 1
     
-    leafletProxy("mymap") %>%
-      addCircleMarkers(click$lng, click$lat, radius=4, color="black", group="new_point",
-                     layerId=shot_num, options=markerOptions(draggable = TRUE))
+    add_shot_to_map(leafletProxy("mymap"), click$lng, click$lat, shot_num)
     
     click_dataframe <<- click_dataframe %>% 
       add_shot(list(
-        Date = metadata()$date,
-        `Tournament Name` = metadata()$tournament,
-        Round = metadata()$round,
-        Player = metadata()$player,
-        Hole = metadata()$hole,
         Shot = shot_num,
         Latitude = click$lat,
         Longitude = click$lng
       ))
-  })
-  
-  # This lets reports tab know what to render (to be changed maybe)
-  output$click_dataframe <- renderDataTable({
-    click_dataframe
   })
   
   # Observe event for dragging markers after initializing them
@@ -125,11 +85,6 @@ server <- function(input, output) {
     drag <- input$mymap_marker_dragend
     
     update <- tibble(
-      Date = metadata()$date,
-      `Tournament Name` = metadata()$tournament,
-      Round = metadata()$round,
-      Player = metadata()$player,
-      Hole = metadata()$hole,
       Shot = drag$id,
       Latitude = drag$lat,
       Longitude = drag$lng
@@ -149,8 +104,19 @@ server <- function(input, output) {
   
   # When "submit_data" button is clicked
   observeEvent(input$submit_data, {
-    save_data(click_dataframe, folder="data", filename="shot_data.csv")
+    folders_path <- c(
+      "data",
+      "shot_data",
+      as.character(metadata()$date),
+      as.character(metadata()$tournament),
+      as.character(metadata()$player),
+      str_interp("Round ${metadata()$round}")
+    )
+    file_name <- str_interp("hole_${metadata()$hole}.csv")
+    save_data(click_dataframe, folders=folders_path, filename=file_name)
   })
+  
+  ################## Metadata Entry Tab Logic #######################
   
   # Button for adding a new player
   observeEvent(input$submit_new_player, {
@@ -165,7 +131,7 @@ server <- function(input, output) {
         players <- rbind(players, new_player_name)
       }
     }
-    save_data(players, folder="data", filename="players.csv")
+    save_data(players, folders="data", filename="players.csv")
     updateTextInput(inputId="new_player", value="")
   })
   
@@ -183,17 +149,15 @@ server <- function(input, output) {
         tournaments <- rbind(tournaments, new_tournament_name)
       }
     }
-    save_data(tournaments, folder="data", filename="tournaments.csv")
+    save_data(tournaments, folders="data", filename="tournaments.csv")
     
     # Save hole locations
     holes_filename <- paste0(new_tournament_name, ".csv")
     hole_locations <- data.frame(matrix(NA, nrow=0, ncol=3))
     names(hole_locations) <- c("Hole Number", "Latitude", "Longitude")
-    for(hole_num in 1:18) {
+    for (hole_num in 1:18) {
       lat <- as.numeric(input[[str_interp("hole${hole_num}_lat")]])
       lon <- as.numeric(input[[str_interp("hole${hole_num}_lon")]])
-      print(lat)
-      print(lon)
       hole_locations <- hole_locations %>% 
         add_row(
           `Hole Number` = hole_num, 
@@ -202,13 +166,36 @@ server <- function(input, output) {
         )
     }
     
-    save_data(hole_locations, folder="data/tournament_hole_locations", filename=holes_filename)
+    save_data(hole_locations, folders=c("data", "tournament_hole_locations"), filename=holes_filename)
     
     # Clear all inputs
     updateTextInput(inputId="new_tournament", value="")
-    for(hole_num in 1:18) {
+    for (hole_num in 1:18) {
       updateTextInput(inputId=paste0("hole", hole_num, "_lat"), value="")
       updateTextInput(inputId=paste0("hole", hole_num, "_lon"), value="")
     }
+  })
+  
+  ################## Reports Tab Logic #######################
+  
+  # Search form 
+  output$search_form <- metadata_form(input, for_report=TRUE)
+  
+  # When "search" button is clicked
+  observeEvent(input$search, {
+    # This lets reports tab know what to render (to be changed maybe)
+    output$click_dataframe <- renderDataTable(load_data(report_filepath()))
+  })
+  report_filepath <- eventReactive(input$search, {
+    folders_path <- c(
+      "data",
+      "shot_data",
+      as.character(input$date_report),
+      as.character(input$tournament_report),
+      as.character(input$player_report),
+      str_interp("Round ${input$round_report}"),
+      str_interp("hole_${input$hole_report}.csv")
+    )
+    paste0(folders_path, collapse="/")
   })
 }
