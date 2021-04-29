@@ -3,6 +3,7 @@
 library(shiny)
 library(sp)
 library(tidyverse)  
+library(here)
 library(leaflet)
 library(leaflet.extras)
 library(DT)
@@ -176,6 +177,7 @@ server <- function(input, output) {
     }
   })
   
+  
   ################## Reports Tab Logic #######################
   
   # Search form 
@@ -183,7 +185,7 @@ server <- function(input, output) {
   
   # When "search" button is clicked
   observeEvent(input$search, {
-    # This lets reports tab know what to render (to be changed maybe)
+    # This lets reports tab know what to render
     output$click_dataframe <- renderDataTable(load_data(report_filepath()))
   })
   report_filepath <- eventReactive(input$search, {
@@ -198,4 +200,67 @@ server <- function(input, output) {
     )
     paste0(folders_path, collapse="/")
   })
+  
+  ############## Data Compilation Tab Logic ###################
+  
+  # Form to select
+  output$compile_form <- renderUI({
+    box(
+      selectInput("date_compile", "Tournament Start Date:", c("", list.dirs(here("data/shot_data"), full.names=FALSE, recursive=FALSE))),
+      selectInput("tournament_compile", "Tournament Name:", c("", load_data("data/tournaments.csv")$Tournaments)),
+      selectInput("player_compile", "Player Name:", c("", load_data("data/players.csv")$Players)),
+      selectInput("round_compile", "Round Number:", c("", 1:3)),
+      actionButton("submit_compile", "Submit")
+    )
+  })
+  
+  # When "submit" button is clicked
+  observeEvent(input$submit_compile, {
+    if(dir.exists(compile_file_location())) {
+      data <- rbind_all(compile_file_location())
+      folders <- c(
+        "data", 
+        "shot_data", 
+        input$date_compile, 
+        input$tournament_compile, 
+        input$player_compile, 
+        str_interp("Round ${input$round_compile}")
+      )
+      save_data(
+        data,
+        folders,
+        "all_data.csv"
+      )
+      output$compile_message <- renderText(
+        str_interp("Success! Your file can be found at ${compile_file_location()}/all_data.csv!")
+      )
+    }
+    else {
+      output$compile_message <- renderText(
+        "This data does not exist"
+      )
+    }
+  })
+  compile_file_location <- eventReactive(input$submit_compile, {
+    inputs <- list()
+    if(!is_empty(input$date_compile)) {
+      inputs$date <- input$date_compile
+    }
+    if(!is_empty(input$tournament_compile)) {
+      inputs$tournament <- input$tournament_compile
+    }
+    if(!is_empty(input$player_compile)) {
+      inputs$player <- input$player_compile
+    }
+    if(!is_empty(input$round_compile)) {
+      inputs$round <- input$round_compile
+    }
+    metadata_to_filepath(inputs)
+  })
 }
+
+
+
+
+
+

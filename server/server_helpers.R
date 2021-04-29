@@ -75,6 +75,14 @@ load_data <- function(path, num_cols=1, headers=TRUE) {
   }
 }
 
+# Reads all CSV files in a folder to a single dataframe
+rbind_all <- function(path, pattern="*.csv") {
+  files <- list.files(path = here(path), pattern = pattern, full.names=TRUE)
+  aggregated_data <- sapply(files, read_csv, simplify=FALSE) %>% 
+    bind_rows(.id = "Hole")
+  aggregated_data
+}
+
 
 ### Map interaction
 
@@ -124,11 +132,11 @@ metadata_form <- function(input, for_report=FALSE) {
       title = "Metadata Entry",
       width = "100%",
       fluidRow(
-        column(3, dateInput(date_label, "Date:", value = Sys.Date(), width="100px")),
-        column(9, selectInput(tournament_label, "Tournament name:", c("", load_data("data/tournaments.csv")$Tournaments), width="70%"))
+        column(3, dateInput(date_label, "Tournament Start Date:", value = Sys.Date(), width="100px")),
+        column(9, selectInput(tournament_label, "Tournament Name:", c("", load_data("data/tournaments.csv")$Tournaments), width="70%"))
       ),
       fluidRow(
-        column(6, selectInput(player_label, "Player name:", c("", "Set Markers", load_data("data/players.csv")$Players))),
+        column(6, selectInput(player_label, "Player Name:", c("", "Set Markers", load_data("data/players.csv")$Players))),
         column(3, selectInput(round_label, "Round Number:", c("", 1:3))),
         column(3, selectInput(hole_label,
                               "Choose the hole:",
@@ -151,14 +159,29 @@ metadata_form <- function(input, for_report=FALSE) {
 
 # To convert metadata into a filepath
 metadata_to_filepath <- function(metadata) {
+  round <- if(is.null(metadata$round)) {
+    NULL
+  } else {
+    str_interp("Round ${metadata$round}")
+  }
+  hole <- if(is.null(metadata$hole)) {
+    NULL
+  } else {
+    str_interp("hole_${metadata$hole}.csv")
+  }
   folders_path <- c(
     "data",
     "shot_data",
     as.character(metadata$date),
     as.character(metadata$tournament),
     as.character(metadata$player),
-    str_interp("Round ${metadata$round}"),
-    str_interp("hole_${metadata$hole}.csv")
+    round,
+    hole
   )
   paste0(folders_path, collapse="/")
 }
+
+
+
+
+
