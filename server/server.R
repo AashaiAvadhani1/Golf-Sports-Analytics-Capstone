@@ -113,7 +113,7 @@ server <- function(input, output) {
       as.character(metadata()$player),
       str_interp("Round ${metadata()$round}")
     )
-    file_name <- str_interp("hole_${metadata()$hole}.csv")
+    file_name <- str_interp("Hole ${metadata()$hole}.csv")
     save_data(click_dataframe, folders=folders_path, filename=file_name)
   })
   
@@ -196,7 +196,7 @@ server <- function(input, output) {
       as.character(input$tournament_report),
       as.character(input$player_report),
       str_interp("Round ${input$round_report}"),
-      str_interp("hole_${input$hole_report}.csv")
+      str_interp("Hole ${input$hole_report}.csv")
     )
     paste0(folders_path, collapse="/")
   })
@@ -231,14 +231,18 @@ server <- function(input, output) {
         folders,
         "all_data.csv"
       )
-      output$compile_message <- renderText(
-        str_interp("Success! Your file can be found at ${compile_file_location()}/all_data.csv!")
-      )
+      output$compile_message <- renderText({
+        dummy <- paste0(compile_file_location(), " ", collapse="")
+        str_interp(
+          '<font color="green">Success! Your file can be found at ${compile_file_location()}/all_data.csv!</font>'
+        )
+      })
     }
     else {
-      output$compile_message <- renderText(
-        "This data does not exist"
-      )
+      output$compile_message <- renderText({
+        dummy <- paste0(compile_file_location(), " ", collapse="")
+        '<font color="red">This data does not exist.</font>'
+      })
     }
   })
   compile_file_location <- eventReactive(input$submit_compile, {

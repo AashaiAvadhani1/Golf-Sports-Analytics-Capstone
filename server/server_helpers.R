@@ -76,10 +76,11 @@ load_data <- function(path, num_cols=1, headers=TRUE) {
 }
 
 # Reads all CSV files in a folder to a single dataframe
-rbind_all <- function(path, pattern="*.csv") {
-  files <- list.files(path = here(path), pattern = pattern, full.names=TRUE)
+rbind_all <- function(path, pattern="(.+\\.csv)(?<!all_data\\.csv)") {
+  files <- grep(pattern, list.files(here(path), full.names=TRUE), perl=T, value=T)
   aggregated_data <- sapply(files, read_csv, simplify=FALSE) %>% 
-    bind_rows(.id = "Hole")
+    bind_rows(.id = "Hole") %>% 
+    mutate(Hole = gsub("(.*/)|(\\.csv)|(Hole )|(Round )", "", .$Hole))
   aggregated_data
 }
 
@@ -167,7 +168,7 @@ metadata_to_filepath <- function(metadata) {
   hole <- if(is.null(metadata$hole)) {
     NULL
   } else {
-    str_interp("hole_${metadata$hole}.csv")
+    str_interp("Hole ${metadata$hole}.csv")
   }
   folders_path <- c(
     "data",

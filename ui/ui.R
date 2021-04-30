@@ -74,7 +74,7 @@ ui <- dashboardPage(
         fluidRow(
           column(12, uiOutput("compile_form"))
         ),
-        textOutput("compile_message")
+        htmlOutput("compile_message")
       ) 
     )
   )
