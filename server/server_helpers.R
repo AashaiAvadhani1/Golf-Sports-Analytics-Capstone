@@ -76,11 +76,21 @@ load_data <- function(path, num_cols=1, headers=TRUE) {
 }
 
 # Reads all CSV files in a folder to a single dataframe
-rbind_all <- function(path, pattern="(.+\\.csv)(?<!all_data\\.csv)") {
-  files <- grep(pattern, list.files(here(path), full.names=TRUE), perl=T, value=T)
+rbind_all <- function(path) {
+  level_ids <- c("Date", "Tournament", "Player", "Round", "Hole")
+  level_id <- level_ids[str_count(path, "/")]
+  print(level_id)
+  if(level_id == "Hole") {
+    pattern <- "(.+\\.csv)(?<!all_data\\.csv)"
+  } else {
+    pattern <- str_interp(".*/${path}/[^/]+/all_data\\.csv")
+  }
+  
+  files <- grep(pattern, list.files(here(path), full.names=TRUE, recursive=T), perl=T, value=T)
   aggregated_data <- sapply(files, read_csv, simplify=FALSE) %>% 
-    bind_rows(.id = "Hole") %>% 
-    mutate(Hole = gsub("(.*/)|(\\.csv)|(Hole )|(Round )", "", .$Hole))
+    bind_rows(.id = level_id) %>% 
+    mutate("{level_id}" := gsub(str_interp("(${here(path)})|(\\.csv)|(Hole )|(Round )|(all_data)"), "", .[[level_id]])) %>% 
+    mutate("{level_id}" := gsub("/", "", .[[level_id]]))
   aggregated_data
 }
 
@@ -182,7 +192,19 @@ metadata_to_filepath <- function(metadata) {
   paste0(folders_path, collapse="/")
 }
 
-
+# Creates a vector for folders
+get_folders_vector <- function(date, tournament, player, round) {
+  folders_vector <- c(
+    date = date, 
+    tournament = tournament, 
+    player = player,
+    round = round
+  )
+  if(!is_empty(folders_vector["round"])) {
+    folders_vector["round"] <- str_interp("Round ${round}")
+  }
+  folders_vector[!is_empty(folders_vector)]
+}
 
 
 

@@ -221,10 +221,12 @@ server <- function(input, output) {
       folders <- c(
         "data", 
         "shot_data", 
-        input$date_compile, 
-        input$tournament_compile, 
-        input$player_compile, 
-        str_interp("Round ${input$round_compile}")
+        get_folders_vector(
+          input$date_compile, 
+          input$tournament_compile, 
+          input$player_compile, 
+          input$round_compile
+        )
       )
       save_data(
         data,
