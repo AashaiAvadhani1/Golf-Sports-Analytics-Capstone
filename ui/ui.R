@@ -38,7 +38,10 @@ ui <- dashboardPage(
         textOutput("description"),
         leafletOutput("mymap", width="100%", height="500px"),
         br(), 
-        
+        fluidRow(
+          column(12, uiOutput("radio_buttons"))
+        ),
+        br(),
         
         # Map interaction buttons
         uiOutput("map_buttons")

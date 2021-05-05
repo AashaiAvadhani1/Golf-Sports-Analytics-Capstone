@@ -37,13 +37,14 @@ server <- function(input, output) {
         addDrawToolbar(circleOptions=NA, markerOptions=NA, polygonOptions=NA,
                        rectangleOptions=NA, polylineOptions=NA, circleMarkerOptions=NA) %>%
         addProviderTiles('Esri.WorldImagery') %>%
-        # setView(lat = 40.47942168506459, lng=-79.85795114512402, zoom=17)
+        # setView(lat = 40.47942168506459, lng=-79.85795114512402, zoom=17
         setView(
           lat = hole_locations[metadata()$hole, "Latitude", drop=TRUE],
           lng = hole_locations[metadata()$hole, "Longitude", drop=TRUE],
           zoom=17
         )
     })
+    output$radio_buttons <- NULL
     output$map_buttons <- renderUI({
       dummy <- metadata()$date
       fluidRow(
@@ -79,6 +80,8 @@ server <- function(input, output) {
         Latitude = click$lat,
         Longitude = click$lng
       ))
+    
+    output$radio_buttons <- create_radio_buttons(shot_num)
   })
   
   # Observe event for dragging markers after initializing them
@@ -101,10 +104,13 @@ server <- function(input, output) {
     leafletProxy("mymap") %>% 
       clearGroup("new_point")
     click_dataframe <<- initialize_click_dataframe(dataframe_column_names)
+    output$radio_buttons <- NULL
   })
   
   # When "submit_data" button is clicked
   observeEvent(input$submit_data, {
+    click_dataframe <<- click_dataframe %>% 
+      mutate(`Shot Type` = get_shot_type_vector(input, nrow(.)))
     folders_path <- c(
       "data",
       "shot_data",

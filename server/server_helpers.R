@@ -111,6 +111,30 @@ populate_map <- function(map, shot_df) {
   }
 }
 
+# Renders radio buttons based on number of clicks
+create_radio_buttons <- function(num_clicks=1) {
+  renderUI({
+    box(
+      title = "Use these buttons to select shot types. Select after plotting all shots on the map.",
+      lapply(1:num_clicks, function(i) {
+        radioButtons(str_interp("shot_${i}_type"), str_interp("Shot ${i} Type:"),
+                     c("Fairway" = "Fairway",
+                       "Green" = "Green",
+                       "Rough" = "Rough",
+                       "Sand" = "Sand",
+                       "Water" = "Water"
+                     ), inline=TRUE)
+      })
+    )
+  })
+}
+
+# Extracts a shot type vector from input
+get_shot_type_vector <- function(input, num_shots) {
+  sapply(1:num_shots, function(shot_num) {
+    input[[str_interp("shot_${shot_num}_type")]]
+  })
+}
 
 ### Miscellaneous helper functions
 
