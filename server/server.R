@@ -14,7 +14,8 @@ source("server/server_helpers.R")
 dataframe_column_names <- c(
   "Shot",
   "Latitude",
-  "Longitude"
+  "Longitude",
+  "Shot Type"
 )
 click_dataframe <- initialize_click_dataframe(dataframe_column_names)
 
@@ -44,7 +45,10 @@ server <- function(input, output) {
           zoom=17
         )
     })
-    output$radio_buttons <- NULL
+    output$radio_buttons <- renderUI({
+      dummy <- metadata()$date
+      NULL
+    })
     output$map_buttons <- renderUI({
       dummy <- metadata()$date
       fluidRow(
@@ -224,21 +228,6 @@ server <- function(input, output) {
   observeEvent(input$submit_compile, {
     if(dir.exists(compile_file_location())) {
       data <- rbind_all(compile_file_location())
-      folders <- c(
-        "data", 
-        "shot_data", 
-        get_folders_vector(
-          input$date_compile, 
-          input$tournament_compile, 
-          input$player_compile, 
-          input$round_compile
-        )
-      )
-      save_data(
-        data,
-        folders,
-        "all_data.csv"
-      )
       output$compile_message <- renderText({
         dummy <- paste0(compile_file_location(), " ", collapse="")
         str_interp(

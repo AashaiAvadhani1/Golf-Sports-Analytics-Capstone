@@ -79,11 +79,18 @@ load_data <- function(path, num_cols=1, headers=TRUE) {
 rbind_all <- function(path) {
   level_ids <- c("Date", "Tournament", "Player", "Round", "Hole")
   level_id <- level_ids[str_count(path, "/")]
-  print(level_id)
-  if(level_id == "Hole") {
-    pattern <- "(.+\\.csv)(?<!all_data\\.csv)"
-  } else {
+  if(level_id != "Hole") {
+    # Recurse
+    for(dir in list.dirs(here(path), full.names=FALSE)[-1]) {
+      new_path <- str_interp("${path}/${dir}")
+      print(new_path)
+      rbind_all(new_path)
+    }
+    
     pattern <- str_interp(".*/${path}/[^/]+/all_data\\.csv")
+  } else {
+    print("level_id is hole")
+    pattern <- "(.+\\.csv)(?<!all_data\\.csv)"
   }
   
   files <- grep(pattern, list.files(here(path), full.names=TRUE, recursive=T), perl=T, value=T)
@@ -91,7 +98,7 @@ rbind_all <- function(path) {
     bind_rows(.id = level_id) %>% 
     mutate("{level_id}" := gsub(str_interp("(${here(path)})|(\\.csv)|(Hole )|(Round )|(all_data)"), "", .[[level_id]])) %>% 
     mutate("{level_id}" := gsub("/", "", .[[level_id]]))
-  aggregated_data
+  save_data(aggregated_data, unlist(strsplit(path, split="/")), "all_data.csv")
 }
 
 
