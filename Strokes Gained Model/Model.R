@@ -4,13 +4,13 @@ library(ggplot2)  # load the package
 
 
 ## The Script where the strokes gained model is giong to be built
-data <- read.csv("/Users/aashaiavadhani/Desktop/Golf-Sports-Analytics-Capstone/Strokes Gained Model/strokesGainedInterpolated.csv")
-
-#add a total strokes gained colymn
-
+data <- read.csv("strokesGainedInterpolated.csv")
+golf_data <-  read.csv("GolfData.csv")
 
 
-data
+#add a total strokes gained column
+golf_data
+by_cyl <- golf_data %>% group_by(Name) %>% group_by(Course)  %>% group_by(Course)
 
 #building the model on the interpolasted data
 
@@ -46,6 +46,7 @@ model.midpoint.fairway.add <- lm(midpoint ~ yards + fairway, data=data)  # Model
 model.midpoint.fairway.mult <- lm(midpoint ~ yards * fairway, data=data)  # Model 2
 
 model.midpoint.fairway.mult <- lm(midpoint ~ yards * fairway, data=data)  # Model 2
+
 
 
 model2.1<-lm(expected_strokes_gained ~ yards + fairway, data = data)
