@@ -60,6 +60,7 @@ server <- function(input, output) {
     # populating markers
     file_to_check <- metadata_to_filepath(metadata())
     click_dataframe <<- initialize_click_dataframe(dataframe_column_names, file_to_check)
+    print(click_dataframe)
     populate_map(leafletProxy("mymap"), click_dataframe)
     # populating pin locations
     pin_to_check <- pindata_to_filepath(metadata())
@@ -130,7 +131,7 @@ server <- function(input, output) {
       as.character(metadata()$player),
       str_interp("Round ${metadata()$round}")
     )
-    file_name <- str_interp("Hole ${metadata()$hole}.csv")
+    file_name <- str_interp("Hole_${metadata()$hole}.csv")
     save_data(click_dataframe, folders=folders_path, filename=file_name)
   })
   
@@ -294,7 +295,7 @@ server <- function(input, output) {
       dummy <- pindata()$date
       fluidRow(
         column(3, actionButton("clear", "Clear Pin Locations")),
-        column(9, actionButton("submit_data", "Submit Pins"))
+        column(9, actionButton("submit_pin_loc", "Submit Pins"))
       )
     })
     pin_to_check <- pindata_to_filepath(pindata())
@@ -354,24 +355,19 @@ server <- function(input, output) {
   })
   
   # When "submit_data" button is clicked
-  observeEvent(input$submit_data, {
-    print(pin_dataframe)
+  observeEvent(input$submit_pin_loc, {
+    print(pindata()$date_pin)
+    print(pindata()$date)
     folders_path <- c(
       "data",
       "shot_data",
-      as.character(pindata()$date_pin),
-      as.character(pindata()$tournament_pin),
+      as.character(pindata()$date),
+      as.character(pindata()$tournament),
       as.character("Pin Locations"),
-      str_interp("Round ${pindata()$round_pin}")
+      str_interp("Round ${pindata()$round}")
     )
-    file_name <- str_interp("hole_${pindata()$hole_pin}.csv")
+    file_name <- str_interp("Hole_${pindata()$hole}.csv")
     save_data(pin_dataframe, folders=folders_path, filename=file_name)
   })
   
 }
-
-
-
-
-
-

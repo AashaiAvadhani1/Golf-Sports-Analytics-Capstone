@@ -15,7 +15,7 @@ initialize_spatial <- function() {
 }
 
 # Initialize the click dataframe
-initialize_click_dataframe <- function(col_names=c('Longitude', 'Latitude'),
+initialize_click_dataframe <- function(col_names=c('Longitude', 'Latitude', 'Shot Type'),
                                        file_to_check = "") {
   dataframe_click <- load_data(file_to_check, num_cols=length(col_names))
   names(dataframe_click) <- col_names
@@ -217,7 +217,7 @@ metadata_to_filepath <- function(metadata) {
   hole <- if(is.null(metadata$hole)) {
     NULL
   } else {
-    str_interp("Hole ${metadata$hole}.csv")
+    str_interp("Hole_${metadata$hole}.csv")
   }
   folders_path <- c(
     "data",
@@ -296,7 +296,7 @@ pindata_to_filepath <- function(pindata) {
     as.character(pindata$tournament),
     as.character("Pin Locations"),
     str_interp("Round ${pindata$round}"),
-    str_interp("hole_${pindata$hole}.csv")
+    str_interp("Hole_${pindata$hole}.csv")
   )
   paste0(folders_path, collapse="/")
 }
