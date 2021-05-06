@@ -27,8 +27,9 @@ player.1.data <- data.player %>% filter(Name == "Player 1")
 
 
 #Total New Data
-         
-new.model <- lm(strokesgained ~ Score + FIR + GIR + Approach.Dist, data = total_new.data)
+#create a new response for putts + 1 in the dataframe 
+#strokes remanining until the approach list 
+new.model <- smooth.spline((putts + 1) ~  Approach.Dist, data = total_new.data)
 plot(new.model)
 
 (prelim.plot.strokes.gained <- ggplot(total_new.data, aes(x = Approach.Dist, y = strokesgained)) +
