@@ -1,0 +1,1045 @@
+Name,Gender,Course,Round,Hole,Par,Score,FIR,GIR,Approach.Dist,Putts,Exp_Putts,strokesgained,PuttLength
+Player 4,Male,Avalon Lakes Golf Club,Qualifying,Total,72,73,0,0,0,0,0,0,0
+Player 1,Male,Avalon Lakes Golf Club,Qualifying,Total,72,83,0,0,0,0,0,0,0
+Player 2,Male,Longue Vue Club,Qualifying,Total,70,81,0,0,0,0,0,0,0
+Player 12,Male,Avalon Lakes Golf Club,Qualifying,Total,72,77,0,0,0,0,0,0,0
+Player 12,Male,Nemacolin Resort - Shepards Rock,Qualifying,Total,72,74,0,0,0,0,0,0,0
+Player 13,Male,Nemacolin Resort - Shepards Rock,Qualifying,Total,72,75,0,0,0,0,0,0,0
+Player 9,Male,Avalon Lakes Golf Club,Qualifying,Total,72,78,0,0,0,0,0,0,0
+Player 1,Male,Longue Vue Club,Qualifying,Total,70,79,0,0,0,0,0,0,0
+Player 3,Male,Indiana Country Club,Qualifying,Total,71,72,0,0,0,0,0,0,0
+Player 1,Male,Indiana Country Club,Qualifying,Total,71,73,0,0,0,0,0,0,0
+Player 12,Male,Indiana Country Club,Qualifying,Total,71,70,0,0,0,0,0,0,0
+Player 2,Male,Longue Vue Club,Qualifying,Total,70,77,0,0,0,0,0,0,0
+Player 11,Male,Meadville Country Club,Tournament,Total,72,70,0,0,0,0,0,0,0
+Player 12,Male,Meadville Country Club,Tournament,Total,72,78,0,0,0,0,0,0,0
+Player 5,Male,Indiana Country Club,Qualifying,Total,71,75,0,0,0,0,0,0,0
+Player 9,Male,Meadville Country Club,Tournament,Total,72,78,0,0,0,0,0,0,0
+Player 6,Male,Nemacolin Resort - Shepards Rock,Qualifying,Total,72,73,0,0,0,0,0,0,0
+Player 3,Male,PGA National - Champions,Tournament,Total,72,78,0,0,0,0,0,0,0
+Player 10,Male,PGA National - Champions,Tournament,Total,72,85,0,0,0,0,0,0,0
+Player 14,Male,PGA National - Champions,Tournament,Total,72,80,0,0,0,0,0,0,0
+Player 7,Male,Longue Vue Club,Qualifying,Total,70,86,0,0,0,0,0,0,0
+Player 3,Male,PGA National - Champions,Tournament,Total,72,76,0,0,0,0,0,0,0
+Player 6,Male,Longue Vue Club,Qualifying,Total,70,77,0,0,0,0,0,0,0
+Player 8,Male,PGA National - Champions,Tournament,Total,72,79,0,0,0,0,0,0,0
+Player 11,Male,Longue Vue Club,Qualifying,Total,70,73,0,0,0,0,0,0,0
+Player 11,Male,Longue Vue Club,Qualifying,Total,70,72,0,0,0,0,0,0,0
+Player 6,Male,Longue Vue Club,Qualifying,Total,70,70,0,0,0,0,0,0,0
+Player 12,Male,Longue Vue Club,Qualifying,Total,70,75,0,0,0,0,0,0,0
+Player 11,Male,Longue Vue Club,Qualifying,Total,70,72,0,0,0,0,0,0,0
+Player 11,Male,Longue Vue Club,Qualifying,Total,70,75,0,0,0,0,0,0,0
+Player 10,Male,Longue Vue Club,Qualifying,Total,70,79,0,0,0,0,0,0,0
+Player 4,Male,Columbus Country Club,Tournament,Total,72,76,0,0,0,0,0,0,0
+Player 3,Male,Columbus Country Club,Tournament,Total,72,72,0,0,0,0,0,0,0
+Player 6,Male,Columbus Country Club,Tournament,Total,72,72,0,0,0,0,0,0,0
+Player 3,Male,Columbus Country Club,Tournament,Total,72,73,0,0,0,0,0,0,0
+Player 4,Male,Longue Vue Club,Qualifying,Total,70,71,0,0,0,0,0,0,0
+Player 4,Male,Columbus Country Club,Tournament,Total,72,73,0,0,0,0,0,0,0
+Player 10,Male,Longue Vue Club,Qualifying,Total,70,77,0,0,0,0,0,0,0
+Player 1,Male,Longue Vue Club,Qualifying,Total,70,82,0,0,0,0,0,0,0
+Player 3,Male,San Destin Resort - Raven,Tournament,Total,71,69,0,0,0,0,0,0,0
+Player 3,Male,San Destin Resort - Raven,Tournament,Total,71,66,0,0,0,0,0,0,0
+Player 9,Male,Longue Vue Club,Qualifying,Total,70,80,0,0,0,0,0,0,0
+Player 6,Male,San Destin Resort - Raven,Tournament,Total,71,76,0,0,0,0,0,0,0
+Player 11,Male,Longue Vue Club,Qualifying,Total,70,71,0,0,0,0,0,0,0
+Player 3,Male,San Destin Resort - Raven,Tournament,Total,71,71,0,0,0,0,0,0,0
+Player 8,Male,Longue Vue Club,Qualifying,Total,70,83,0,0,0,0,0,0,0
+Player 14,Male,Longue Vue Club,Qualifying,Total,70,70,0,0,0,0,0,0,0
+Player 3,Male,Sedgefield Country Club - Dye Course,Tournament,Total,71,75,0,0,0,0,0,0,0
+Player 3,Male,Sedgefield Country Club - Dye Course,Tournament,Total,71,68,0,0,0,0,0,0,0
+Player 4,Male,Sedgefield Country Club - Dye Course,Tournament,Total,71,75,0,0,0,0,0,0,0
+Player 3,Male,Wigwam Gold Course,Tournament,Total,70,67,0,0,0,0,0,0,0
+Player 3,Male,Pittsburgh Field Club,Qualifying,11,5,3,Hit,Hit,176-200 yards,0,0,0,0
+Player 20,Female,Meadville Country Club,Tournament,Total,73,82,0,0,0,0,0,0,0
+Player 19,Female,Indiana Country Club,Qualifying,10,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,0,-2,0
+Player 17,Female,Avalon Lakes Golf Club,Qualifying,3,5,6,Hit,Miss,101-125 yards,2,0,-2,0
+Player 2,Male,Nemacolin Resort - Shepards Rock,Qualifying,1,5,3,Hit,Hit,Less than 50 yards,0,0,0,0
+Player 15,Female,Avalon Lakes Golf Club,Qualifying,Total,72,82,0,0,0,0,0,0,0
+Player 15,Female,Nemacolin Resort - Shepards Rock,Qualifying,Total,72,87,0,0,0,0,0,0,0
+Player 17,Female,Avalon Lakes Golf Club,Qualifying,Total,72,81,0,0,0,0,0,0,0
+Player 16,Female,Meadville Country Club,Tournament,Total,73,79,0,0,0,0,0,0,0
+Player 21,Female,Indiana Country Club,Qualifying,Total,72,80,0,0,0,0,0,0,0
+Player 21,Female,PGA National - Palmer,Tournament,Total,72,77,0,0,0,0,0,0,0
+Player 19,Female,Longue Vue Club,Competitive,Total,72,82,0,0,0,0,0,0,0
+Player 19,Female,Indiana Country Club,Qualifying,7,3,3,Not Applicable (PAR 3),Miss,151-175 yards,1,0,-1,0
+Player 11,Male,San Destin Resort - Raven,Tournament,10,4,3,Hit,Miss,76-100 yards,0,0,0,0
+Player 17,Female,Avalon Lakes Golf Club,Qualifying,18,4,6,Hit,Miss,151-175 yards,3,0,-3,0
+Player 17,Female,Avalon Lakes Golf Club,Qualifying,12,3,3,Not Applicable (PAR 3),Hit,126-150 yards,2,0,-2,0
+Player 19,Female,Indiana Country Club,Qualifying,13,4,4,Missed,Miss,126-150 yards,1,0,-1,0
+Player 4,Male,PGA National - Champions,Tournament,8,4,3,Missed,Miss,151-175 yards,0,0,0,0
+Player 8,Male,Longue Vue Club,Qualifying,Total,70,73,0,0,0,0,0,0,0
+Player 15,Female,Indiana Country Club,Qualifying,Total,72,75,0,0,0,0,0,0,0
+Player 17,Female,Avalon Lakes Golf Club,Qualifying,9,4,5,Missed,Hit,151-175 yards,3,0,-3,0
+Player 19,Female,Indiana Country Club,Qualifying,4,4,5,Missed,Miss,126-150 yards,2,0,-2,0
+Player 12,Male,San Destin Resort - Raven,Tournament,Total,71,75,0,0,0,0,0,0,0
+Player 17,Female,Avalon Lakes Golf Club,Qualifying,15,4,4,Hit,Hit,101-125 yards,2,0,-2,0
+Player 17,Female,Avalon Lakes Golf Club,Qualifying,6,5,5,Missed,Hit,101-125 yards,2,0,-2,0
+Player 11,Male,Sedgefield Country Club - Dye Course,Tournament,10,5,4,Missed,Hit,Less than 50 yards,1,1.001,1.00E-03,1
+Player 8,Male,Sedgefield Country Club - Dye Course,Tournament,5,4,4,Hit,Miss,151-175 yards,1,1.001,1.00E-03,1
+Player 20,Female,Meadville Country Club,Tournament,15,4,5,Missed,Hit,76-100 yards,1,1.001,1.00E-03,1
+Player 4,Male,Columbus Country Club,Tournament,10,5,5,Missed,Miss,76-100 yards,1,1.001,1.00E-03,1
+Player 20,Female,Meadville Country Club,Tournament,17,3,4,Not Applicable (PAR 3),Miss,126-150 yards,1,1.001,1.00E-03,1
+Player 11,Male,San Destin Resort - Raven,Tournament,7,5,5,Hit,Miss,126-150 yards,1,1.001,1.00E-03,1
+Player 8,Male,Sedgefield Country Club - Dye Course,Tournament,14,4,4,Missed,Miss,126-150 yards,1,1.001,1.00E-03,1
+Player 3,Male,Wigwam Gold Course,Tournament,12,4,4,Missed,Miss,101-125 yards,1,1.001,1.00E-03,1
+Player 11,Male,Longue Vue Club,Qualifying,16,3,2,Not Applicable (PAR 3),Hit,126-150 yards,1,1.001,1.00E-03,1
+Player 6,Male,San Destin Resort - Raven,Tournament,10,4,3,Hit,Hit,51-75 yards,1,1.001,1.00E-03,1
+Player 12,Male,Indiana Country Club,Qualifying,12,4,5,Hit,Miss,126-150 yards,1,1.001,1.00E-03,1
+Player 6,Male,Nemacolin Resort - Shepards Rock,Qualifying,6,4,3,Hit,Hit,101-125 yards,1,1.001,1.00E-03,1
+Player 3,Male,Sedgefield Country Club - Dye Course,Tournament,9,4,3,Missed,Hit,126-150 yards,1,1.001,1.00E-03,1
+Player 3,Male,Longue Vue Club,Qualifying,8,5,4,Missed,Hit,Less than 50 yards,1,1.001,1.00E-03,1
+Player 3,Male,PGA National - Champions,Tournament,15,3,4,Not Applicable (PAR 3),Miss,126-150 yards,1,1.001,1.00E-03,1
+Player 3,Male,Sedgefield Country Club - Dye Course,Tournament,15,5,5,Missed,Miss,151-175 yards,1,1.001,1.00E-03,1
+Player 3,Male,San Destin Resort - Raven,Tournament,15,4,3,Missed,Hit,Less than 50 yards,1,1.001,1.00E-03,1
+Player 11,Male,Columbus Country Club,Tournament,17,3,3,Not Applicable (PAR 3),Miss,225 + yards,1,1.001,1.00E-03,1
+Player 6,Male,Columbus Country Club,Tournament,9,3,3,Not Applicable (PAR 3),Miss,176-200 yards,1,1.001,1.00E-03,1
+Player 6,Male,Longue Vue Club,Qualifying,2,4,4,Missed,Miss,51-75 yards,2,1.001,-0.999,1
+Player 8,Male,Longue Vue Club,Qualifying,9,4,4,Missed,Miss,126-150 yards,1,1.001,1.00E-03,1
+Player 11,Male,San Destin Resort - Raven,Tournament,4,3,3,Not Applicable (PAR 3),Miss,126-150 yards,1,1.001,1.00E-03,1
+Player 4,Male,Indiana Country Club,Qualifying,17,3,3,Not Applicable (PAR 3),Miss,151-175 yards,1,1.009,0.009,2
+Player 11,Male,San Destin Resort - Raven,Tournament,7,5,5,Hit,Miss,126-150 yards,1,1.009,0.009,2
+Player 4,Male,PGA National - Champions,Tournament,2,4,4,Hit,Miss,126-150 yards,1,1.009,0.009,2
+Player 8,Male,PGA National - Champions,Tournament,15,3,3,Not Applicable (PAR 3),Miss,126-150 yards,1,1.009,0.009,2
+Player 11,Male,Sedgefield Country Club - Dye Course,Tournament,5,4,4,Hit,Miss,151-175 yards,1,1.009,0.009,2
+Player 6,Male,San Destin Resort - Raven,Tournament,13,4,6,Missed,Miss,151-175 yards,1,1.009,0.009,2
+Player 10,Male,Indiana Country Club,Qualifying,17,3,3,Not Applicable (PAR 3),Miss,151-175 yards,1,1.009,0.009,2
+Player 4,Male,San Destin Resort - Raven,Tournament,8,3,2,Not Applicable (PAR 3),Hit,151-175 yards,1,1.009,0.009,2
+Player 4,Male,Nemacolin Resort - Shepards Rock,Qualifying,13,5,5,Missed,Miss,201-225 yards,1,1.009,0.009,2
+Player 6,Male,Pittsburgh Field Club,Qualifying,16,3,3,Not Applicable (PAR 3),Miss,176-200 yards,1,1.009,0.009,2
+Player 8,Male,Pittsburgh Field Club,Qualifying,7,4,5,Missed,Miss,151-175 yards,2,1.009,-0.991,2
+Player 3,Male,Pinnacle Golf Club,Qualifying,17,4,4,Missed,Miss,76-100 yards,1,1.009,0.009,2
+Player 14,Male,PGA National - Champions,Tournament,15,3,2,Not Applicable (PAR 3),Hit,151-175 yards,1,1.009,0.009,2
+Player 4,Male,Sedgefield Country Club - Dye Course,Tournament,15,5,6,Missed,Miss,176-200 yards,1,1.009,0.009,2
+Player 3,Male,San Destin Resort - Raven,Tournament,6,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,1.009,-0.991,2
+Player 4,Male,Avalon Lakes Golf Club,Qualifying,18,4,4,Hit,Miss,176-200 yards,1,1.009,0.009,2
+Player 1,Male,Nemacolin Resort - Shepards Rock,Qualifying,11,4,3,Hit,Hit,101-125 yards,1,1.009,0.009,2
+Player 6,Male,Columbus Country Club,Tournament,16,4,3,Hit,Hit,151-175 yards,1,1.009,0.009,2
+Player 3,Male,Wigwam Gold Course,Tournament,11,3,4,Not Applicable (PAR 3),Miss,151-175 yards,1,1.009,0.009,2
+Player 9,Male,Meadville Country Club,Tournament,12,5,3,Missed,Hit,201-225 yards,1,1.009,0.009,2
+Player 2,Male,Longue Vue Club,Qualifying,11,4,5,Missed,Miss,76-100 yards,2,1.053,-0.947,3
+Player 4,Male,Columbus Country Club,Tournament,15,5,5,Hit,Miss,Less than 50 yards,1,1.053,0.053,3
+Player 5,Male,Longue Vue Club,Qualifying,5,3,4,Not Applicable (PAR 3),Hit,201-225 yards,3,1.053,-1.947,3
+Player 6,Male,San Destin Resort - Raven,Tournament,4,3,3,Not Applicable (PAR 3),Miss,126-150 yards,1,1.053,0.053,3
+Player 4,Male,Columbus Country Club,Tournament,18,5,5,Hit,Hit,Less than 50 yards,2,1.053,-0.947,3
+Player 11,Male,Meadville Country Club,Tournament,6,3,3,Not Applicable (PAR 3),Miss,151-175 yards,1,1.053,0.053,3
+Player 8,Male,Longue Vue Club,Qualifying,17,4,4,Missed,Miss,176-200 yards,1,1.053,0.053,3
+Player 4,Male,Sedgefield Country Club - Dye Course,Tournament,5,4,4,Hit,Miss,126-150 yards,1,1.053,0.053,3
+Player 3,Male,Columbus Country Club,Tournament,9,3,3,Not Applicable (PAR 3),Miss,176-200 yards,1,1.053,0.053,3
+Player 9,Male,Longue Vue Club,Qualifying,9,4,4,Missed,Miss,101-125 yards,1,1.053,0.053,3
+Player 4,Male,Columbus Country Club,Tournament,15,5,6,Hit,Miss,51-75 yards,1,1.053,0.053,3
+Player 2,Male,Longue Vue Club,Qualifying,6,4,4,Missed,Miss,151-175 yards,1,1.053,0.053,3
+Player 11,Male,Nemacolin Resort - Shepards Rock,Qualifying,13,5,4,Missed,Hit,Less than 50 yards,1,1.053,0.053,3
+Player 11,Male,Longue Vue Club,Qualifying,7,4,3,Hit,Hit,51-75 yards,1,1.053,0.053,3
+Player 4,Male,San Destin Resort - Raven,Tournament,2,4,4,Hit,Miss,126-150 yards,1,1.053,0.053,3
+Player 6,Male,Columbus Country Club,Tournament,11,4,5,Hit,Miss,126-150 yards,2,1.053,-0.947,3
+Player 15,Female,Indiana Country Club,Qualifying,12,5,4,Hit,Hit,Less than 50 yards,1,1.053,0.053,3
+Player 11,Male,Columbus Country Club,Tournament,10,5,5,Hit,Hit,Less than 50 yards,2,1.053,-0.947,3
+Player 4,Male,PGA National - Champions,Tournament,14,4,3,Missed,Hit,126-150 yards,1,1.053,0.053,3
+Player 3,Male,San Destin Resort - Raven,Tournament,9,4,5,Missed,Miss,201-225 yards,1,1.053,0.053,3
+Player 3,Male,Sedgefield Country Club - Dye Course,Tournament,9,4,4,Hit,Miss,101-125 yards,1,1.053,0.053,3
+Player 8,Male,Longue Vue Club,Qualifying,16,3,4,Not Applicable (PAR 3),Miss,176-200 yards,1,1.053,0.053,3
+Player 3,Male,San Destin Resort - Raven,Tournament,15,4,3,Hit,Hit,Less than 50 yards,1,1.053,0.053,3
+Player 4,Male,PGA National - Champions,Tournament,14,4,4,Hit,Miss,126-150 yards,1,1.053,0.053,3
+Player 8,Male,Longue Vue Club,Competitive,1,4,4,Missed,Miss,151-175 yards,1,1.053,0.053,3
+Player 12,Male,San Destin Resort - Raven,Tournament,11,5,4,Hit,Hit,Less than 50 yards,1,1.053,0.053,3
+Player 12,Male,Longue Vue Club,Qualifying,1,4,4,Hit,Hit,76-100 yards,2,1.053,-0.947,3
+Player 6,Male,Longue Vue Club,Qualifying,4,5,4,Missed,Hit,Less than 50 yards,1,1.053,0.053,3
+Player 3,Male,Pittsburgh Field Club,Qualifying,8,4,5,Missed,Miss,176-200 yards,1,1.053,0.053,3
+Player 4,Male,Avalon Lakes Golf Club,Qualifying,12,3,2,Not Applicable (PAR 3),Hit,201-225 yards,1,1.053,0.053,3
+Player 4,Male,Longue Vue Club,Qualifying,15,5,5,Missed,Miss,101-125 yards,1,1.053,0.053,3
+Player 11,Male,Longue Vue Club,Qualifying,6,4,4,Hit,Miss,101-125 yards,1,1.053,0.053,3
+Player 3,Male,PGA National - Champions,Tournament,12,4,4,Hit,Miss,101-125 yards,1,1.053,0.053,3
+Player 8,Male,Longue Vue Club,Competitive,10,3,3,Not Applicable (PAR 3),Miss,126-150 yards,1,1.053,0.053,3
+Player 2,Male,Longue Vue Club,Qualifying,15,5,5,Missed,Miss,Less than 50 yards,1,1.053,0.053,3
+Player 4,Male,Indiana Country Club,Qualifying,5,5,5,Hit,Hit,Less than 50 yards,2,1.053,-0.947,3
+Player 3,Male,Sedgefield Country Club - Dye Course,Tournament,3,4,3,Hit,Hit,101-125 yards,1,1.053,0.053,3
+Player 3,Male,Wigwam Gold Course,Tournament,1,4,4,Missed,Miss,201-225 yards,1,1.053,0.053,3
+Player 1,Male,Longue Vue Club,Qualifying,11,4,4,Missed,Miss,151-175 yards,1,1.053,0.053,3
+Player 11,Male,Longue Vue Club,Qualifying,4,5,5,Missed,Miss,76-100 yards,1,1.053,0.053,3
+Player 4,Male,Sedgefield Country Club - Dye Course,Tournament,9,4,4,Missed,Miss,126-150 yards,1,1.147,0.147,4
+Player 3,Male,PGA National - Champions,Tournament,3,5,5,Hit,Hit,Less than 50 yards,2,1.147,-0.853,4
+Player 8,Male,Longue Vue Club,Qualifying,10,3,3,Not Applicable (PAR 3),Miss,126-150 yards,1,1.147,0.147,4
+Player 15,Female,Indiana Country Club,Qualifying,9,4,3,Missed,Hit,51-75 yards,1,1.147,0.147,4
+Player 10,Male,PGA National - Champions,Tournament,10,5,4,Hit,Hit,Less than 50 yards,1,1.147,0.147,4
+Player 10,Male,Nemacolin Resort - Shepards Rock,Qualifying,16,4,4,Missed,Hit,Less than 50 yards,1,1.147,0.147,4
+Player 3,Male,Columbus Country Club,Tournament,14,4,5,Missed,Miss,76-100 yards,2,1.147,-0.853,4
+Player 10,Male,PGA National - Champions,Tournament,4,4,4,Missed,Hit,Less than 50 yards,2,1.147,-0.853,4
+Player 12,Male,Longue Vue Club,Qualifying,12,3,3,Not Applicable (PAR 3),Miss,176-200 yards,1,1.147,0.147,4
+Player 4,Male,Columbus Country Club,Tournament,1,4,5,Hit,Miss,101-125 yards,2,1.147,-0.853,4
+Player 11,Male,Longue Vue Club,Qualifying,16,3,3,Not Applicable (PAR 3),Hit,176-200 yards,1,1.147,0.147,4
+Player 5,Male,Longue Vue Club,Qualifying,5,3,4,Not Applicable (PAR 3),Miss,176-200 yards,2,1.147,-0.853,4
+Player 10,Male,Longue Vue Club,Qualifying,16,3,4,Not Applicable (PAR 3),Miss,201-225 yards,2,1.147,-0.853,4
+Player 12,Male,Avalon Lakes Golf Club,Qualifying,9,4,3,Missed,Hit,76-100 yards,1,1.147,0.147,4
+Player 11,Male,Longue Vue Club,Qualifying,10,3,4,Not Applicable (PAR 3),Miss,126-150 yards,2,1.147,-0.853,4
+Player 11,Male,San Destin Resort - Raven,Tournament,11,5,4,Hit,Hit,76-100 yards,1,1.147,0.147,4
+Player 16,Female,Meadville Country Club,Tournament,1,5,5,Hit,Hit,Less than 50 yards,2,1.147,-0.853,4
+Player 3,Male,Pinnacle Golf Club,Qualifying,11,3,3,Not Applicable (PAR 3),Miss,201-225 yards,1,1.147,0.147,4
+Player 4,Male,San Destin Resort - Raven,Tournament,11,5,5,Hit,Miss,126-150 yards,1,1.147,0.147,4
+Player 10,Male,PGA National - Champions,Tournament,1,4,4,Missed,Miss,126-150 yards,1,1.147,0.147,4
+Player 13,Male,Nemacolin Resort - Shepards Rock,Qualifying,6,4,3,Hit,Hit,101-125 yards,1,1.147,0.147,4
+Player 10,Male,Longue Vue Club,Qualifying,6,4,4,Hit,Miss,101-125 yards,1,1.147,0.147,4
+Player 3,Male,Wigwam Gold Course,Tournament,14,4,4,Hit,Miss,176-200 yards,1,1.147,0.147,4
+Player 11,Male,Nemacolin Resort - Shepards Rock,Qualifying,17,4,4,Hit,Miss,101-125 yards,1,1.147,0.147,4
+Player 10,Male,Avalon Lakes Golf Club,Qualifying,14,5,5,Missed,Miss,201-225 yards,1,1.147,0.147,4
+Player 3,Male,San Destin Resort - Raven,Tournament,3,5,5,Hit,Hit,Less than 50 yards,2,1.147,-0.853,4
+Player 16,Female,Longue Vue Club,Qualifying,7,4,4,Hit,Hit,76-100 yards,2,1.147,-0.853,4
+Player 11,Male,Indiana Country Club,Qualifying,1,5,5,Hit,Miss,Less than 50 yards,1,1.147,0.147,4
+Player 11,Male,Meadville Country Club,Tournament,9,5,4,Hit,Hit,Less than 50 yards,1,1.147,0.147,4
+Player 16,Female,Meadville Country Club,Tournament,18,4,4,Hit,Miss,51-75 yards,1,1.147,0.147,4
+Player 2,Male,Avalon Lakes Golf Club,Qualifying,4,3,3,Not Applicable (PAR 3),Miss,176-200 yards,1,1.256,0.256,5
+Player 9,Male,Meadville Country Club,Tournament,3,5,7,Missed,Miss,Less than 50 yards,1,1.256,0.256,5
+Player 8,Male,Longue Vue Club,Qualifying,18,4,4,Missed,Miss,201-225 yards,1,1.256,0.256,5
+Player 1,Male,Longue Vue Club,Qualifying,4,5,6,Missed,Miss,126-150 yards,1,1.256,0.256,5
+Player 21,Female,San Destin Resort - Baytowne,Tournament,16,4,5,Hit,Hit,126-150 yards,2,1.256,-0.744,5
+Player 10,Male,Nemacolin Resort - Shepards Rock,Qualifying,13,5,5,Hit,Hit,Less than 50 yards,2,1.256,-0.744,5
+Player 16,Female,Nemacolin Resort - Shepards Rock,Qualifying,13,5,5,Hit,Miss,76-100 yards,1,1.256,0.256,5
+Player 8,Male,PGA National - Champions,Tournament,3,5,5,Hit,Miss,201-225 yards,1,1.256,0.256,5
+Player 15,Female,Nemacolin Resort - Shepards Rock,Qualifying,18,4,7,Missed,Miss,51-75 yards,2,1.256,-0.744,5
+Player 5,Male,Longue Vue Club,Qualifying,17,4,4,Hit,Miss,176-200 yards,1,1.256,0.256,5
+Player 10,Male,PGA National - Champions,Tournament,7,3,3,Not Applicable (PAR 3),Miss,151-175 yards,1,1.256,0.256,5
+Player 10,Male,Avalon Lakes Golf Club,Qualifying,5,4,4,Missed,Miss,Less than 50 yards,1,1.256,0.256,5
+Player 4,Male,Nemacolin Resort - Shepards Rock,Qualifying,10,4,5,Hit,Miss,126-150 yards,1,1.256,0.256,5
+Player 12,Male,Meadville Country Club,Tournament,16,4,5,Missed,Miss,101-125 yards,1,1.256,0.256,5
+Player 15,Female,Avalon Lakes Golf Club,Qualifying,15,4,3,Hit,Hit,51-75 yards,1,1.256,0.256,5
+Player 4,Male,Nemacolin Resort - Shepards Rock,Qualifying,10,4,6,Hit,Miss,126-150 yards,3,1.256,-1.744,5
+Player 10,Male,Pittsburgh Field Club,Qualifying,13,4,4,Hit,Miss,176-200 yards,1,1.256,0.256,5
+Player 10,Male,Nemacolin Resort - Shepards Rock,Qualifying,10,4,4,Hit,Miss,126-150 yards,1,1.256,0.256,5
+Player 11,Male,Nemacolin Resort - Shepards Rock,Qualifying,2,4,3,Hit,Hit,176-200 yards,1,1.256,0.256,5
+Player 4,Male,Avalon Lakes Golf Club,Qualifying,9,4,4,Hit,Hit,51-75 yards,2,1.256,-0.744,5
+Player 12,Male,Avalon Lakes Golf Club,Qualifying,6,5,6,Hit,Miss,51-75 yards,2,1.256,-0.744,5
+Player 8,Male,Longue Vue Club,Qualifying,9,4,4,Hit,Miss,Less than 50 yards,1,1.256,0.256,5
+Player 3,Male,PGA National - Champions,Tournament,18,5,5,Missed,Miss,126-150 yards,1,1.256,0.256,5
+Player 2,Male,Avalon Lakes Golf Club,Qualifying,16,3,4,Not Applicable (PAR 3),Miss,176-200 yards,1,1.256,0.256,5
+Player 6,Male,Columbus Country Club,Tournament,10,5,4,Hit,Hit,Less than 50 yards,1,1.256,0.256,5
+Player 8,Male,Indiana Country Club,Qualifying,5,5,4,Missed,Hit,201-225 yards,1,1.256,0.256,5
+Player 6,Male,Nemacolin Resort - Shepards Rock,Qualifying,15,4,4,Hit,Miss,126-150 yards,1,1.256,0.256,5
+Player 11,Male,Sedgefield Country Club - Dye Course,Tournament,13,4,4,Not Applicable (PAR 3),Hit,Less than 50 yards,2,1.256,-0.744,5
+Player 20,Female,Meadville Country Club,Tournament,14,4,6,Missed,Miss,126-150 yards,2,1.256,-0.744,5
+Player 15,Female,Nemacolin Resort - Shepards Rock,Qualifying,16,4,4,Hit,Miss,76-100 yards,1,1.256,0.256,5
+Player 11,Male,Columbus Country Club,Tournament,8,5,5,Missed,Hit,51-75 yards,2,1.256,-0.744,5
+Player 3,Male,Longue Vue Club,Qualifying,16,3,3,Not Applicable (PAR 3),Miss,176-200 yards,1,1.256,0.256,5
+Player 8,Male,Longue Vue Club,Qualifying,13,4,3,Hit,Hit,76-100 yards,1,1.256,0.256,5
+Player 3,Male,PGA National - Champions,Tournament,6,5,4,Missed,Hit,51-75 yards,1,1.256,0.256,5
+Player 11,Male,Sedgefield Country Club - Dye Course,Tournament,16,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,1.256,-0.744,5
+Player 8,Male,PGA National - Champions,Tournament,18,5,5,Missed,Miss,176-200 yards,1,1.256,0.256,5
+Player 15,Female,Indiana Country Club,Qualifying,3,3,3,Not Applicable (PAR 3),Miss,151-175 yards,1,1.357,0.357,6
+Player 3,Male,Sedgefield Country Club - Dye Course,Tournament,6,4,5,Missed,Miss,126-150 yards,2,1.357,-0.643,6
+Player 8,Male,Longue Vue Club,Qualifying,7,4,3,Missed,Hit,225 + yards,1,1.357,0.357,6
+Player 9,Male,Longue Vue Club,Qualifying,12,3,4,Not Applicable (PAR 3),Miss,176-200 yards,2,1.357,-0.643,6
+Player 6,Male,Columbus Country Club,Tournament,1,4,4,Missed,Hit,101-125 yards,2,1.357,-0.643,6
+Player 3,Male,San Destin Resort - Raven,Tournament,6,3,2,Not Applicable (PAR 3),Hit,151-175 yards,1,1.357,0.357,6
+Player 4,Male,Indiana Country Club,Qualifying,8,4,3,Hit,Hit,126-150 yards,1,1.357,0.357,6
+Player 8,Male,Sedgefield Country Club - Dye Course,Tournament,4,5,6,Missed,Miss,51-75 yards,2,1.357,-0.643,6
+Player 11,Male,Nemacolin Resort - Shepards Rock,Qualifying,16,4,4,Hit,Hit,Less than 50 yards,2,1.357,-0.643,6
+Player 3,Male,Indiana Country Club,Qualifying,12,4,5,Missed,Miss,101-125 yards,2,1.357,-0.643,6
+Player 12,Male,San Destin Resort - Raven,Tournament,18,4,4,Missed,Miss,151-175 yards,1,1.357,0.357,6
+Player 6,Male,Pittsburgh Field Club,Qualifying,13,3,3,Missed,Hit,Less than 50 yards,2,1.357,-0.643,6
+Player 2,Male,Nemacolin Resort - Shepards Rock,Qualifying,10,4,6,Hit,Miss,151-175 yards,3,1.357,-1.643,6
+Player 8,Male,Pittsburgh Field Club,Qualifying,4,3,4,Not Applicable (PAR 3),Miss,126-150 yards,2,1.357,-0.643,6
+Player 15,Female,Avalon Lakes Golf Club,Qualifying,18,4,4,Hit,Miss,Less than 50 yards,1,1.357,0.357,6
+Player 13,Male,Avalon Lakes Golf Club,Qualifying,2,4,4,Missed,Hit,126-150 yards,2,1.357,-0.643,6
+Player 11,Male,Sedgefield Country Club - Dye Course,Tournament,4,5,6,Hit,Miss,76-100 yards,2,1.357,-0.643,6
+Player 4,Male,Avalon Lakes Golf Club,Qualifying,3,5,4,Missed,Hit,Less than 50 yards,1,1.357,0.357,6
+Player 16,Female,Nemacolin Resort - Shepards Rock,Qualifying,11,4,7,Missed,Miss,151-175 yards,3,1.357,-1.643,6
+Player 5,Male,Longue Vue Club,Qualifying,17,4,5,Hit,Miss,201-225 yards,2,1.357,-0.643,6
+Player 11,Male,Avalon Lakes Golf Club,Qualifying,7,4,5,Missed,Miss,151-175 yards,1,1.357,0.357,6
+Player 11,Male,Columbus Country Club,Tournament,10,5,4,Missed,Hit,51-75 yards,1,1.357,0.357,6
+Player 13,Male,Nemacolin Resort - Shepards Rock,Qualifying,9,5,6,Missed,Miss,101-125 yards,2,1.357,-0.643,6
+Player 3,Male,Columbus Country Club,Tournament,18,5,5,Hit,Hit,51-75 yards,2,1.357,-0.643,6
+Player 16,Female,Nemacolin Resort - Shepards Rock,Qualifying,16,4,5,Hit,Miss,101-125 yards,2,1.357,-0.643,6
+Player 10,Male,Longue Vue Club,Qualifying,18,4,5,Missed,Miss,176-200 yards,2,1.357,-0.643,6
+Player 11,Male,Longue Vue Club,Qualifying,12,3,2,Not Applicable (PAR 3),Hit,176-200 yards,1,1.357,0.357,6
+Player 3,Male,Wigwam Gold Course,Tournament,2,4,4,Hit,Hit,76-100 yards,2,1.357,-0.643,6
+Player 4,Male,Columbus Country Club,Tournament,3,4,4,Hit,Hit,101-125 yards,2,1.357,-0.643,6
+Player 11,Male,Indiana Country Club,Qualifying,16,4,3,Hit,Hit,51-75 yards,1,1.357,0.357,6
+Player 12,Male,Indiana Country Club,Qualifying,3,3,3,Not Applicable (PAR 3),Miss,201-225 yards,1,1.357,0.357,6
+Player 12,Male,Nemacolin Resort - Shepards Rock,Qualifying,15,4,5,Hit,Miss,101-125 yards,2,1.357,-0.643,6
+Player 4,Male,PGA National - Champions,Tournament,8,4,4,Missed,Hit,101-125 yards,2,1.443,-0.557,7
+Player 8,Male,Pittsburgh Field Club,Qualifying,16,3,4,Not Applicable (PAR 3),Miss,176-200 yards,2,1.443,-0.557,7
+Player 8,Male,Avalon Lakes Golf Club,Qualifying,1,4,4,Missed,Hit,151-175 yards,2,1.443,-0.557,7
+Player 4,Male,Nemacolin Resort - Shepards Rock,Qualifying,4,5,5,Missed,Miss,101-125 yards,1,1.443,0.443,7
+Player 3,Male,Avalon Lakes Golf Club,Qualifying,7,4,4,Hit,Hit,101-125 yards,2,1.443,-0.557,7
+Player 3,Male,Avalon Lakes Golf Club,Qualifying,1,4,5,Hit,Miss,176-200 yards,2,1.443,-0.557,7
+Player 4,Male,Nemacolin Resort - Shepards Rock,Qualifying,16,4,4,Hit,Hit,Less than 50 yards,2,1.443,-0.557,7
+Player 5,Male,Longue Vue Club,Qualifying,14,4,4,Hit,Hit,126-150 yards,2,1.443,-0.557,7
+Player 5,Male,Longue Vue Club,Qualifying,11,4,4,Hit,Hit,126-150 yards,2,1.443,-0.557,7
+Player 3,Male,Wigwam Gold Course,Tournament,3,3,5,Not Applicable (PAR 3),Miss,151-175 yards,3,1.443,-1.557,7
+Player 8,Male,Indiana Country Club,Qualifying,17,3,3,Not Applicable (PAR 3),Miss,151-175 yards,1,1.443,0.443,7
+Player 5,Male,Longue Vue Club,Qualifying,14,4,4,Hit,Hit,151-175 yards,2,1.443,-0.557,7
+Player 4,Male,Sedgefield Country Club - Dye Course,Tournament,3,4,7,Missed,Miss,Less than 50 yards,2,1.443,-0.557,7
+Player 4,Male,PGA National - Champions,Tournament,11,4,5,Missed,Miss,126-150 yards,1,1.443,0.443,7
+Player 3,Male,San Destin Resort - Raven,Tournament,15,4,3,Missed,Hit,Less than 50 yards,1,1.443,0.443,7
+Player 10,Male,Avalon Lakes Golf Club,Qualifying,8,3,4,Not Applicable (PAR 3),Miss,201-225 yards,2,1.443,-0.557,7
+Player 4,Male,PGA National - Champions,Tournament,2,4,4,Missed,Miss,126-150 yards,1,1.443,0.443,7
+Player 13,Male,Longue Vue Club,Qualifying,7,4,5,Missed,Miss,76-100 yards,1,1.443,0.443,7
+Player 5,Male,Indiana Country Club,Qualifying,9,4,4,Missed,Hit,76-100 yards,2,1.443,-0.557,7
+Player 13,Male,Avalon Lakes Golf Club,Qualifying,14,5,4,Hit,Hit,76-100 yards,1,1.443,0.443,7
+Player 4,Male,Nemacolin Resort - Shepards Rock,Qualifying,16,4,4,Hit,Hit,Less than 50 yards,2,1.443,-0.557,7
+Player 2,Male,Avalon Lakes Golf Club,Qualifying,13,4,6,Hit,Miss,151-175 yards,2,1.443,-0.557,7
+Player 6,Male,Longue Vue Club,Qualifying,15,5,5,Hit,Hit,Less than 50 yards,2,1.443,-0.557,7
+Player 4,Male,Longue Vue Club,Qualifying,6,4,4,Hit,Hit,101-125 yards,2,1.443,-0.557,7
+Player 13,Male,Indiana Country Club,Qualifying,10,3,3,Not Applicable (PAR 3),Miss,176-200 yards,1,1.443,0.443,7
+Player 4,Male,Columbus Country Club,Tournament,4,4,4,Missed,Hit,151-175 yards,2,1.443,-0.557,7
+Player 3,Male,Pinnacle Golf Club,Qualifying,2,5,4,Hit,Hit,201-225 yards,2,1.443,-0.557,7
+Player 6,Male,Columbus Country Club,Tournament,2,4,4,Hit,Hit,151-175 yards,2,1.443,-0.557,7
+Player 11,Male,San Destin Resort - Raven,Tournament,5,4,5,Hit,Miss,151-175 yards,2,1.443,-0.557,7
+Player 6,Male,Longue Vue Club,Qualifying,14,4,4,Hit,Hit,101-125 yards,2,1.443,-0.557,7
+Player 6,Male,San Destin Resort - Raven,Tournament,16,3,3,Not Applicable (PAR 3),Miss,151-175 yards,1,1.443,0.443,7
+Player 16,Female,Indiana Country Club,Qualifying,4,4,3,Hit,Hit,126-150 yards,1,1.515,0.515,8
+Player 6,Male,Longue Vue Club,Qualifying,3,3,5,Not Applicable (PAR 3),Miss,176-200 yards,2,1.515,-0.485,8
+Player 6,Male,Longue Vue Club,Qualifying,13,4,4,Hit,Hit,51-75 yards,2,1.515,-0.485,8
+Player 8,Male,Pittsburgh Field Club,Qualifying,10,4,5,Missed,Miss,101-125 yards,2,1.515,-0.485,8
+Player 1,Male,Indiana Country Club,Qualifying,9,4,4,Missed,Hit,Less than 50 yards,2,1.515,-0.485,8
+Player 5,Male,Longue Vue Club,Qualifying,8,5,4,Hit,Hit,Less than 50 yards,1,1.515,0.515,8
+Player 6,Male,Longue Vue Club,Qualifying,7,4,6,Missed,Miss,76-100 yards,2,1.515,-0.485,8
+Player 6,Male,Avalon Lakes Golf Club,Qualifying,10,4,4,Hit,Hit,51-75 yards,2,1.515,-0.485,8
+Player 11,Male,Avalon Lakes Golf Club,Qualifying,4,3,3,Not Applicable (PAR 3),Hit,151-175 yards,2,1.515,-0.485,8
+Player 1,Male,Nemacolin Resort - Shepards Rock,Qualifying,5,3,3,Not Applicable (PAR 3),Miss,176-200 yards,1,1.515,0.515,8
+Player 13,Male,Longue Vue Club,Qualifying,17,4,3,Hit,Hit,101-125 yards,1,1.515,0.515,8
+Player 13,Male,Longue Vue Club,Qualifying,10,3,2,Not Applicable (PAR 3),Hit,126-150 yards,1,1.515,0.515,8
+Player 8,Male,PGA National - Champions,Tournament,4,4,5,Missed,Miss,225 + yards,2,1.515,-0.485,8
+Player 6,Male,Avalon Lakes Golf Club,Qualifying,7,4,5,Hit,Miss,126-150 yards,2,1.515,-0.485,8
+Player 4,Male,San Destin Resort - Raven,Tournament,14,4,6,Missed,Miss,101-125 yards,2,1.515,-0.485,8
+Player 1,Male,Longue Vue Club,Qualifying,13,4,5,Missed,Miss,76-100 yards,2,1.515,-0.485,8
+Player 14,Male,Longue Vue Club,Qualifying,3,3,3,Not Applicable (PAR 3),Miss,176-200 yards,1,1.515,0.515,8
+Player 1,Male,Longue Vue Club,Qualifying,13,4,4,Hit,Hit,101-125 yards,2,1.515,-0.485,8
+Player 3,Male,Columbus Country Club,Tournament,15,5,4,Hit,Hit,51-75 yards,1,1.515,0.515,8
+Player 13,Male,Longue Vue Club,Qualifying,4,5,6,Missed,Miss,101-125 yards,2,1.515,-0.485,8
+Player 15,Female,Nemacolin Resort - Shepards Rock,Qualifying,13,5,5,Missed,Miss,51-75 yards,1,1.515,0.515,8
+Player 6,Male,Columbus Country Club,Tournament,6,4,5,Missed,Miss,176-200 yards,2,1.515,-0.485,8
+Player 8,Male,Avalon Lakes Golf Club,Qualifying,16,3,4,Not Applicable (PAR 3),Miss,201-225 yards,2,1.515,-0.485,8
+Player 10,Male,Pittsburgh Field Club,Qualifying,16,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,1.515,-0.485,8
+Player 10,Male,PGA National - Champions,Tournament,12,4,4,Hit,Hit,151-175 yards,2,1.515,-0.485,8
+Player 21,Female,PGA National - Palmer,Tournament,15,4,6,Hit,Miss,151-175 yards,2,1.515,-0.485,8
+Player 11,Male,Indiana Country Club,Qualifying,13,4,4,Missed,Hit,101-125 yards,2,1.515,-0.485,8
+Player 8,Male,Longue Vue Club,Qualifying,11,4,5,Missed,Miss,151-175 yards,1,1.515,0.515,8
+Player 12,Male,Meadville Country Club,Tournament,13,3,2,Not Applicable (PAR 3),Hit,126-150 yards,1,1.515,0.515,8
+Player 20,Female,Meadville Country Club,Tournament,8,3,4,Not Applicable (PAR 3),Miss,151-175 yards,2,1.515,-0.485,8
+Player 1,Male,Indiana Country Club,Qualifying,18,5,5,Missed,Hit,76-100 yards,2,1.515,-0.485,8
+Player 18,Female,Longue Vue Club,Qualifying,8,5,5,Hit,Hit,Less than 50 yards,2,1.515,-0.485,8
+Player 21,Female,San Destin Resort - Baytowne,Tournament,1,4,4,Hit,Miss,126-150 yards,1,1.515,0.515,8
+Player 5,Male,Longue Vue Club,Qualifying,2,4,4,Hit,Hit,101-125 yards,2,1.515,-0.485,8
+Player 11,Male,Longue Vue Club,Qualifying,13,4,4,Missed,Hit,76-100 yards,2,1.515,-0.485,8
+Player 21,Female,San Destin Resort - Baytowne,Tournament,7,3,3,Not Applicable (PAR 3),Miss,126-150 yards,1,1.515,0.515,8
+Player 10,Male,Avalon Lakes Golf Club,Qualifying,2,4,5,Missed,Miss,126-150 yards,2,1.515,-0.485,8
+Player 13,Male,Longue Vue Club,Qualifying,11,4,5,Missed,Miss,151-175 yards,2,1.515,-0.485,8
+Player 3,Male,Wigwam Gold Course,Tournament,15,4,3,Hit,Hit,101-125 yards,1,1.515,0.515,8
+Player 12,Male,Meadville Country Club,Tournament,1,5,4,Hit,Hit,Less than 50 yards,1,1.515,0.515,8
+Player 6,Male,Longue Vue Club,Qualifying,17,4,4,Missed,Hit,126-150 yards,2,1.515,-0.485,8
+Player 4,Male,Avalon Lakes Golf Club,Qualifying,15,4,3,Hit,Hit,101-125 yards,1,1.515,0.515,8
+Player 1,Male,Longue Vue Club,Qualifying,7,4,5,Missed,Miss,Less than 50 yards,2,1.515,-0.485,8
+Player 12,Male,Nemacolin Resort - Shepards Rock,Qualifying,9,5,6,Hit,Miss,76-100 yards,2,1.515,-0.485,8
+Player 4,Male,Nemacolin Resort - Shepards Rock,Qualifying,1,5,5,Hit,Hit,Less than 50 yards,2,1.515,-0.485,8
+Player 3,Male,Longue Vue Club,Qualifying,7,4,4,Missed,Miss,51-75 yards,1,1.515,0.515,8
+Player 3,Male,Indiana Country Club,Qualifying,9,4,5,Missed,Miss,Less than 50 yards,2,1.515,-0.485,8
+Player 11,Male,Nemacolin Resort - Shepards Rock,Qualifying,1,5,4,Hit,Hit,Less than 50 yards,1,1.515,0.515,8
+Player 6,Male,Longue Vue Club,Qualifying,8,5,5,Missed,Hit,76-100 yards,2,1.515,-0.485,8
+Player 16,Female,Nemacolin Resort - Shepards Rock,Qualifying,4,5,5,Hit,Hit,151-175 yards,1,1.515,0.515,8
+Player 1,Male,Avalon Lakes Golf Club,Qualifying,3,5,4,Hit,Hit,Less than 50 yards,1,1.515,0.515,8
+Player 6,Male,Longue Vue Club,Qualifying,3,3,5,Not Applicable (PAR 3),Miss,201-225 yards,3,1.515,-1.485,8
+Player 6,Male,Longue Vue Club,Qualifying,18,4,5,Missed,Miss,151-175 yards,2,1.515,-0.485,8
+Player 10,Male,Nemacolin Resort - Shepards Rock,Qualifying,7,4,3,Hit,Hit,101-125 yards,1,1.515,0.515,8
+Player 13,Male,Indiana Country Club,Qualifying,16,4,4,Hit,Hit,101-125 yards,2,1.515,-0.485,8
+Player 6,Male,San Destin Resort - Raven,Tournament,1,4,6,Missed,Miss,225 + yards,2,1.515,-0.485,8
+Player 3,Male,Columbus Country Club,Tournament,11,4,4,Missed,Hit,76-100 yards,2,1.515,-0.485,8
+Player 11,Male,Longue Vue Club,Qualifying,15,5,5,Hit,Hit,Less than 50 yards,2,1.575,-0.425,9
+Player 11,Male,Pittsburgh Field Club,Qualifying,2,4,4,Missed,Miss,76-100 yards,1,1.575,0.575,9
+Player 8,Male,Longue Vue Club,Qualifying,7,4,4,Missed,Miss,51-75 yards,1,1.575,0.575,9
+Player 13,Male,Indiana Country Club,Qualifying,1,5,5,Hit,Hit,Less than 50 yards,2,1.575,-0.425,9
+Player 3,Male,Longue Vue Club,Qualifying,13,4,4,Hit,Hit,Less than 50 yards,2,1.575,-0.425,9
+Player 3,Male,Columbus Country Club,Tournament,9,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,1.575,-0.425,9
+Player 1,Male,Avalon Lakes Golf Club,Qualifying,18,4,6,Hit,Miss,176-200 yards,2,1.575,-0.425,9
+Player 3,Male,San Destin Resort - Raven,Tournament,3,5,4,Hit,Hit,76-100 yards,1,1.575,0.575,9
+Player 1,Male,Avalon Lakes Golf Club,Qualifying,9,4,5,Missed,Miss,51-75 yards,2,1.575,-0.425,9
+Player 3,Male,Longue Vue Club,Qualifying,10,3,2,Not Applicable (PAR 3),Hit,126-150 yards,1,1.575,0.575,9
+Player 11,Male,Nemacolin Resort - Shepards Rock,Qualifying,8,3,4,Not Applicable (PAR 3),Miss,201-225 yards,2,1.575,-0.425,9
+Player 19,Female,Longue Vue Club,Competitive,15,5,6,Missed,Miss,176-200 yards,2,1.575,-0.425,9
+Player 5,Male,Longue Vue Club,Qualifying,2,4,4,Hit,Hit,101-125 yards,2,1.575,-0.425,9
+Player 3,Male,Longue Vue Club,Qualifying,4,5,5,Hit,Hit,201-225 yards,2,1.575,-0.425,9
+Player 8,Male,Avalon Lakes Golf Club,Qualifying,10,4,4,Hit,Hit,101-125 yards,2,1.575,-0.425,9
+Player 8,Male,Longue Vue Club,Qualifying,4,5,5,Missed,Hit,176-200 yards,2,1.575,-0.425,9
+Player 11,Male,Longue Vue Club,Qualifying,6,4,4,Hit,Hit,76-100 yards,2,1.575,-0.425,9
+Player 10,Male,Longue Vue Club,Qualifying,7,4,4,Missed,Hit,Less than 50 yards,2,1.575,-0.425,9
+Player 3,Male,Columbus Country Club,Tournament,17,3,4,Not Applicable (PAR 3),Miss,201-225 yards,2,1.575,-0.425,9
+Player 5,Male,Avalon Lakes Golf Club,Qualifying,7,4,5,Hit,Miss,151-175 yards,2,1.626,-0.374,10
+Player 1,Male,Indiana Country Club,Qualifying,3,3,3,Not Applicable (PAR 3),Hit,201-225 yards,2,1.626,-0.374,10
+Player 6,Male,Avalon Lakes Golf Club,Qualifying,1,4,5,Missed,Miss,126-150 yards,2,1.626,-0.374,10
+Player 12,Male,San Destin Resort - Raven,Tournament,14,4,3,Hit,Hit,101-125 yards,1,1.626,0.626,10
+Player 15,Female,Nemacolin Resort - Shepards Rock,Qualifying,10,4,4,Hit,Hit,76-100 yards,2,1.626,-0.374,10
+Player 9,Male,Meadville Country Club,Tournament,13,3,4,Not Applicable (PAR 3),Miss,126-150 yards,2,1.626,-0.374,10
+Player 10,Male,Longue Vue Club,Qualifying,15,5,5,Missed,Hit,126-150 yards,2,1.626,-0.374,10
+Player 5,Male,Avalon Lakes Golf Club,Qualifying,1,4,4,Hit,Hit,151-175 yards,2,1.626,-0.374,10
+Player 11,Male,Longue Vue Club,Qualifying,1,4,5,Hit,Hit,126-150 yards,3,1.626,-1.374,10
+Player 3,Male,Columbus Country Club,Tournament,18,5,5,Hit,Hit,Less than 50 yards,2,1.626,-0.374,10
+Player 12,Male,Nemacolin Resort - Shepards Rock,Qualifying,3,4,3,Hit,Hit,151-175 yards,1,1.626,0.626,10
+Player 5,Male,Longue Vue Club,Qualifying,11,4,5,Missed,Miss,76-100 yards,2,1.626,-0.374,10
+Player 19,Female,Longue Vue Club,Competitive,6,4,5,Hit,Miss,76-100 yards,2,1.626,-0.374,10
+Player 6,Male,San Destin Resort - Raven,Tournament,10,4,4,Hit,Hit,76-100 yards,2,1.626,-0.374,10
+Player 4,Male,Sedgefield Country Club - Dye Course,Tournament,2,3,2,Not Applicable (PAR 3),Hit,126-150 yards,1,1.626,0.626,10
+Player 20,Female,Meadville Country Club,Tournament,12,5,6,Missed,Miss,151-175 yards,1,1.626,0.626,10
+Player 14,Male,PGA National - Champions,Tournament,9,4,6,Missed,Miss,126-150 yards,2,1.626,-0.374,10
+Player 6,Male,Longue Vue Club,Qualifying,6,4,5,Hit,Hit,101-125 yards,3,1.626,-1.374,10
+Player 10,Male,PGA National - Champions,Tournament,18,5,5,Hit,Hit,126-150 yards,2,1.626,-0.374,10
+Player 6,Male,Nemacolin Resort - Shepards Rock,Qualifying,9,5,7,Missed,Miss,225 + yards,2,1.626,-0.374,10
+Player 5,Male,Indiana Country Club,Qualifying,15,3,4,Not Applicable (PAR 3),Miss,201-225 yards,2,1.626,-0.374,10
+Player 2,Male,Avalon Lakes Golf Club,Qualifying,1,4,6,Missed,Miss,176-200 yards,2,1.626,-0.374,10
+Player 4,Male,Longue Vue Club,Qualifying,3,3,4,Not Applicable (PAR 3),Miss,201-225 yards,2,1.626,-0.374,10
+Player 1,Male,Nemacolin Resort - Shepards Rock,Qualifying,2,4,5,Missed,Miss,176-200 yards,2,1.626,-0.374,10
+Player 11,Male,Indiana Country Club,Qualifying,4,4,4,Missed,Miss,101-125 yards,1,1.626,0.626,10
+Player 10,Male,Longue Vue Club,Qualifying,13,4,4,Hit,Hit,51-75 yards,2,1.626,-0.374,10
+Player 15,Female,Nemacolin Resort - Shepards Rock,Qualifying,12,3,5,Not Applicable (PAR 3),Miss,126-150 yards,2,1.626,-0.374,10
+Player 11,Male,Indiana Country Club,Qualifying,10,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,1.626,-0.374,10
+Player 13,Male,Longue Vue Club,Qualifying,14,4,4,Hit,Hit,101-125 yards,2,1.626,-0.374,10
+Player 6,Male,San Destin Resort - Raven,Tournament,7,5,5,Hit,Hit,101-125 yards,2,1.626,-0.374,10
+Player 14,Male,PGA National - Champions,Tournament,5,3,3,Not Applicable (PAR 3),Hit,126-150 yards,2,1.626,-0.374,10
+Player 14,Male,Indiana Country Club,Qualifying,1,5,5,Missed,Hit,51-75 yards,2,1.626,-0.374,10
+Player 12,Male,San Destin Resort - Raven,Tournament,17,5,5,Hit,Hit,76-100 yards,2,1.626,-0.374,10
+Player 3,Male,PGA National - Champions,Tournament,4,4,4,Missed,Hit,Less than 50 yards,2,1.626,-0.374,10
+Player 20,Female,Indiana Country Club,Qualifying,17,3,4,Not Applicable (PAR 3),Miss,126-150 yards,2,1.626,-0.374,10
+Player 3,Male,Pittsburgh Field Club,Qualifying,2,4,4,Hit,Hit,Less than 50 yards,2,1.626,-0.374,10
+Player 5,Male,Longue Vue Club,Qualifying,14,4,4,Hit,Hit,126-150 yards,2,1.626,-0.374,10
+Player 20,Female,Meadville Country Club,Tournament,3,5,5,Missed,Miss,126-150 yards,1,1.626,0.626,10
+Player 5,Male,Indiana Country Club,Qualifying,6,4,4,Hit,Hit,101-125 yards,2,1.626,-0.374,10
+Player 4,Male,Columbus Country Club,Tournament,12,4,4,Hit,Hit,101-125 yards,2,1.626,-0.374,10
+Player 8,Male,Longue Vue Club,Qualifying,8,5,4,Missed,Hit,Less than 50 yards,1,1.626,0.626,10
+Player 12,Male,Meadville Country Club,Tournament,10,4,6,Missed,Miss,126-150 yards,2,1.626,-0.374,10
+Player 6,Male,Nemacolin Resort - Shepards Rock,Qualifying,3,4,4,Hit,Hit,101-125 yards,2,1.626,-0.374,10
+Player 12,Male,Nemacolin Resort - Shepards Rock,Qualifying,18,4,6,Hit,Miss,126-150 yards,2,1.626,-0.374,10
+Player 1,Male,Longue Vue Club,Qualifying,9,4,4,Missed,Miss,151-175 yards,1,1.626,0.626,10
+Player 12,Male,Meadville Country Club,Tournament,3,5,5,Hit,Hit,Less than 50 yards,2,1.626,-0.374,10
+Player 3,Male,Indiana Country Club,Qualifying,6,4,3,Hit,Hit,76-100 yards,1,1.626,0.626,10
+Player 3,Male,Pinnacle Golf Club,Qualifying,14,4,4,Hit,Hit,76-100 yards,2,1.626,-0.374,10
+Player 11,Male,Pittsburgh Field Club,Qualifying,17,4,4,Missed,Miss,101-125 yards,1,1.669,0.669,11
+Player 3,Male,San Destin Resort - Raven,Tournament,18,4,3,Hit,Hit,126-150 yards,1,1.669,0.669,11
+Player 8,Male,Longue Vue Club,Qualifying,1,4,4,Hit,Hit,101-125 yards,2,1.669,-0.331,11
+Player 11,Male,Longue Vue Club,Qualifying,4,5,5,Hit,Hit,Less than 50 yards,2,1.669,-0.331,11
+Player 11,Male,Nemacolin Resort - Shepards Rock,Qualifying,10,4,5,Hit,Miss,126-150 yards,2,1.669,-0.331,11
+Player 3,Male,Avalon Lakes Golf Club,Qualifying,13,4,4,Missed,Hit,126-150 yards,2,1.669,-0.331,11
+Player 11,Male,Longue Vue Club,Qualifying,6,4,4,Hit,Hit,151-175 yards,2,1.669,-0.331,11
+Player 11,Male,Longue Vue Club,Qualifying,12,3,4,Not Applicable (PAR 3),Miss,201-225 yards,2,1.669,-0.331,11
+Player 8,Male,Longue Vue Club,Qualifying,6,4,4,Hit,Hit,126-150 yards,2,1.669,-0.331,11
+Player 3,Male,PGA National - Champions,Tournament,1,4,4,Hit,Hit,101-125 yards,1,1.669,0.669,11
+Player 12,Male,Longue Vue Club,Qualifying,9,4,4,Missed,Hit,101-125 yards,2,1.705,-0.295,12
+Player 4,Male,Sedgefield Country Club - Dye Course,Tournament,17,4,4,Hit,Hit,126-150 yards,2,1.705,-0.295,12
+Player 16,Female,Meadville Country Club,Tournament,6,3,5,Not Applicable (PAR 3),Miss,151-175 yards,2,1.705,-0.295,12
+Player 13,Male,Indiana Country Club,Qualifying,4,4,5,Missed,Miss,151-175 yards,2,1.705,-0.295,12
+Player 1,Male,Longue Vue Club,Qualifying,7,4,4,Missed,Hit,Less than 50 yards,2,1.705,-0.295,12
+Player 6,Male,San Destin Resort - Raven,Tournament,1,4,5,Missed,Miss,126-150 yards,2,1.705,-0.295,12
+Player 4,Male,Nemacolin Resort - Shepards Rock,Qualifying,7,4,4,Hit,Hit,101-125 yards,2,1.705,-0.295,12
+Player 12,Male,Meadville Country Club,Tournament,15,4,4,Missed,Hit,225 + yards,2,1.705,-0.295,12
+Player 6,Male,Longue Vue Club,Qualifying,10,3,3,Not Applicable (PAR 3),Hit,126-150 yards,2,1.705,-0.295,12
+Player 8,Male,Sedgefield Country Club - Dye Course,Tournament,10,5,4,Hit,Hit,176-200 yards,2,1.705,-0.295,12
+Player 4,Male,Columbus Country Club,Tournament,16,4,3,Missed,Hit,151-175 yards,1,1.705,0.705,12
+Player 21,Female,San Destin Resort - Baytowne,Tournament,13,5,6,Hit,Miss,101-125 yards,2,1.705,-0.295,12
+Player 6,Male,San Destin Resort - Raven,Tournament,9,4,6,Missed,Miss,126-150 yards,1,1.705,0.705,12
+Player 11,Male,Longue Vue Club,Qualifying,9,4,4,Hit,Hit,151-175 yards,2,1.705,-0.295,12
+Player 4,Male,Sedgefield Country Club - Dye Course,Tournament,6,4,4,Hit,Hit,101-125 yards,2,1.705,-0.295,12
+Player 3,Male,Columbus Country Club,Tournament,12,4,4,Hit,Hit,101-125 yards,2,1.705,-0.295,12
+Player 13,Male,Indiana Country Club,Qualifying,13,4,5,Missed,Miss,126-150 yards,2,1.705,-0.295,12
+Player 12,Male,San Destin Resort - Raven,Tournament,6,3,4,Not Applicable (PAR 3),Miss,151-175 yards,2,1.705,-0.295,12
+Player 16,Female,Nemacolin Resort - Shepards Rock,Qualifying,8,3,4,Not Applicable (PAR 3),Hit,151-175 yards,2,1.705,-0.295,12
+Player 21,Female,PGA National - Palmer,Tournament,6,4,5,Hit,Miss,176-200 yards,2,1.705,-0.295,12
+Player 11,Male,Longue Vue Club,Qualifying,3,3,3,Not Applicable (PAR 3),Hit,201-225 yards,2,1.705,-0.295,12
+Player 1,Male,Indiana Country Club,Qualifying,6,4,3,Missed,Hit,101-125 yards,1,1.705,0.705,12
+Player 11,Male,Longue Vue Club,Qualifying,15,5,5,Missed,Hit,76-100 yards,2,1.705,-0.295,12
+Player 12,Male,Longue Vue Club,Qualifying,10,3,3,Not Applicable (PAR 3),Hit,151-175 yards,2,1.705,-0.295,12
+Player 16,Female,Nemacolin Resort - Shepards Rock,Qualifying,17,4,4,Hit,Hit,51-75 yards,2,1.705,-0.295,12
+Player 4,Male,San Destin Resort - Raven,Tournament,17,5,5,Missed,Hit,101-125 yards,2,1.705,-0.295,12
+Player 11,Male,Meadville Country Club,Tournament,5,4,4,Hit,Miss,76-100 yards,1,1.705,0.705,12
+Player 10,Male,PGA National - Champions,Tournament,17,3,3,Not Applicable (PAR 3),Hit,101-125 yards,2,1.705,-0.295,12
+Player 3,Male,Avalon Lakes Golf Club,Qualifying,10,4,4,Hit,Hit,51-75 yards,2,1.705,-0.295,12
+Player 11,Male,Nemacolin Resort - Shepards Rock,Qualifying,4,5,5,Hit,Hit,Less than 50 yards,2,1.705,-0.295,12
+Player 8,Male,Longue Vue Club,Qualifying,1,4,5,Hit,Miss,151-175 yards,2,1.705,-0.295,12
+Player 6,Male,Longue Vue Club,Qualifying,16,3,4,Not Applicable (PAR 3),Miss,176-200 yards,2,1.705,-0.295,12
+Player 4,Male,PGA National - Champions,Tournament,11,4,4,Hit,Hit,126-150 yards,2,1.705,-0.295,12
+Player 8,Male,Longue Vue Club,Qualifying,14,4,4,Hit,Hit,101-125 yards,2,1.705,-0.295,12
+Player 3,Male,Pittsburgh Field Club,Qualifying,14,3,4,Not Applicable (PAR 3),Miss,201-225 yards,2,1.705,-0.295,12
+Player 13,Male,Nemacolin Resort - Shepards Rock,Qualifying,15,4,3,Hit,Hit,101-125 yards,1,1.705,0.705,12
+Player 20,Female,Indiana Country Club,Qualifying,5,5,5,Hit,Hit,101-125 yards,2,1.705,-0.295,12
+Player 6,Male,Pittsburgh Field Club,Qualifying,4,3,3,Not Applicable (PAR 3),Hit,126-150 yards,2,1.705,-0.295,12
+Player 11,Male,Indiana Country Club,Qualifying,7,3,5,Not Applicable (PAR 3),Miss,151-175 yards,3,1.705,-1.295,12
+Player 11,Male,Avalon Lakes Golf Club,Qualifying,13,4,5,Hit,Miss,176-200 yards,2,1.705,-0.295,12
+Player 11,Male,Nemacolin Resort - Shepards Rock,Qualifying,11,4,4,Hit,Hit,101-125 yards,2,1.737,-0.263,13
+Player 3,Male,San Destin Resort - Raven,Tournament,3,5,5,Hit,Hit,101-125 yards,2,1.737,-0.263,13
+Player 3,Male,Wigwam Gold Course,Tournament,7,4,6,Hit,Miss,126-150 yards,2,1.737,-0.263,13
+Player 6,Male,Columbus Country Club,Tournament,17,3,4,Not Applicable (PAR 3),Miss,225 + yards,2,1.737,-0.263,13
+Player 3,Male,PGA National - Champions,Tournament,3,5,5,Hit,Hit,225 + yards,2,1.737,-0.263,13
+Player 6,Male,San Destin Resort - Raven,Tournament,7,5,4,Hit,Hit,151-175 yards,1,1.737,0.737,13
+Player 3,Male,Pinnacle Golf Club,Qualifying,8,4,4,Missed,Miss,101-125 yards,1,1.737,0.737,13
+Player 3,Male,Sedgefield Country Club - Dye Course,Tournament,18,4,5,Hit,Miss,151-175 yards,2,1.737,-0.263,13
+Player 11,Male,Sedgefield Country Club - Dye Course,Tournament,11,4,4,Hit,Hit,51-75 yards,2,1.737,-0.263,13
+Player 3,Male,PGA National - Champions,Tournament,12,4,3,Hit,Hit,151-175 yards,1,1.737,0.737,13
+Player 3,Male,Avalon Lakes Golf Club,Qualifying,16,3,3,Not Applicable (PAR 3),Hit,201-225 yards,2,1.737,-0.263,13
+Player 4,Male,Columbus Country Club,Tournament,6,4,4,Hit,Hit,176-200 yards,2,1.737,-0.263,13
+Player 7,Male,Avalon Lakes Golf Club,Qualifying,5,4,4,Hit,Hit,Less than 50 yards,2,1.737,-0.263,13
+Player 5,Male,Avalon Lakes Golf Club,Qualifying,13,4,5,Hit,Hit,126-150 yards,2,1.765,-0.235,14
+Player 11,Male,Longue Vue Club,Qualifying,4,4,5,Hit,Hit,Less than 50 yards,2,1.765,-0.235,14
+Player 11,Male,Longue Vue Club,Qualifying,1,4,5,Missed,Miss,151-175 yards,2,1.765,-0.235,14
+Player 11,Male,San Destin Resort - Raven,Tournament,8,3,2,Not Applicable (PAR 3),Hit,151-175 yards,1,1.765,0.765,14
+Player 3,Male,Wigwam Gold Course,Tournament,13,4,4,Missed,Hit,126-150 yards,2,1.765,-0.235,14
+Player 3,Male,San Destin Resort - Raven,Tournament,12,3,3,Not Applicable (PAR 3),Hit,101-125 yards,2,1.765,-0.235,14
+Player 11,Male,Meadville Country Club,Tournament,12,5,4,Hit,Hit,Less than 50 yards,1,1.765,0.765,14
+Player 11,Male,Longue Vue Club,Qualifying,15,5,6,Missed,Miss,151-175 yards,2,1.765,-0.235,14
+Player 11,Male,Columbus Country Club,Tournament,16,4,4,Hit,Hit,176-200 yards,2,1.765,-0.235,14
+Player 8,Male,Longue Vue Club,Qualifying,3,3,4,Not Applicable (PAR 3),Miss,176-200 yards,2,1.765,-0.235,14
+Player 5,Male,Avalon Lakes Golf Club,Qualifying,10,4,5,Hit,Hit,126-150 yards,3,1.765,-1.235,14
+Player 5,Male,Avalon Lakes Golf Club,Qualifying,4,3,3,Not Applicable (PAR 3),Hit,201-225 yards,2,1.79,-0.21,15
+Player 19,Female,Longue Vue Club,Competitive,3,3,5,Not Applicable (PAR 3),Miss,126-150 yards,3,1.79,-1.21,15
+Player 1,Male,Longue Vue Club,Qualifying,15,5,6,Missed,Miss,176-200 yards,1,1.79,0.79,15
+Player 3,Male,PGA National - Champions,Tournament,15,3,3,Not Applicable (PAR 3),Hit,126-150 yards,2,1.79,-0.21,15
+Player 9,Male,Avalon Lakes Golf Club,Qualifying,6,5,5,Missed,Hit,51-75 yards,2,1.79,-0.21,15
+Player 2,Male,Longue Vue Club,Qualifying,18,4,5,Missed,Miss,225 + yards,2,1.79,-0.21,15
+Player 9,Male,Meadville Country Club,Tournament,7,4,4,Hit,Hit,51-75 yards,2,1.79,-0.21,15
+Player 5,Male,Indiana Country Club,Qualifying,12,4,4,Hit,Hit,126-150 yards,2,1.79,-0.21,15
+Player 2,Male,Longue Vue Club,Qualifying,17,4,7,Missed,Miss,176-200 yards,2,1.79,-0.21,15
+Player 2,Male,Nemacolin Resort - Shepards Rock,Qualifying,16,4,5,Hit,Miss,Less than 50 yards,3,1.79,-1.21,15
+Player 2,Male,Avalon Lakes Golf Club,Qualifying,7,4,5,Missed,Miss,126-150 yards,2,1.79,-0.21,15
+Player 15,Female,Nemacolin Resort - Shepards Rock,Qualifying,9,5,5,Hit,Hit,76-100 yards,2,1.79,-0.21,15
+Player 5,Male,Longue Vue Club,Qualifying,11,4,4,Hit,Hit,151-175 yards,2,1.79,-0.21,15
+Player 2,Male,Longue Vue Club,Qualifying,14,4,6,Missed,Miss,201-225 yards,2,1.79,-0.21,15
+Player 13,Male,Longue Vue Club,Qualifying,13,4,4,Missed,Hit,101-125 yards,2,1.79,-0.21,15
+Player 14,Male,Indiana Country Club,Qualifying,16,4,3,Hit,Hit,126-150 yards,1,1.79,0.79,15
+Player 19,Female,Longue Vue Club,Competitive,12,3,4,Not Applicable (PAR 3),Miss,151-175 yards,2,1.79,-0.21,15
+Player 1,Male,Longue Vue Club,Qualifying,9,4,3,Hit,Hit,101-125 yards,1,1.79,0.79,15
+Player 9,Male,Meadville Country Club,Tournament,15,4,3,Missed,Hit,Less than 50 yards,1,1.79,0.79,15
+Player 10,Male,Longue Vue Club,Qualifying,4,5,6,Missed,Miss,51-75 yards,2,1.79,-0.21,15
+Player 4,Male,PGA National - Champions,Tournament,5,3,3,Not Applicable (PAR 3),Hit,126-150 yards,2,1.79,-0.21,15
+Player 8,Male,PGA National - Champions,Tournament,8,4,4,Missed,Hit,151-175 yards,2,1.79,-0.21,15
+Player 1,Male,Longue Vue Club,Qualifying,3,3,4,Not Applicable (PAR 3),Miss,201-225 yards,2,1.79,-0.21,15
+Player 4,Male,PGA National - Champions,Tournament,17,3,3,Not Applicable (PAR 3),Hit,126-150 yards,2,1.79,-0.21,15
+Player 8,Male,Avalon Lakes Golf Club,Qualifying,13,4,6,Missed,Miss,101-125 yards,3,1.79,-1.21,15
+Player 21,Female,Indiana Country Club,Qualifying,9,4,4,Hit,Hit,101-125 yards,2,1.79,-0.21,15
+Player 10,Male,Pittsburgh Field Club,Qualifying,1,4,5,Missed,Miss,151-175 yards,2,1.79,-0.21,15
+Player 10,Male,Pittsburgh Field Club,Qualifying,7,4,4,Missed,Miss,126-150 yards,1,1.79,0.79,15
+Player 4,Male,Sedgefield Country Club - Dye Course,Tournament,18,4,4,Missed,Hit,126-150 yards,2,1.79,-0.21,15
+Player 1,Male,Longue Vue Club,Qualifying,14,4,5,Missed,Miss,151-175 yards,2,1.79,-0.21,15
+Player 10,Male,Longue Vue Club,Qualifying,9,4,4,Hit,Hit,126-150 yards,2,1.79,-0.21,15
+Player 10,Male,PGA National - Champions,Tournament,8,4,4,Hit,Hit,76-100 yards,2,1.79,-0.21,15
+Player 11,Male,Longue Vue Club,Qualifying,3,3,3,Not Applicable (PAR 3),Miss,176-200 yards,1,1.79,0.79,15
+Player 15,Female,Nemacolin Resort - Shepards Rock,Qualifying,7,4,4,Hit,Hit,101-125 yards,2,1.79,-0.21,15
+Player 19,Female,Indiana Country Club,Qualifying,1,5,5,Missed,Hit,176-200 yards,2,1.79,-0.21,15
+Player 8,Male,Longue Vue Club,Qualifying,17,4,5,Missed,Miss,201-225 yards,2,1.79,-0.21,15
+Player 6,Male,Longue Vue Club,Qualifying,12,3,3,Not Applicable (PAR 3),Hit,201-225 yards,1,1.79,0.79,15
+Player 10,Male,Longue Vue Club,Qualifying,16,3,3,Not Applicable (PAR 3),Hit,126-150 yards,2,1.79,-0.21,15
+Player 4,Male,PGA National - Champions,Tournament,5,3,3,Not Applicable (PAR 3),Hit,126-150 yards,2,1.79,-0.21,15
+Player 15,Female,Nemacolin Resort - Shepards Rock,Qualifying,15,4,6,Hit,Miss,76-100 yards,3,1.79,-1.21,15
+Player 8,Male,Longue Vue Club,Qualifying,16,3,4,Not Applicable (PAR 3),Hit,176-200 yards,3,1.79,-1.21,15
+Player 4,Male,Columbus Country Club,Tournament,6,4,5,Hit,Miss,151-175 yards,2,1.79,-0.21,15
+Player 1,Male,Longue Vue Club,Qualifying,2,4,5,Missed,Miss,126-150 yards,2,1.79,-0.21,15
+Player 4,Male,Columbus Country Club,Tournament,12,4,4,Hit,Hit,Less than 50 yards,2,1.79,-0.21,15
+Player 9,Male,Meadville Country Club,Tournament,4,4,6,Missed,Miss,126-150 yards,2,1.79,-0.21,15
+Player 15,Female,Avalon Lakes Golf Club,Qualifying,3,5,5,Missed,Hit,Less than 50 yards,2,1.79,-0.21,15
+Player 6,Male,San Destin Resort - Raven,Tournament,15,4,5,Missed,Miss,225 + yards,2,1.79,-0.21,15
+Player 4,Male,Longue Vue Club,Qualifying,18,4,5,Hit,Miss,176-200 yards,2,1.79,-0.21,15
+Player 1,Male,Nemacolin Resort - Shepards Rock,Qualifying,8,3,5,Not Applicable (PAR 3),Miss,201-225 yards,2,1.79,-0.21,15
+Player 8,Male,Longue Vue Club,Qualifying,16,3,4,Not Applicable (PAR 3),Miss,126-150 yards,2,1.79,-0.21,15
+Player 13,Male,Avalon Lakes Golf Club,Qualifying,8,3,3,Not Applicable (PAR 3),Hit,201-225 yards,2,1.79,-0.21,15
+Player 11,Male,Longue Vue Club,Qualifying,18,4,4,Hit,Hit,176-200 yards,2,1.79,-0.21,15
+Player 10,Male,Longue Vue Club,Qualifying,9,4,5,Missed,Miss,151-175 yards,2,1.79,-0.21,15
+Player 6,Male,Nemacolin Resort - Shepards Rock,Qualifying,12,3,3,Not Applicable (PAR 3),Hit,151-175 yards,2,1.79,-0.21,15
+Player 7,Male,Longue Vue Club,Qualifying,6,4,4,Hit,Hit,126-150 yards,2,1.79,-0.21,15
+Player 2,Male,Indiana Country Club,Qualifying,14,4,4,Missed,Hit,126-150 yards,2,1.79,-0.21,15
+Player 1,Male,Indiana Country Club,Qualifying,15,3,3,Not Applicable (PAR 3),Hit,201-225 yards,2,1.79,-0.21,15
+Player 2,Male,Longue Vue Club,Qualifying,9,4,4,Hit,Hit,151-175 yards,2,1.79,-0.21,15
+Player 9,Male,Meadville Country Club,Tournament,9,5,5,Missed,Hit,Less than 50 yards,2,1.79,-0.21,15
+Player 14,Male,Indiana Country Club,Qualifying,7,3,4,Not Applicable (PAR 3),Miss,151-175 yards,2,1.79,-0.21,15
+Player 15,Female,Avalon Lakes Golf Club,Qualifying,12,3,4,Not Applicable (PAR 3),Miss,126-150 yards,2,1.79,-0.21,15
+Player 3,Male,Wigwam Gold Course,Tournament,5,4,5,Missed,Miss,76-100 yards,2,1.79,-0.21,15
+Player 5,Male,Indiana Country Club,Qualifying,18,5,7,Hit,Miss,126-150 yards,3,1.79,-1.21,15
+Player 4,Male,PGA National - Champions,Tournament,8,4,5,Hit,Hit,151-175 yards,3,1.79,-1.21,15
+Player 4,Male,Columbus Country Club,Tournament,3,4,4,Hit,Hit,101-125 yards,2,1.79,-0.21,15
+Player 12,Male,San Destin Resort - Raven,Tournament,12,3,3,Not Applicable (PAR 3),Hit,126-150 yards,2,1.79,-0.21,15
+Player 9,Male,Avalon Lakes Golf Club,Qualifying,18,4,5,Missed,Miss,151-175 yards,2,1.79,-0.21,15
+Player 3,Male,Longue Vue Club,Qualifying,14,4,4,Hit,Hit,126-150 yards,2,1.79,-0.21,15
+Player 20,Female,Indiana Country Club,Qualifying,11,5,6,Hit,Miss,151-175 yards,2,1.79,-0.21,15
+Player 21,Female,PGA National - Palmer,Tournament,4,5,5,Hit,Hit,Less than 50 yards,2,1.79,-0.21,15
+Player 4,Male,Columbus Country Club,Tournament,9,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,1.79,-0.21,15
+Player 3,Male,Sedgefield Country Club - Dye Course,Tournament,15,5,6,Hit,Miss,225 + yards,2,1.79,-0.21,15
+Player 9,Male,Meadville Country Club,Tournament,1,5,3,Hit,Hit,201-225 yards,1,1.79,0.79,15
+Player 4,Male,Nemacolin Resort - Shepards Rock,Qualifying,13,5,5,Hit,Hit,Less than 50 yards,2,1.79,-0.21,15
+Player 2,Male,Nemacolin Resort - Shepards Rock,Qualifying,7,4,5,Missed,Miss,101-125 yards,2,1.79,-0.21,15
+Player 1,Male,Longue Vue Club,Qualifying,10,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,1.79,-0.21,15
+Player 15,Female,Indiana Country Club,Qualifying,15,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,1.79,-0.21,15
+Player 12,Male,Meadville Country Club,Tournament,9,5,7,Missed,Miss,Less than 50 yards,2,1.79,-0.21,15
+Player 4,Male,Nemacolin Resort - Shepards Rock,Qualifying,7,4,4,Hit,Hit,101-125 yards,2,1.79,-0.21,15
+Player 12,Male,Longue Vue Club,Qualifying,6,4,5,Hit,Hit,76-100 yards,3,1.79,-1.21,15
+Player 6,Male,Longue Vue Club,Qualifying,5,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,1.79,-0.21,15
+Player 10,Male,Longue Vue Club,Qualifying,12,3,4,Not Applicable (PAR 3),Miss,201-225 yards,2,1.79,-0.21,15
+Player 10,Male,Longue Vue Club,Qualifying,7,4,4,Missed,Hit,76-100 yards,2,1.79,-0.21,15
+Player 11,Male,Meadville Country Club,Tournament,14,4,4,Hit,Hit,101-125 yards,2,1.79,-0.21,15
+Player 12,Male,Meadville Country Club,Tournament,12,5,4,Missed,Hit,201-225 yards,2,1.79,-0.21,15
+Player 12,Male,Indiana Country Club,Qualifying,9,4,3,Missed,Hit,Less than 50 yards,1,1.79,0.79,15
+Player 9,Male,Avalon Lakes Golf Club,Qualifying,12,3,4,Not Applicable (PAR 3),Miss,201-225 yards,2,1.79,-0.21,15
+Player 8,Male,Longue Vue Club,Qualifying,4,5,5,Missed,Hit,Less than 50 yards,2,1.79,-0.21,15
+Player 21,Female,Indiana Country Club,Qualifying,15,3,4,Not Applicable (PAR 3),Miss,176-200 yards,2,1.79,-0.21,15
+Player 3,Male,PGA National - Champions,Tournament,6,5,5,Hit,Hit,151-175 yards,2,1.811,-0.189,16
+Player 21,Female,San Destin Resort - Baytowne,Tournament,4,4,4,Hit,Hit,76-100 yards,2,1.811,-0.189,16
+Player 11,Male,Nemacolin Resort - Shepards Rock,Qualifying,5,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,1.811,-0.189,16
+Player 11,Male,Columbus Country Club,Tournament,4,4,4,Hit,Hit,176-200 yards,2,1.811,-0.189,16
+Player 3,Male,San Destin Resort - Raven,Tournament,12,3,3,Not Applicable (PAR 3),Hit,101-125 yards,2,1.811,-0.189,16
+Player 3,Male,Sedgefield Country Club - Dye Course,Tournament,12,3,4,Not Applicable (PAR 3),Miss,176-200 yards,2,1.83,-0.17,17
+Player 4,Male,PGA National - Champions,Tournament,17,3,2,Not Applicable (PAR 3),Hit,101-125 yards,1,1.83,0.83,17
+Player 6,Male,San Destin Resort - Raven,Tournament,16,3,5,Not Applicable (PAR 3),Miss,176-200 yards,2,1.83,-0.17,17
+Player 3,Male,San Destin Resort - Raven,Tournament,12,3,3,Not Applicable (PAR 3),Hit,126-150 yards,2,1.83,-0.17,17
+Player 21,Female,PGA National - Palmer,Tournament,10,3,3,Not Applicable (PAR 3),Hit,101-125 yards,2,1.83,-0.17,17
+Player 3,Male,Wigwam Gold Course,Tournament,16,3,3,Not Applicable (PAR 3),Hit,126-150 yards,2,1.83,-0.17,17
+Player 3,Male,San Destin Resort - Raven,Tournament,9,4,5,Missed,Miss,151-175 yards,2,1.83,-0.17,17
+Player 5,Male,Indiana Country Club,Qualifying,3,3,3,Not Applicable (PAR 3),Hit,201-225 yards,2,1.83,-0.17,17
+Player 4,Male,Columbus Country Club,Tournament,9,3,3,Not Applicable (PAR 3),Hit,151-175 yards,2,1.83,-0.17,17
+Player 3,Male,Wigwam Gold Course,Tournament,8,4,4,Hit,Hit,126-150 yards,2,1.83,-0.17,17
+Player 6,Male,Longue Vue Club,Qualifying,8,5,5,Missed,Hit,Less than 50 yards,2,1.83,-0.17,17
+Player 4,Male,Avalon Lakes Golf Club,Qualifying,6,5,5,Hit,Hit,Less than 50 yards,2,1.83,-0.17,17
+Player 3,Male,PGA National - Champions,Tournament,9,4,3,Missed,Hit,151-175 yards,1,1.83,0.83,17
+Player 3,Male,Longue Vue Club,Qualifying,2,4,4,Hit,Hit,51-75 yards,2,1.83,-0.17,17
+Player 3,Male,Sedgefield Country Club - Dye Course,Tournament,3,4,4,Hit,Hit,76-100 yards,2,1.848,-0.152,18
+Player 6,Male,Columbus Country Club,Tournament,14,4,4,Missed,Hit,101-125 yards,2,1.848,-0.152,18
+Player 16,Female,Indiana Country Club,Qualifying,10,3,4,Not Applicable (PAR 3),Miss,151-175 yards,2,1.848,-0.152,18
+Player 6,Male,Longue Vue Club,Qualifying,9,4,5,Hit,Hit,126-150 yards,3,1.848,-1.152,18
+Player 10,Male,Longue Vue Club,Qualifying,3,3,4,Not Applicable (PAR 3),Hit,201-225 yards,3,1.848,-1.152,18
+Player 11,Male,Longue Vue Club,Qualifying,15,5,5,Missed,Hit,101-125 yards,2,1.848,-0.152,18
+Player 11,Male,Longue Vue Club,Qualifying,10,3,3,Not Applicable (PAR 3),Hit,126-150 yards,2,1.848,-0.152,18
+Player 3,Male,Wigwam Gold Course,Tournament,4,5,5,Missed,Hit,76-100 yards,2,1.848,-0.152,18
+Player 11,Male,Avalon Lakes Golf Club,Qualifying,16,3,3,Not Applicable (PAR 3),Hit,201-225 yards,2,1.848,-0.152,18
+Player 11,Male,Columbus Country Club,Tournament,4,4,4,Hit,Hit,176-200 yards,2,1.848,-0.152,18
+Player 13,Male,Nemacolin Resort - Shepards Rock,Qualifying,18,4,5,Missed,Miss,201-225 yards,2,1.848,-0.152,18
+Player 16,Female,Meadville Country Club,Tournament,12,5,5,Hit,Miss,76-100 yards,1,1.848,0.848,18
+Player 11,Male,Longue Vue Club,Qualifying,18,4,4,Missed,Hit,151-175 yards,2,1.848,-0.152,18
+Player 11,Male,San Destin Resort - Raven,Tournament,16,4,4,Not Applicable (PAR 3),Miss,151-175 yards,2,1.848,-0.152,18
+Player 3,Male,PGA National - Champions,Tournament,7,3,3,Not Applicable (PAR 3),Hit,151-175 yards,2,1.848,-0.152,18
+Player 11,Male,Longue Vue Club,Qualifying,13,4,4,Hit,Hit,51-75 yards,2,1.848,-0.152,18
+Player 3,Male,Pittsburgh Field Club,Qualifying,5,5,5,Missed,Hit,151-175 yards,2,1.848,-0.152,18
+Player 10,Male,Longue Vue Club,Qualifying,15,5,6,Hit,Hit,Less than 50 yards,3,1.848,-1.152,18
+Player 8,Male,Indiana Country Club,Qualifying,14,4,6,Missed,Miss,101-125 yards,2,1.848,-0.152,18
+Player 10,Male,Longue Vue Club,Qualifying,11,4,5,Missed,Miss,101-125 yards,1,1.848,0.848,18
+Player 8,Male,Indiana Country Club,Qualifying,11,5,4,Hit,Hit,225 + yards,1,1.848,0.848,18
+Player 9,Male,Avalon Lakes Golf Club,Qualifying,9,4,4,Missed,Hit,101-125 yards,2,1.848,-0.152,18
+Player 11,Male,Nemacolin Resort - Shepards Rock,Qualifying,14,3,3,Not Applicable (PAR 3),Hit,126-150 yards,2,1.848,-0.152,18
+Player 8,Male,Longue Vue Club,Qualifying,14,4,4,Missed,Hit,126-150 yards,2,1.848,-0.152,18
+Player 3,Male,Columbus Country Club,Tournament,5,4,4,Missed,Miss,126-150 yards,1,1.848,0.848,18
+Player 8,Male,PGA National - Champions,Tournament,14,4,5,Hit,Hit,126-150 yards,3,1.848,-1.152,18
+Player 16,Female,Meadville Country Club,Tournament,16,4,5,Missed,Miss,76-100 yards,2,1.848,-0.152,18
+Player 8,Male,Longue Vue Club,Qualifying,13,4,4,Hit,Hit,76-100 yards,2,1.848,-0.152,18
+Player 11,Male,Nemacolin Resort - Shepards Rock,Qualifying,7,4,4,Hit,Hit,101-125 yards,2,1.848,-0.152,18
+Player 11,Male,Longue Vue Club,Qualifying,9,4,4,Hit,Hit,176-200 yards,2,1.848,-0.152,18
+Player 3,Male,Columbus Country Club,Tournament,8,5,4,Missed,Hit,201-225 yards,2,1.848,-0.152,18
+Player 8,Male,PGA National - Champions,Tournament,6,5,6,Missed,Hit,225 + yards,3,1.848,-1.152,18
+Player 3,Male,Columbus Country Club,Tournament,12,4,4,Hit,Hit,51-75 yards,2,1.863,-0.137,19
+Player 10,Male,Longue Vue Club,Qualifying,18,4,6,Missed,Miss,151-175 yards,3,1.863,-1.137,19
+Player 10,Male,Indiana Country Club,Qualifying,2,4,4,Missed,Hit,151-175 yards,2,1.878,-0.122,20
+Player 3,Male,Indiana Country Club,Qualifying,18,5,6,Missed,Miss,225 + yards,2,1.878,-0.122,20
+Player 11,Male,Sedgefield Country Club - Dye Course,Tournament,1,4,5,Hit,Miss,126-150 yards,2,1.878,-0.122,20
+Player 12,Male,San Destin Resort - Raven,Tournament,2,4,3,Hit,Hit,151-175 yards,1,1.878,0.878,20
+Player 2,Male,Indiana Country Club,Qualifying,17,3,4,Not Applicable (PAR 3),Miss,151-175 yards,2,1.878,-0.122,20
+Player 10,Male,Longue Vue Club,Qualifying,2,4,6,Missed,Miss,Less than 50 yards,3,1.878,-1.122,20
+Player 9,Male,Avalon Lakes Golf Club,Qualifying,15,4,4,Hit,Hit,51-75 yards,2,1.878,-0.122,20
+Player 10,Male,Longue Vue Club,Qualifying,4,5,6,Missed,Hit,126-150 yards,3,1.878,-1.122,20
+Player 10,Male,Longue Vue Club,Qualifying,6,4,4,Hit,Hit,76-100 yards,2,1.878,-0.122,20
+Player 11,Male,Longue Vue Club,Qualifying,10,3,3,Not Applicable (PAR 3),Hit,126-150 yards,2,1.878,-0.122,20
+Player 10,Male,Pittsburgh Field Club,Qualifying,4,3,3,Not Applicable (PAR 3),Hit,126-150 yards,2,1.878,-0.122,20
+Player 11,Male,Longue Vue Club,Qualifying,12,3,5,Not Applicable (PAR 3),Miss,176-200 yards,2,1.878,-0.122,20
+Player 8,Male,PGA National - Champions,Tournament,12,4,4,Missed,Hit,151-175 yards,2,1.878,-0.122,20
+Player 11,Male,Sedgefield Country Club - Dye Course,Tournament,8,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,1.878,-0.122,20
+Player 2,Male,Indiana Country Club,Qualifying,11,5,5,Missed,Hit,101-125 yards,2,1.878,-0.122,20
+Player 10,Male,Longue Vue Club,Qualifying,12,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,1.878,-0.122,20
+Player 9,Male,Longue Vue Club,Qualifying,6,4,4,Hit,Hit,51-75 yards,2,1.878,-0.122,20
+Player 14,Male,PGA National - Champions,Tournament,14,4,4,Hit,Hit,126-150 yards,2,1.878,-0.122,20
+Player 8,Male,Sedgefield Country Club - Dye Course,Tournament,16,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,1.878,-0.122,20
+Player 4,Male,Indiana Country Club,Qualifying,14,4,4,Missed,Hit,126-150 yards,2,1.878,-0.122,20
+Player 10,Male,PGA National - Champions,Tournament,9,4,6,Missed,Miss,176-200 yards,2,1.878,-0.122,20
+Player 10,Male,Longue Vue Club,Qualifying,10,3,3,Not Applicable (PAR 3),Hit,151-175 yards,2,1.878,-0.122,20
+Player 8,Male,Pittsburgh Field Club,Qualifying,1,4,4,Hit,Hit,101-125 yards,2,1.878,-0.122,20
+Player 14,Male,PGA National - Champions,Tournament,12,4,4,Missed,Hit,101-125 yards,2,1.878,-0.122,20
+Player 10,Male,Avalon Lakes Golf Club,Qualifying,11,5,5,Missed,Hit,76-100 yards,2,1.878,-0.122,20
+Player 6,Male,Columbus Country Club,Tournament,13,3,3,Not Applicable (PAR 3),Hit,151-175 yards,2,1.878,-0.122,20
+Player 12,Male,Longue Vue Club,Qualifying,7,4,4,Missed,Miss,51-75 yards,2,1.878,-0.122,20
+Player 13,Male,Nemacolin Resort - Shepards Rock,Qualifying,3,4,4,Hit,Hit,151-175 yards,2,1.878,-0.122,20
+Player 16,Female,Longue Vue Club,Qualifying,4,5,9,Missed,Miss,176-200 yards,2,1.878,-0.122,20
+Player 14,Male,PGA National - Champions,Tournament,8,4,4,Hit,Hit,126-150 yards,2,1.878,-0.122,20
+Player 4,Male,PGA National - Champions,Tournament,5,3,3,Not Applicable (PAR 3),Hit,151-175 yards,2,1.878,-0.122,20
+Player 11,Male,Avalon Lakes Golf Club,Qualifying,1,4,4,Hit,Hit,101-125 yards,2,1.878,-0.122,20
+Player 7,Male,Longue Vue Club,Qualifying,15,5,5,Hit,Hit,126-150 yards,2,1.878,-0.122,20
+Player 1,Male,Longue Vue Club,Qualifying,18,4,5,Missed,Miss,176-200 yards,2,1.878,-0.122,20
+Player 14,Male,PGA National - Champions,Tournament,17,3,2,Not Applicable (PAR 3),Hit,151-175 yards,2,1.878,-0.122,20
+Player 10,Male,PGA National - Champions,Tournament,6,5,6,Hit,Hit,101-125 yards,3,1.878,-1.122,20
+Player 1,Male,Longue Vue Club,Qualifying,17,4,5,Missed,Miss,126-150 yards,2,1.878,-0.122,20
+Player 12,Male,Meadville Country Club,Tournament,18,4,4,Missed,Hit,51-75 yards,2,1.878,-0.122,20
+Player 10,Male,Nemacolin Resort - Shepards Rock,Qualifying,4,5,6,Hit,Hit,101-125 yards,3,1.878,-1.122,20
+Player 11,Male,San Destin Resort - Raven,Tournament,13,4,4,Hit,Hit,151-175 yards,2,1.878,-0.122,20
+Player 4,Male,PGA National - Champions,Tournament,2,4,4,Hit,Hit,151-175 yards,2,1.878,-0.122,20
+Player 13,Male,Indiana Country Club,Qualifying,7,3,3,Not Applicable (PAR 3),Hit,151-175 yards,2,1.878,-0.122,20
+Player 12,Male,San Destin Resort - Raven,Tournament,15,4,5,Missed,Miss,Less than 50 yards,2,1.878,-0.122,20
+Player 21,Female,Indiana Country Club,Qualifying,12,5,5,Missed,Hit,Less than 50 yards,2,1.878,-0.122,20
+Player 11,Male,San Destin Resort - Raven,Tournament,4,3,3,Not Applicable (PAR 3),Miss,126-150 yards,1,1.878,0.878,20
+Player 8,Male,Longue Vue Club,Qualifying,4,5,4,Hit,Hit,225 + yards,2,1.878,-0.122,20
+Player 4,Male,Columbus Country Club,Tournament,13,3,4,Not Applicable (PAR 3),Hit,151-175 yards,3,1.878,-1.122,20
+Player 21,Female,Indiana Country Club,Qualifying,18,5,6,Missed,Miss,126-150 yards,2,1.878,-0.122,20
+Player 10,Male,Indiana Country Club,Qualifying,8,4,5,Hit,Miss,151-175 yards,2,1.878,-0.122,20
+Player 8,Male,PGA National - Champions,Tournament,7,3,3,Not Applicable (PAR 3),Hit,151-175 yards,2,1.878,-0.122,20
+Player 21,Female,PGA National - Palmer,Tournament,13,3,3,Not Applicable (PAR 3),Hit,101-125 yards,2,1.878,-0.122,20
+Player 8,Male,Longue Vue Club,Qualifying,10,3,3,Not Applicable (PAR 3),Hit,126-150 yards,2,1.878,-0.122,20
+Player 10,Male,PGA National - Champions,Tournament,2,4,4,Hit,Hit,126-150 yards,2,1.878,-0.122,20
+Player 4,Male,Indiana Country Club,Qualifying,11,5,4,Hit,Hit,225 + yards,2,1.878,-0.122,20
+Player 8,Male,Pittsburgh Field Club,Qualifying,13,4,4,Missed,Hit,Less than 50 yards,2,1.878,-0.122,20
+Player 1,Male,Longue Vue Club,Qualifying,6,4,4,Missed,Hit,101-125 yards,2,1.878,-0.122,20
+Player 16,Female,Avalon Lakes Golf Club,Qualifying,14,5,5,Hit,Hit,101-125 yards,2,1.878,-0.122,20
+Player 7,Male,Longue Vue Club,Qualifying,9,4,4,Hit,Hit,176-200 yards,2,1.878,-0.122,20
+Player 20,Female,Meadville Country Club,Tournament,6,3,5,Not Applicable (PAR 3),Miss,151-175 yards,3,1.878,-1.122,20
+Player 10,Male,PGA National - Champions,Tournament,16,4,6,Missed,Miss,201-225 yards,2,1.878,-0.122,20
+Player 6,Male,San Destin Resort - Raven,Tournament,6,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,1.878,-0.122,20
+Player 4,Male,PGA National - Champions,Tournament,17,3,3,Not Applicable (PAR 3),Hit,151-175 yards,2,1.878,-0.122,20
+Player 12,Male,Longue Vue Club,Qualifying,16,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,1.878,-0.122,20
+Player 3,Male,San Destin Resort - Raven,Tournament,9,4,5,Hit,Hit,151-175 yards,3,1.878,-1.122,20
+Player 10,Male,Longue Vue Club,Qualifying,14,4,5,Hit,Hit,126-150 yards,3,1.878,-1.122,20
+Player 14,Male,Longue Vue Club,Qualifying,12,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,1.878,-0.122,20
+Player 13,Male,Avalon Lakes Golf Club,Qualifying,17,4,4,Hit,Hit,126-150 yards,2,1.878,-0.122,20
+Player 2,Male,Longue Vue Club,Qualifying,8,5,6,Hit,Hit,51-75 yards,3,1.878,-1.122,20
+Player 4,Male,Sedgefield Country Club - Dye Course,Tournament,12,3,3,Not Applicable (PAR 3),Hit,126-150 yards,2,1.878,-0.122,20
+Player 6,Male,Longue Vue Club,Qualifying,5,3,4,Not Applicable (PAR 3),Miss,176-200 yards,2,1.878,-0.122,20
+Player 11,Male,Longue Vue Club,Qualifying,6,4,5,Hit,Hit,101-125 yards,3,1.878,-1.122,20
+Player 6,Male,Longue Vue Club,Qualifying,14,4,5,Missed,Hit,126-150 yards,3,1.878,-1.122,20
+Player 10,Male,Longue Vue Club,Qualifying,17,4,6,Missed,Miss,176-200 yards,2,1.878,-0.122,20
+Player 10,Male,PGA National - Champions,Tournament,5,3,3,Not Applicable (PAR 3),Hit,151-175 yards,2,1.878,-0.122,20
+Player 1,Male,Longue Vue Club,Qualifying,18,4,5,Missed,Miss,176-200 yards,2,1.878,-0.122,20
+Player 8,Male,Sedgefield Country Club - Dye Course,Tournament,8,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,1.878,-0.122,20
+Player 10,Male,Indiana Country Club,Qualifying,14,4,4,Hit,Hit,126-150 yards,2,1.878,-0.122,20
+Player 6,Male,Nemacolin Resort - Shepards Rock,Qualifying,18,4,4,Hit,Hit,126-150 yards,2,1.878,-0.122,20
+Player 2,Male,Longue Vue Club,Qualifying,15,5,5,Missed,Hit,151-175 yards,2,1.878,-0.122,20
+Player 10,Male,PGA National - Champions,Tournament,13,4,4,Missed,Hit,101-125 yards,2,1.878,-0.122,20
+Player 8,Male,PGA National - Champions,Tournament,9,4,6,Missed,Miss,101-125 yards,2,1.878,-0.122,20
+Player 14,Male,PGA National - Champions,Tournament,18,5,7,Hit,Miss,176-200 yards,2,1.878,-0.122,20
+Player 15,Female,Nemacolin Resort - Shepards Rock,Qualifying,3,4,5,Hit,Miss,101-125 yards,3,1.878,-1.122,20
+Player 10,Male,PGA National - Champions,Tournament,14,4,4,Hit,Hit,151-175 yards,2,1.878,-0.122,20
+Player 10,Male,PGA National - Champions,Tournament,3,5,6,Missed,Miss,151-175 yards,2,1.878,-0.122,20
+Player 4,Male,Longue Vue Club,Qualifying,12,3,4,Not Applicable (PAR 3),Miss,176-200 yards,2,1.878,-0.122,20
+Player 8,Male,Longue Vue Club,Qualifying,15,5,5,Not Applicable (PAR 3),Hit,101-125 yards,2,1.878,-0.122,20
+Player 21,Female,PGA National - Palmer,Tournament,9,4,4,Hit,Hit,151-175 yards,2,1.878,-0.122,20
+Player 10,Male,Longue Vue Club,Qualifying,8,5,6,Missed,Miss,Less than 50 yards,2,1.878,-0.122,20
+Player 21,Female,PGA National - Palmer,Tournament,16,4,4,Hit,Hit,151-175 yards,2,1.878,-0.122,20
+Player 10,Male,Longue Vue Club,Qualifying,1,4,5,Missed,Miss,126-150 yards,2,1.878,-0.122,20
+Player 18,Female,Longue Vue Club,Qualifying,17,4,5,Missed,Miss,151-175 yards,2,1.878,-0.122,20
+Player 2,Male,Avalon Lakes Golf Club,Qualifying,10,4,6,Missed,Miss,101-125 yards,3,1.878,-1.122,20
+Player 12,Male,San Destin Resort - Raven,Tournament,3,5,5,Hit,Hit,101-125 yards,2,1.878,-0.122,20
+Player 6,Male,Columbus Country Club,Tournament,12,4,4,Hit,Hit,101-125 yards,2,1.878,-0.122,20
+Player 6,Male,Longue Vue Club,Qualifying,11,4,4,Missed,Hit,101-125 yards,2,1.878,-0.122,20
+Player 14,Male,PGA National - Champions,Tournament,6,5,5,Hit,Hit,126-150 yards,2,1.878,-0.122,20
+Player 9,Male,Avalon Lakes Golf Club,Qualifying,3,5,4,Hit,Hit,201-225 yards,1,1.878,0.878,20
+Player 6,Male,Columbus Country Club,Tournament,15,5,6,Missed,Miss,225 + yards,2,1.878,-0.122,20
+Player 12,Male,San Destin Resort - Raven,Tournament,9,4,5,Missed,Miss,76-100 yards,2,1.878,-0.122,20
+Player 1,Male,Longue Vue Club,Qualifying,16,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,1.878,-0.122,20
+Player 12,Male,Meadville Country Club,Tournament,4,4,4,Hit,Hit,101-125 yards,2,1.878,-0.122,20
+Player 16,Female,Meadville Country Club,Tournament,4,4,4,Hit,Hit,Less than 50 yards,2,1.891,-0.109,21
+Player 16,Female,Indiana Country Club,Qualifying,1,5,6,Hit,Hit,Less than 50 yards,3,1.891,-1.109,21
+Player 11,Male,Longue Vue Club,Qualifying,6,4,5,Missed,Miss,225 + yards,2,1.891,-0.109,21
+Player 21,Female,PGA National - Palmer,Tournament,3,4,4,Missed,Hit,151-175 yards,2,1.891,-0.109,21
+Player 11,Male,Meadville Country Club,Tournament,17,3,3,Not Applicable (PAR 3),Hit,201-225 yards,2,1.891,-0.109,21
+Player 3,Male,Columbus Country Club,Tournament,3,4,4,Hit,Hit,101-125 yards,2,1.891,-0.109,21
+Player 11,Male,San Destin Resort - Raven,Tournament,1,4,4,Hit,Hit,101-125 yards,2,1.891,-0.109,21
+Player 3,Male,Columbus Country Club,Tournament,15,5,5,Hit,Miss,Less than 50 yards,1,1.891,0.891,21
+Player 3,Male,Wigwam Gold Course,Tournament,10,5,6,Missed,Miss,126-150 yards,2,1.891,-0.109,21
+Player 11,Male,Meadville Country Club,Tournament,18,4,4,Missed,Hit,76-100 yards,2,1.891,-0.109,21
+Player 11,Male,Meadville Country Club,Tournament,3,5,5,Hit,Hit,51-75 yards,2,1.891,-0.109,21
+Player 16,Female,Longue Vue Club,Qualifying,16,3,2,Not Applicable (PAR 3),Hit,101-125 yards,1,1.891,0.891,21
+Player 16,Female,Meadville Country Club,Tournament,3,5,5,Hit,Hit,Less than 50 yards,2,1.903,-0.097,22
+Player 8,Male,Longue Vue Club,Qualifying,6,4,5,Hit,Hit,126-150 yards,3,1.903,-1.097,22
+Player 16,Female,Longue Vue Club,Qualifying,13,4,4,Missed,Hit,101-125 yards,2,1.903,-0.097,22
+Player 4,Male,Columbus Country Club,Tournament,7,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,1.903,-0.097,22
+Player 6,Male,San Destin Resort - Raven,Tournament,13,4,4,Hit,Hit,126-150 yards,2,1.914,-0.086,23
+Player 11,Male,Columbus Country Club,Tournament,13,3,3,Not Applicable (PAR 3),Hit,126-150 yards,2,1.914,-0.086,23
+Player 3,Male,PGA National - Champions,Tournament,18,5,6,Missed,Miss,201-225 yards,2,1.914,-0.086,23
+Player 3,Male,Wigwam Gold Course,Tournament,9,4,3,Hit,Hit,126-150 yards,1,1.914,0.914,23
+Player 8,Male,Sedgefield Country Club - Dye Course,Tournament,13,4,4,Hit,Hit,126-150 yards,2,1.914,-0.086,23
+Player 7,Male,Avalon Lakes Golf Club,Qualifying,14,5,6,Missed,Miss,Less than 50 yards,2,1.914,-0.086,23
+Player 16,Female,Nemacolin Resort - Shepards Rock,Qualifying,2,4,7,Hit,Miss,Less than 50 yards,4,1.924,-2.076,24
+Player 11,Male,Sedgefield Country Club - Dye Course,Tournament,2,3,3,Not Applicable (PAR 3),Hit,151-175 yards,2,1.924,-0.076,24
+Player 3,Male,Avalon Lakes Golf Club,Qualifying,4,3,3,Not Applicable (PAR 3),Hit,151-175 yards,2,1.924,-0.076,24
+Player 16,Female,Nemacolin Resort - Shepards Rock,Qualifying,5,3,4,Not Applicable (PAR 3),Hit,176-200 yards,2,1.924,-0.076,24
+Player 13,Male,Longue Vue Club,Qualifying,2,4,4,Hit,Hit,Less than 50 yards,2,1.924,-0.076,24
+Player 11,Male,San Destin Resort - Raven,Tournament,13,4,4,Hit,Hit,176-200 yards,2,1.934,-0.066,25
+Player 12,Male,Meadville Country Club,Tournament,7,4,4,Missed,Hit,126-150 yards,2,1.934,-0.066,25
+Player 6,Male,Longue Vue Club,Qualifying,1,4,4,Missed,Hit,151-175 yards,2,1.934,-0.066,25
+Player 3,Male,Indiana Country Club,Qualifying,15,3,3,Not Applicable (PAR 3),Hit,201-225 yards,2,1.934,-0.066,25
+Player 8,Male,Indiana Country Club,Qualifying,8,4,4,Hit,Hit,101-125 yards,2,1.934,-0.066,25
+Player 5,Male,Avalon Lakes Golf Club,Qualifying,16,3,3,Not Applicable (PAR 3),Hit,201-225 yards,2,1.934,-0.066,25
+Player 6,Male,Pittsburgh Field Club,Qualifying,7,4,4,Missed,Hit,151-175 yards,2,1.934,-0.066,25
+Player 12,Male,Longue Vue Club,Qualifying,4,5,5,Missed,Miss,201-225 yards,2,1.934,-0.066,25
+Player 11,Male,Columbus Country Club,Tournament,1,4,4,Hit,Hit,126-150 yards,2,1.934,-0.066,25
+Player 8,Male,Sedgefield Country Club - Dye Course,Tournament,1,4,5,Hit,Hit,126-150 yards,3,1.934,-1.066,25
+Player 10,Male,Longue Vue Club,Qualifying,5,3,4,Not Applicable (PAR 3),Hit,151-175 yards,3,1.934,-1.066,25
+Player 14,Male,PGA National - Champions,Tournament,3,5,6,Missed,Miss,201-225 yards,2,1.934,-0.066,25
+Player 3,Male,Wigwam Gold Course,Tournament,6,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,1.934,-0.066,25
+Player 2,Male,Longue Vue Club,Qualifying,12,3,4,Not Applicable (PAR 3),Hit,176-200 yards,3,1.934,-1.066,25
+Player 4,Male,Sedgefield Country Club - Dye Course,Tournament,11,4,4,Hit,Hit,51-75 yards,2,1.934,-0.066,25
+Player 6,Male,Longue Vue Club,Qualifying,2,4,4,Missed,Hit,51-75 yards,2,1.934,-0.066,25
+Player 16,Female,Indiana Country Club,Qualifying,16,4,4,Hit,Hit,101-125 yards,2,1.934,-0.066,25
+Player 15,Female,Avalon Lakes Golf Club,Qualifying,6,5,6,Missed,Miss,76-100 yards,3,1.934,-1.066,25
+Player 2,Male,Nemacolin Resort - Shepards Rock,Qualifying,13,5,4,Hit,Hit,225 + yards,2,1.934,-0.066,25
+Player 6,Male,Avalon Lakes Golf Club,Qualifying,16,3,3,Not Applicable (PAR 3),Hit,201-225 yards,2,1.934,-0.066,25
+Player 9,Male,Longue Vue Club,Qualifying,15,5,9,Missed,Miss,76-100 yards,2,1.934,-0.066,25
+Player 12,Male,Longue Vue Club,Qualifying,13,4,5,Hit,Hit,76-100 yards,3,1.934,-1.066,25
+Player 2,Male,Longue Vue Club,Qualifying,6,4,5,Hit,Hit,101-125 yards,3,1.934,-1.066,25
+Player 6,Male,Longue Vue Club,Qualifying,18,4,4,Missed,Hit,151-175 yards,2,1.934,-0.066,25
+Player 3,Male,Columbus Country Club,Tournament,2,4,4,Hit,Hit,151-175 yards,2,1.934,-0.066,25
+Player 13,Male,Longue Vue Club,Qualifying,8,5,7,Missed,Miss,51-75 yards,3,1.934,-1.066,25
+Player 4,Male,Indiana Country Club,Qualifying,2,4,4,Hit,Hit,126-150 yards,2,1.934,-0.066,25
+Player 4,Male,Sedgefield Country Club - Dye Course,Tournament,8,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,1.934,-0.066,25
+Player 13,Male,Longue Vue Club,Qualifying,16,3,4,Not Applicable (PAR 3),Miss,176-200 yards,2,1.934,-0.066,25
+Player 8,Male,Sedgefield Country Club - Dye Course,Tournament,11,4,4,Hit,Hit,51-75 yards,2,1.934,-0.066,25
+Player 6,Male,Pittsburgh Field Club,Qualifying,10,4,4,Missed,Hit,76-100 yards,2,1.934,-0.066,25
+Player 14,Male,Longue Vue Club,Qualifying,18,4,5,Hit,Miss,201-225 yards,2,1.934,-0.066,25
+Player 2,Male,Nemacolin Resort - Shepards Rock,Qualifying,4,5,8,Missed,Miss,126-150 yards,2,1.934,-0.066,25
+Player 6,Male,Longue Vue Club,Qualifying,12,3,4,Not Applicable (PAR 3),Miss,201-225 yards,2,1.934,-0.066,25
+Player 12,Male,Indiana Country Club,Qualifying,6,4,4,Missed,Hit,101-125 yards,2,1.934,-0.066,25
+Player 2,Male,Longue Vue Club,Qualifying,12,3,3,Not Applicable (PAR 3),Hit,201-225 yards,2,1.934,-0.066,25
+Player 21,Female,PGA National - Palmer,Tournament,7,4,4,Hit,Hit,151-175 yards,2,1.934,-0.066,25
+Player 8,Male,PGA National - Champions,Tournament,5,3,3,Not Applicable (PAR 3),Hit,126-150 yards,2,1.934,-0.066,25
+Player 10,Male,PGA National - Champions,Tournament,15,3,3,Not Applicable (PAR 3),Hit,151-175 yards,2,1.934,-0.066,25
+Player 14,Male,Longue Vue Club,Qualifying,9,4,4,Hit,Hit,126-150 yards,2,1.934,-0.066,25
+Player 12,Male,Longue Vue Club,Qualifying,15,5,5,Hit,Hit,51-75 yards,2,1.934,-0.066,25
+Player 6,Male,Columbus Country Club,Tournament,8,5,4,Missed,Hit,201-225 yards,2,1.934,-0.066,25
+Player 9,Male,Longue Vue Club,Qualifying,18,4,4,Hit,Hit,176-200 yards,2,1.934,-0.066,25
+Player 5,Male,Longue Vue Club,Qualifying,8,5,5,Hit,Hit,Less than 50 yards,2,1.934,-0.066,25
+Player 14,Male,Indiana Country Club,Qualifying,13,4,4,Hit,Hit,126-150 yards,2,1.934,-0.066,25
+Player 8,Male,Sedgefield Country Club - Dye Course,Tournament,7,4,4,Missed,Hit,151-175 yards,2,1.934,-0.066,25
+Player 16,Female,Meadville Country Club,Tournament,7,4,5,Hit,Miss,101-125 yards,2,1.934,-0.066,25
+Player 8,Male,PGA National - Champions,Tournament,17,3,3,Not Applicable (PAR 3),Hit,101-125 yards,2,1.934,-0.066,25
+Player 8,Male,Longue Vue Club,Qualifying,5,3,4,Not Applicable (PAR 3),Miss,176-200 yards,2,1.934,-0.066,25
+Player 4,Male,Sedgefield Country Club - Dye Course,Tournament,14,4,4,Hit,Hit,151-175 yards,2,1.934,-0.066,25
+Player 13,Male,Avalon Lakes Golf Club,Qualifying,11,5,9,Missed,Miss,101-125 yards,2,1.934,-0.066,25
+Player 8,Male,PGA National - Champions,Tournament,13,4,4,Hit,Hit,76-100 yards,2,1.934,-0.066,25
+Player 13,Male,Longue Vue Club,Qualifying,5,3,3,Not Applicable (PAR 3),Miss,151-175 yards,1,1.934,0.934,25
+Player 4,Male,Nemacolin Resort - Shepards Rock,Qualifying,1,5,5,Hit,Hit,101-125 yards,2,1.934,-0.066,25
+Player 6,Male,Avalon Lakes Golf Club,Qualifying,4,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,1.934,-0.066,25
+Player 11,Male,Longue Vue Club,Qualifying,12,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,1.934,-0.066,25
+Player 8,Male,PGA National - Champions,Tournament,1,4,3,Hit,Hit,151-175 yards,1,1.934,0.934,25
+Player 14,Male,Longue Vue Club,Qualifying,6,4,4,Hit,Hit,126-150 yards,2,1.934,-0.066,25
+Player 2,Male,Longue Vue Club,Qualifying,3,3,3,Not Applicable (PAR 3),Hit,201-225 yards,2,1.934,-0.066,25
+Player 8,Male,PGA National - Champions,Tournament,16,4,4,Hit,Hit,176-200 yards,2,1.934,-0.066,25
+Player 4,Male,San Destin Resort - Raven,Tournament,5,4,4,Hit,Hit,101-125 yards,2,1.934,-0.066,25
+Player 10,Male,Longue Vue Club,Qualifying,3,3,5,Not Applicable (PAR 3),Miss,176-200 yards,3,1.934,-1.066,25
+Player 11,Male,Longue Vue Club,Qualifying,7,4,4,Hit,Hit,76-100 yards,2,1.934,-0.066,25
+Player 8,Male,Longue Vue Club,Qualifying,2,4,4,Missed,Hit,76-100 yards,2,1.944,-0.056,26
+Player 20,Female,Meadville Country Club,Tournament,11,4,4,Missed,Hit,151-175 yards,2,1.953,-0.047,27
+Player 7,Male,Avalon Lakes Golf Club,Qualifying,17,4,4,Hit,Hit,101-125 yards,2,1.953,-0.047,27
+Player 3,Male,Longue Vue Club,Qualifying,11,4,5,Missed,Hit,126-150 yards,3,1.953,-1.047,27
+Player 16,Female,Meadville Country Club,Tournament,10,4,6,Hit,Miss,51-75 yards,3,1.953,-1.047,27
+Player 8,Male,Longue Vue Club,Competitive,4,5,4,Hit,Hit,201-225 yards,2,1.953,-0.047,27
+Player 5,Male,Longue Vue Club,Qualifying,8,5,5,Hit,Hit,Less than 50 yards,2,1.961,-0.039,28
+Player 10,Male,Nemacolin Resort - Shepards Rock,Qualifying,1,5,5,Hit,Hit,101-125 yards,2,1.961,-0.039,28
+Player 11,Male,Pittsburgh Field Club,Qualifying,8,4,6,Missed,Miss,151-175 yards,2,1.961,-0.039,28
+Player 3,Male,Wigwam Gold Course,Tournament,17,4,4,Hit,Hit,76-100 yards,2,1.961,-0.039,28
+Player 11,Male,Longue Vue Club,Qualifying,1,4,5,Hit,Hit,126-150 yards,3,1.961,-1.039,28
+Player 11,Male,Pittsburgh Field Club,Qualifying,5,5,4,Hit,Hit,176-200 yards,2,1.961,-0.039,28
+Player 3,Male,Longue Vue Club,Qualifying,1,4,6,Hit,Miss,101-125 yards,2,1.961,-0.039,28
+Player 7,Male,Longue Vue Club,Qualifying,12,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,1.97,-0.03,29
+Player 14,Male,PGA National - Champions,Tournament,11,4,4,Hit,Hit,151-175 yards,2,1.97,-0.03,29
+Player 4,Male,Nemacolin Resort - Shepards Rock,Qualifying,4,5,6,Missed,Miss,76-100 yards,2,1.978,-0.022,30
+Player 6,Male,Longue Vue Club,Qualifying,9,4,6,Missed,Miss,126-150 yards,3,1.978,-1.022,30
+Player 18,Female,Longue Vue Club,Qualifying,14,4,4,Hit,Hit,126-150 yards,2,1.978,-0.022,30
+Player 11,Male,Longue Vue Club,Qualifying,16,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,1.978,-0.022,30
+Player 14,Male,Indiana Country Club,Qualifying,4,4,4,Missed,Hit,126-150 yards,2,1.978,-0.022,30
+Player 11,Male,Columbus Country Club,Tournament,7,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,1.978,-0.022,30
+Player 6,Male,Columbus Country Club,Tournament,3,4,5,Missed,Hit,126-150 yards,3,1.978,-1.022,30
+Player 11,Male,San Destin Resort - Raven,Tournament,2,4,4,Hit,Hit,201-225 yards,2,1.978,-0.022,30
+Player 10,Male,Indiana Country Club,Qualifying,11,5,5,Missed,Hit,76-100 yards,2,1.978,-0.022,30
+Player 16,Female,Nemacolin Resort - Shepards Rock,Qualifying,1,5,5,Hit,Hit,76-100 yards,2,1.978,-0.022,30
+Player 21,Female,Indiana Country Club,Qualifying,3,3,4,Not Applicable (PAR 3),Miss,151-175 yards,2,1.978,-0.022,30
+Player 8,Male,Longue Vue Club,Qualifying,11,4,4,Missed,Hit,176-200 yards,2,1.978,-0.022,30
+Player 3,Male,Longue Vue Club,Qualifying,5,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,1.978,-0.022,30
+Player 10,Male,PGA National - Champions,Tournament,11,4,4,Hit,Hit,176-200 yards,2,1.978,-0.022,30
+Player 11,Male,San Destin Resort - Raven,Tournament,14,4,4,Hit,Hit,126-150 yards,2,1.978,-0.022,30
+Player 7,Male,Longue Vue Club,Qualifying,18,4,12,Missed,Miss,126-150 yards,2,1.978,-0.022,30
+Player 12,Male,Avalon Lakes Golf Club,Qualifying,15,4,4,Hit,Hit,76-100 yards,2,1.978,-0.022,30
+Player 2,Male,Longue Vue Club,Qualifying,3,3,5,Not Applicable (PAR 3),Miss,201-225 yards,2,1.978,-0.022,30
+Player 6,Male,San Destin Resort - Raven,Tournament,12,3,2,Not Applicable (PAR 3),Hit,101-125 yards,1,1.978,0.978,30
+Player 13,Male,Nemacolin Resort - Shepards Rock,Qualifying,12,3,4,Not Applicable (PAR 3),Hit,126-150 yards,3,1.978,-1.022,30
+Player 1,Male,Longue Vue Club,Qualifying,4,5,3,Hit,Hit,151-175 yards,1,1.978,0.978,30
+Player 16,Female,Avalon Lakes Golf Club,Qualifying,8,3,2,Not Applicable (PAR 3),Hit,126-150 yards,1,1.978,0.978,30
+Player 20,Female,Meadville Country Club,Tournament,18,4,4,Hit,Miss,51-75 yards,2,1.978,-0.022,30
+Player 6,Male,Longue Vue Club,Qualifying,17,4,5,Missed,Hit,151-175 yards,3,1.978,-1.022,30
+Player 6,Male,Pittsburgh Field Club,Qualifying,1,4,5,Missed,Miss,126-150 yards,2,1.978,-0.022,30
+Player 11,Male,Longue Vue Club,Qualifying,9,4,5,Missed,Miss,76-100 yards,2,1.978,-0.022,30
+Player 11,Male,Longue Vue Club,Qualifying,3,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,1.978,-0.022,30
+Player 16,Female,Avalon Lakes Golf Club,Qualifying,11,5,5,Hit,Hit,126-150 yards,2,1.978,-0.022,30
+Player 4,Male,PGA National - Champions,Tournament,14,4,5,Missed,Miss,201-225 yards,2,1.978,-0.022,30
+Player 12,Male,Longue Vue Club,Qualifying,18,4,4,Missed,Hit,176-200 yards,2,1.978,-0.022,30
+Player 12,Male,Nemacolin Resort - Shepards Rock,Qualifying,6,4,5,Hit,Miss,126-150 yards,2,1.978,-0.022,30
+Player 1,Male,Longue Vue Club,Qualifying,12,3,4,Not Applicable (PAR 3),Miss,176-200 yards,2,1.978,-0.022,30
+Player 12,Male,Avalon Lakes Golf Club,Qualifying,18,4,5,Missed,Miss,76-100 yards,2,1.978,-0.022,30
+Player 11,Male,Sedgefield Country Club - Dye Course,Tournament,17,4,4,Hit,Hit,126-150 yards,2,1.978,-0.022,30
+Player 6,Male,Longue Vue Club,Qualifying,11,4,5,Missed,Hit,151-175 yards,3,1.978,-1.022,30
+Player 8,Male,Longue Vue Club,Qualifying,5,3,3,Not Applicable (PAR 3),Hit,151-175 yards,2,1.978,-0.022,30
+Player 1,Male,Longue Vue Club,Qualifying,12,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,1.978,-0.022,30
+Player 7,Male,Avalon Lakes Golf Club,Qualifying,8,3,4,Not Applicable (PAR 3),Hit,126-150 yards,2,1.978,-0.022,30
+Player 8,Male,Longue Vue Club,Competitive,13,4,5,Missed,Miss,76-100 yards,2,1.978,-0.022,30
+Player 21,Female,PGA National - Palmer,Tournament,12,5,5,Hit,Hit,76-100 yards,2,1.978,-0.022,30
+Player 1,Male,Avalon Lakes Golf Club,Qualifying,12,3,3,Not Applicable (PAR 3),Miss,176-200 yards,1,1.978,0.978,30
+Player 12,Male,Indiana Country Club,Qualifying,15,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,1.978,-0.022,30
+Player 2,Male,Indiana Country Club,Qualifying,8,4,4,Hit,Hit,126-150 yards,2,1.978,-0.022,30
+Player 16,Female,Longue Vue Club,Qualifying,10,3,3,Not Applicable (PAR 3),Hit,126-150 yards,2,1.978,-0.022,30
+Player 1,Male,Longue Vue Club,Qualifying,6,4,4,Hit,Hit,101-125 yards,2,1.978,-0.022,30
+Player 21,Female,Indiana Country Club,Qualifying,6,4,4,Hit,Hit,151-175 yards,2,1.978,-0.022,30
+Player 6,Male,Columbus Country Club,Tournament,7,3,4,Not Applicable (PAR 3),Hit,151-175 yards,3,1.978,-1.022,30
+Player 4,Male,Columbus Country Club,Tournament,18,5,5,Missed,Hit,201-225 yards,2,1.978,-0.022,30
+Player 8,Male,Avalon Lakes Golf Club,Qualifying,4,3,3,Not Applicable (PAR 3),Hit,151-175 yards,2,1.978,-0.022,30
+Player 12,Male,San Destin Resort - Raven,Tournament,8,3,5,Missed,Miss,151-175 yards,3,1.978,-1.022,30
+Player 10,Male,Longue Vue Club,Qualifying,1,4,5,Hit,Miss,151-175 yards,2,1.978,-0.022,30
+Player 4,Male,PGA National - Champions,Tournament,11,4,4,Hit,Hit,176-200 yards,2,1.978,-0.022,30
+Player 8,Male,Sedgefield Country Club - Dye Course,Tournament,2,3,3,Not Applicable (PAR 3),Hit,151-175 yards,2,1.978,-0.022,30
+Player 14,Male,Indiana Country Club,Qualifying,10,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,1.978,-0.022,30
+Player 16,Female,Avalon Lakes Golf Club,Qualifying,17,4,4,Hit,Hit,76-100 yards,2,1.978,-0.022,30
+Player 21,Female,San Destin Resort - Baytowne,Tournament,10,4,6,Hit,Miss,201-225 yards,3,1.978,-1.022,30
+Player 14,Male,PGA National - Champions,Tournament,2,4,4,Hit,Hit,126-150 yards,2,1.978,-0.022,30
+Player 8,Male,PGA National - Champions,Tournament,11,4,5,Missed,Miss,201-225 yards,2,1.978,-0.022,30
+Player 14,Male,Longue Vue Club,Qualifying,15,5,5,Hit,Hit,101-125 yards,2,1.978,-0.022,30
+Player 11,Male,Longue Vue Club,Qualifying,18,4,4,Missed,Hit,151-175 yards,2,1.978,-0.022,30
+Player 4,Male,Longue Vue Club,Qualifying,9,4,4,Missed,Hit,151-175 yards,2,1.978,-0.022,30
+Player 11,Male,Avalon Lakes Golf Club,Qualifying,10,4,5,Hit,Hit,101-125 yards,3,1.994,-1.006,32
+Player 8,Male,Longue Vue Club,Competitive,16,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,1.994,-0.006,32
+Player 3,Male,Pinnacle Golf Club,Qualifying,5,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,1.994,-0.006,32
+Player 21,Female,PGA National - Palmer,Tournament,18,5,6,Hit,Hit,151-175 yards,3,2.001,-0.999,33
+Player 3,Male,PGA National - Champions,Tournament,13,4,3,Missed,Hit,101-125 yards,1,2.001,1.001,33
+Player 3,Male,PGA National - Champions,Tournament,10,5,4,Hit,Hit,151-175 yards,2,2.001,1.00E-03,33
+Player 20,Female,Indiana Country Club,Qualifying,2,4,4,Hit,Hit,176-200 yards,2,2.001,1.00E-03,33
+Player 11,Male,Meadville Country Club,Tournament,8,3,4,Not Applicable (PAR 3),Hit,201-225 yards,3,2.001,-0.999,33
+Player 16,Female,Meadville Country Club,Tournament,9,5,5,Hit,Miss,Less than 50 yards,2,2.001,1.00E-03,33
+Player 16,Female,Nemacolin Resort - Shepards Rock,Qualifying,7,4,4,Hit,Hit,126-150 yards,2,2.001,1.00E-03,33
+Player 7,Male,Avalon Lakes Golf Club,Qualifying,11,5,4,Hit,Hit,225 + yards,2,2.009,0.009,34
+Player 8,Male,Avalon Lakes Golf Club,Qualifying,7,4,4,Missed,Hit,176-200 yards,2,2.016,0.016,35
+Player 1,Male,Nemacolin Resort - Shepards Rock,Qualifying,17,4,5,Hit,Hit,101-125 yards,3,2.016,-0.984,35
+Player 3,Male,Longue Vue Club,Qualifying,17,4,4,Hit,Hit,126-150 yards,2,2.016,0.016,35
+Player 11,Male,Meadville Country Club,Tournament,2,4,4,Hit,Hit,101-125 yards,2,2.016,0.016,35
+Player 5,Male,Longue Vue Club,Qualifying,2,4,6,Missed,Miss,Less than 50 yards,2,2.016,0.016,35
+Player 6,Male,San Destin Resort - Raven,Tournament,3,5,5,Hit,Hit,51-75 yards,2,2.016,0.016,35
+Player 11,Male,Columbus Country Club,Tournament,7,3,4,Not Applicable (PAR 3),Hit,151-175 yards,3,2.016,-0.984,35
+Player 8,Male,Longue Vue Club,Qualifying,10,3,3,Not Applicable (PAR 3),Hit,126-150 yards,2,2.016,0.016,35
+Player 6,Male,Longue Vue Club,Qualifying,6,4,4,Missed,Hit,126-150 yards,2,2.016,0.016,35
+Player 1,Male,Longue Vue Club,Qualifying,8,5,5,Missed,Hit,Less than 50 yards,2,2.016,0.016,35
+Player 11,Male,Sedgefield Country Club - Dye Course,Tournament,7,4,4,Hit,Hit,151-175 yards,2,2.016,0.016,35
+Player 12,Male,Meadville Country Club,Tournament,6,3,3,Not Applicable (PAR 3),Hit,151-175 yards,2,2.016,0.016,35
+Player 8,Male,Longue Vue Club,Qualifying,7,4,4,Missed,Hit,225 + yards,2,2.016,0.016,35
+Player 1,Male,Longue Vue Club,Qualifying,10,3,4,Not Applicable (PAR 3),Hit,126-150 yards,3,2.016,-0.984,35
+Player 2,Male,Indiana Country Club,Qualifying,2,4,4,Missed,Hit,151-175 yards,2,2.016,0.016,35
+Player 6,Male,Avalon Lakes Golf Club,Qualifying,13,4,4,Hit,Hit,126-150 yards,2,2.016,0.016,35
+Player 11,Male,San Destin Resort - Raven,Tournament,16,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,2.016,0.016,35
+Player 15,Female,Nemacolin Resort - Shepards Rock,Qualifying,4,5,8,Hit,Hit,76-100 yards,5,2.016,-2.984,35
+Player 11,Male,Columbus Country Club,Tournament,11,4,4,Missed,Hit,126-150 yards,2,2.016,0.016,35
+Player 11,Male,Columbus Country Club,Tournament,14,4,4,Hit,Hit,101-125 yards,2,2.016,0.016,35
+Player 9,Male,Meadville Country Club,Tournament,6,3,3,Not Applicable (PAR 3),Hit,151-175 yards,2,2.016,0.016,35
+Player 1,Male,Avalon Lakes Golf Club,Qualifying,15,4,3,Hit,Hit,51-75 yards,1,2.016,1.016,35
+Player 1,Male,Longue Vue Club,Qualifying,16,3,4,Not Applicable (PAR 3),Hit,201-225 yards,3,2.016,-0.984,35
+Player 11,Male,Longue Vue Club,Qualifying,13,4,4,Missed,Hit,126-150 yards,2,2.016,0.016,35
+Player 8,Male,Longue Vue Club,Qualifying,2,4,5,Missed,Hit,76-100 yards,3,2.016,-0.984,35
+Player 6,Male,San Destin Resort - Raven,Tournament,4,3,3,Not Applicable (PAR 3),Hit,126-150 yards,2,2.016,0.016,35
+Player 9,Male,Longue Vue Club,Qualifying,3,3,5,Not Applicable (PAR 3),Miss,201-225 yards,3,2.016,-0.984,35
+Player 2,Male,Longue Vue Club,Qualifying,18,4,4,Hit,Hit,151-175 yards,2,2.016,0.016,35
+Player 6,Male,Columbus Country Club,Tournament,5,4,6,Missed,Miss,225 + yards,3,2.016,-0.984,35
+Player 8,Male,Longue Vue Club,Qualifying,1,4,4,Hit,Hit,126-150 yards,2,2.016,0.016,35
+Player 15,Female,Indiana Country Club,Qualifying,18,5,6,Hit,Hit,76-100 yards,3,2.016,-0.984,35
+Player 12,Male,Longue Vue Club,Qualifying,3,3,4,Not Applicable (PAR 3),Hit,201-225 yards,3,2.016,-0.984,35
+Player 20,Female,Meadville Country Club,Tournament,5,4,5,Missed,Miss,76-100 yards,2,2.024,0.024,36
+Player 8,Male,Longue Vue Club,Qualifying,3,3,4,Not Applicable (PAR 3),Hit,176-200 yards,3,2.024,-0.976,36
+Player 16,Female,Nemacolin Resort - Shepards Rock,Qualifying,10,4,5,Hit,Hit,126-150 yards,3,2.024,-0.976,36
+Player 11,Male,Meadville Country Club,Tournament,15,4,4,Hit,Hit,51-75 yards,2,2.039,0.039,38
+Player 11,Male,Longue Vue Club,Qualifying,3,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,2.039,0.039,38
+Player 3,Male,Wigwam Gold Course,Tournament,18,4,4,Missed,Hit,126-150 yards,2,2.055,0.055,40
+Player 13,Male,Longue Vue Club,Qualifying,1,4,4,Hit,Hit,126-150 yards,2,2.055,0.055,40
+Player 3,Male,Sedgefield Country Club - Dye Course,Tournament,12,3,3,Not Applicable (PAR 3),Hit,126-150 yards,2,2.055,0.055,40
+Player 18,Female,Longue Vue Club,Qualifying,11,4,4,Hit,Hit,126-150 yards,2,2.055,0.055,40
+Player 1,Male,Longue Vue Club,Qualifying,1,4,5,Missed,Hit,126-150 yards,3,2.055,-0.945,40
+Player 11,Male,San Destin Resort - Raven,Tournament,17,5,5,Hit,Hit,76-100 yards,2,2.055,0.055,40
+Player 21,Female,PGA National - Palmer,Tournament,1,4,4,Hit,Hit,126-150 yards,2,2.055,0.055,40
+Player 1,Male,Avalon Lakes Golf Club,Qualifying,6,5,5,Missed,Hit,151-175 yards,2,2.055,0.055,40
+Player 11,Male,Pittsburgh Field Club,Qualifying,11,4,5,Hit,Hit,76-100 yards,2,2.055,0.055,40
+Player 8,Male,Longue Vue Club,Qualifying,13,4,4,Hit,Hit,101-125 yards,2,2.055,0.055,40
+Player 6,Male,Columbus Country Club,Tournament,4,4,4,Hit,Hit,151-175 yards,2,2.055,0.055,40
+Player 3,Male,Columbus Country Club,Tournament,6,4,5,Missed,Miss,176-200 yards,2,2.055,0.055,40
+Player 12,Male,Indiana Country Club,Qualifying,18,5,4,Hit,Hit,225 + yards,2,2.055,0.055,40
+Player 19,Female,Indiana Country Club,Qualifying,16,4,5,Missed,Hit,126-150 yards,3,2.055,-0.945,40
+Player 19,Female,Longue Vue Club,Competitive,18,5,5,Hit,Hit,151-175 yards,3,2.055,-0.945,40
+Player 6,Male,San Destin Resort - Raven,Tournament,18,4,4,Hit,Hit,126-150 yards,2,2.055,0.055,40
+Player 12,Male,Avalon Lakes Golf Club,Qualifying,12,3,4,Not Applicable (PAR 3),Hit,201-225 yards,3,2.055,-0.945,40
+Player 7,Male,Avalon Lakes Golf Club,Qualifying,2,4,6,Hit,Miss,151-175 yards,2,2.055,0.055,40
+Player 10,Male,Longue Vue Club,Qualifying,13,4,4,Hit,Hit,126-150 yards,2,2.055,0.055,40
+Player 11,Male,Longue Vue Club,Qualifying,18,4,4,Hit,Hit,176-200 yards,2,2.055,0.055,40
+Player 15,Female,Nemacolin Resort - Shepards Rock,Qualifying,6,4,5,Hit,Hit,101-125 yards,3,2.055,-0.945,40
+Player 10,Male,Longue Vue Club,Qualifying,10,3,5,Not Applicable (PAR 3),Miss,126-150 yards,2,2.055,0.055,40
+Player 7,Male,Longue Vue Club,Qualifying,3,3,4,Not Applicable (PAR 3),Hit,176-200 yards,3,2.055,-0.945,40
+Player 18,Female,Longue Vue Club,Qualifying,2,4,3,Hit,Hit,76-100 yards,1,2.055,1.055,40
+Player 8,Male,Longue Vue Club,Qualifying,12,3,4,Not Applicable (PAR 3),Hit,176-200 yards,3,2.055,-0.945,40
+Player 11,Male,Columbus Country Club,Tournament,13,3,3,Not Applicable (PAR 3),Hit,151-175 yards,2,2.055,0.055,40
+Player 13,Male,Avalon Lakes Golf Club,Qualifying,5,4,5,Missed,Hit,Less than 50 yards,4,2.055,-1.945,40
+Player 19,Female,Longue Vue Club,Competitive,9,4,5,Missed,Miss,101-125 yards,2,2.055,0.055,40
+Player 5,Male,Longue Vue Club,Qualifying,5,3,3,Not Applicable (PAR 3),Hit,201-225 yards,2,2.055,0.055,40
+Player 15,Female,Avalon Lakes Golf Club,Qualifying,9,4,4,Hit,Hit,51-75 yards,2,2.055,0.055,40
+Player 10,Male,Pittsburgh Field Club,Qualifying,10,4,5,Missed,Miss,126-150 yards,2,2.055,0.055,40
+Player 11,Male,Columbus Country Club,Tournament,2,4,4,Missed,Hit,126-150 yards,2,2.07,0.07,42
+Player 3,Male,San Destin Resort - Raven,Tournament,18,4,4,Hit,Hit,126-150 yards,2,2.07,0.07,42
+Player 16,Female,Longue Vue Club,Qualifying,1,4,5,Hit,Hit,126-150 yards,3,2.07,-0.93,42
+Player 3,Male,PGA National - Champions,Tournament,16,4,4,Missed,Hit,176-200 yards,2,2.07,0.07,42
+Player 20,Female,Indiana Country Club,Qualifying,8,4,4,Missed,Hit,126-150 yards,2,2.078,0.078,43
+Player 3,Male,San Destin Resort - Raven,Tournament,18,4,4,Hit,Hit,101-125 yards,2,2.086,0.086,44
+Player 3,Male,Pittsburgh Field Club,Qualifying,17,4,4,Missed,Hit,101-125 yards,2,2.086,0.086,44
+Player 15,Female,Nemacolin Resort - Shepards Rock,Qualifying,1,5,6,Hit,Miss,101-125 yards,2,2.094,0.094,45
+Player 3,Male,San Destin Resort - Raven,Tournament,6,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,2.094,0.094,45
+Player 11,Male,Meadville Country Club,Tournament,11,4,5,Missed,Hit,151-175 yards,3,2.094,-0.906,45
+Player 11,Male,Longue Vue Club,Qualifying,9,4,4,Missed,Hit,151-175 yards,2,2.094,0.094,45
+Player 12,Male,Avalon Lakes Golf Club,Qualifying,3,5,4,Hit,Hit,176-200 yards,2,2.094,0.094,45
+Player 8,Male,Indiana Country Club,Qualifying,2,4,5,Missed,Hit,76-100 yards,3,2.094,-0.906,45
+Player 10,Male,Indiana Country Club,Qualifying,5,5,6,Missed,Hit,76-100 yards,3,2.094,-0.906,45
+Player 12,Male,Nemacolin Resort - Shepards Rock,Qualifying,12,3,4,Not Applicable (PAR 3),Hit,151-175 yards,3,2.094,-0.906,45
+Player 1,Male,Longue Vue Club,Qualifying,1,4,4,Missed,Hit,126-150 yards,2,2.094,0.094,45
+Player 2,Male,Longue Vue Club,Qualifying,9,4,5,Missed,Hit,225 + yards,3,2.094,-0.906,45
+Player 20,Female,Meadville Country Club,Tournament,2,4,5,Missed,Hit,126-150 yards,3,2.094,-0.906,45
+Player 11,Male,Columbus Country Club,Tournament,16,4,5,Hit,Hit,151-175 yards,3,2.094,-0.906,45
+Player 18,Female,Longue Vue Club,Qualifying,5,3,4,Not Applicable (PAR 3),Hit,176-200 yards,3,2.094,-0.906,45
+Player 2,Male,Indiana Country Club,Qualifying,5,4,6,Hit,Miss,51-75 yards,3,2.094,-0.906,45
+Player 2,Male,Longue Vue Club,Qualifying,2,4,5,Hit,Hit,101-125 yards,3,2.094,-0.906,45
+Player 9,Male,Meadville Country Club,Tournament,18,4,5,Missed,Hit,126-150 yards,3,2.094,-0.906,45
+Player 5,Male,Longue Vue Club,Qualifying,17,4,4,Hit,Hit,151-175 yards,2,2.094,0.094,45
+Player 8,Male,Longue Vue Club,Qualifying,8,5,4,Hit,Hit,225 + yards,2,2.094,0.094,45
+Player 1,Male,Longue Vue Club,Qualifying,15,5,7,Missed,Miss,126-150 yards,3,2.094,-0.906,45
+Player 12,Male,San Destin Resort - Raven,Tournament,5,4,4,Missed,Hit,101-125 yards,2,2.094,0.094,45
+Player 16,Female,Indiana Country Club,Qualifying,7,3,4,Not Applicable (PAR 3),Hit,126-150 yards,3,2.094,-0.906,45
+Player 11,Male,Longue Vue Club,Qualifying,12,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,2.094,0.094,45
+Player 1,Male,Longue Vue Club,Qualifying,3,3,4,Not Applicable (PAR 3),Miss,201-225 yards,2,2.094,0.094,45
+Player 11,Male,Columbus Country Club,Tournament,5,4,4,Hit,Hit,176-200 yards,2,2.094,0.094,45
+Player 3,Male,Columbus Country Club,Tournament,3,4,5,Hit,Hit,151-175 yards,3,2.094,-0.906,45
+Player 3,Male,PGA National - Champions,Tournament,9,4,4,Hit,Hit,126-150 yards,2,2.094,0.094,45
+Player 11,Male,Columbus Country Club,Tournament,1,4,5,Hit,Hit,101-125 yards,3,2.102,-0.898,46
+Player 16,Female,Avalon Lakes Golf Club,Qualifying,5,4,4,Hit,Miss,Less than 50 yards,2,2.11,0.11,47
+Player 8,Male,Longue Vue Club,Qualifying,12,3,4,Not Applicable (PAR 3),Hit,176-200 yards,3,2.118,-0.882,48
+Player 11,Male,Longue Vue Club,Qualifying,18,4,4,Hit,Hit,176-200 yards,2,2.118,0.118,48
+Player 6,Male,Longue Vue Club,Qualifying,15,5,5,Missed,Hit,225 + yards,3,2.135,-0.865,50
+Player 1,Male,Nemacolin Resort - Shepards Rock,Qualifying,14,3,4,Not Applicable (PAR 3),Hit,126-150 yards,3,2.135,-0.865,50
+Player 9,Male,Meadville Country Club,Tournament,10,4,4,Missed,Hit,176-200 yards,2,2.135,0.135,50
+Player 8,Male,Sedgefield Country Club - Dye Course,Tournament,17,4,4,Hit,Hit,176-200 yards,2,2.135,0.135,50
+Player 11,Male,San Destin Resort - Raven,Tournament,1,4,4,Hit,Hit,126-150 yards,2,2.135,0.135,50
+Player 11,Male,Sedgefield Country Club - Dye Course,Tournament,14,4,5,Hit,Miss,176-200 yards,2,2.135,0.135,50
+Player 20,Female,Meadville Country Club,Tournament,9,5,5,Hit,Hit,201-225 yards,3,2.135,-0.865,50
+Player 15,Female,Indiana Country Club,Qualifying,6,4,5,Missed,Hit,126-150 yards,3,2.135,-0.865,50
+Player 20,Female,Indiana Country Club,Qualifying,14,4,5,Missed,Hit,126-150 yards,3,2.135,-0.865,50
+Player 16,Female,Avalon Lakes Golf Club,Qualifying,2,4,5,Hit,Hit,101-125 yards,3,2.143,-0.857,51
+Player 16,Female,Meadville Country Club,Tournament,13,3,3,Not Applicable (PAR 3),Hit,126-150 yards,2,2.143,0.143,51
+Player 11,Male,San Destin Resort - Raven,Tournament,10,4,4,Missed,Hit,101-125 yards,2,2.152,0.152,52
+Player 3,Male,Columbus Country Club,Tournament,6,4,4,Hit,Hit,151-175 yards,2,2.168,0.168,54
+Player 8,Male,Longue Vue Club,Competitive,7,4,4,Hit,Hit,225 + yards,3,2.168,-0.832,54
+Player 16,Female,Meadville Country Club,Tournament,15,4,5,Hit,Miss,101-125 yards,3,2.168,-0.832,54
+Player 11,Male,Longue Vue Club,Qualifying,3,3,3,Not Applicable (PAR 3),Hit,201-225 yards,2,2.177,0.177,55
+Player 8,Male,Longue Vue Club,Qualifying,18,4,7,Hit,Miss,176-200 yards,3,2.177,-0.823,55
+Player 3,Male,Sedgefield Country Club - Dye Course,Tournament,6,4,4,Hit,Hit,126-150 yards,2,2.177,0.177,55
+Player 11,Male,Pittsburgh Field Club,Qualifying,14,3,3,Not Applicable (PAR 3),Hit,201-225 yards,2,2.177,0.177,55
+Player 1,Male,Indiana Country Club,Qualifying,12,4,5,Hit,Hit,101-125 yards,3,2.218,-0.782,60
+Player 3,Male,Sedgefield Country Club - Dye Course,Tournament,18,4,4,Missed,Hit,126-150 yards,2,2.218,0.218,60
+Player 8,Male,PGA National - Champions,Tournament,2,4,5,Missed,Miss,176-200 yards,3,2.218,-0.782,60
+Player 11,Male,Longue Vue Club,Qualifying,9,4,4,Hit,Hit,176-200 yards,2,2.218,0.218,60
+Player 6,Male,Columbus Country Club,Tournament,18,5,4,Missed,Hit,176-200 yards,1,2.218,1.218,60
+Player 16,Female,Indiana Country Club,Qualifying,13,4,5,Hit,Hit,151-175 yards,3,2.218,-0.782,60
+Player 1,Male,Longue Vue Club,Qualifying,5,3,4,Not Applicable (PAR 3),Hit,176-200 yards,3,2.218,-0.782,60
+Player 11,Male,Longue Vue Club,Qualifying,15,5,5,Hit,Hit,225 + yards,3,2.218,-0.782,60
+Player 9,Male,Meadville Country Club,Tournament,16,4,4,Hit,Hit,101-125 yards,2,2.218,0.218,60
+Player 8,Male,PGA National - Champions,Tournament,10,5,5,Missed,Hit,76-100 yards,2,2.218,0.218,60
+Player 3,Male,Indiana Country Club,Qualifying,3,3,4,Not Applicable (PAR 3),Hit,176-200 yards,3,2.218,-0.782,60
+Player 8,Male,Longue Vue Club,Qualifying,15,5,6,Missed,Hit,126-150 yards,3,2.257,-0.743,65
+Player 11,Male,Longue Vue Club,Qualifying,7,4,5,Missed,Hit,Less than 50 yards,3,2.293,-0.707,70
+Player 2,Male,Longue Vue Club,Qualifying,5,3,3,Not Applicable (PAR 3),Hit,176-200 yards,2,2.384,0.384,183

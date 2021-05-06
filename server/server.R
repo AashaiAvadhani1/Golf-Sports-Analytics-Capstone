@@ -92,6 +92,8 @@ server <- function(input, output) {
     
     click_dataframe <<- click_dataframe %>% 
       update_shot(update, c("Latitude", "Longitude"))
+    
+    
 
   })
 

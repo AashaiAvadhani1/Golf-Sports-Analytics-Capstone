@@ -30,6 +30,12 @@ add_shot <- function(df, params) {
   df %>% {do.call(add_row, c(list(`.data` = .), lapply(params, as.numeric)))}
 }
 
+#Add distance metric with the strokes_gained_total_df
+add_strokes_gained_dataframe <- function(df, params) {
+  df %>% {do.call(add_row, c(list(`.data` = .), lapply(params, as.numeric)))}
+}
+
+
 # To update a shot (after dragging)
 update_shot <- function(df, update, cols_to_update) {
   cols_to_identify <- setdiff(colnames(update), cols_to_update)
