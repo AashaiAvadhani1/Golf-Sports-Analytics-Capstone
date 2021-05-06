@@ -107,7 +107,13 @@ rbind_all <- function(path) {
 # To add a shot to the map
 add_shot_to_map <- function(map, lon, lat, shot_num) {
   map %>% addCircleMarkers(lon, lat, radius=4, color="black", group="new_point",
-                     layerId=shot_num, options=markerOptions(draggable = TRUE))
+                           layerId=shot_num, options=markerOptions(draggable = TRUE))
+}
+
+# Add pin location to the map
+add_pin_to_map <- function(map, lon, lat, shot_num, draggable=TRUE) {
+  map %>% addAwesomeMarkers(lon, lat, group="new_point",
+                            layerId=shot_num, options=markerOptions(draggable = draggable))
 }
 
 # To populate the map using a dataframe
@@ -117,6 +123,8 @@ populate_map <- function(map, shot_df) {
     add_shot_to_map(map, shot$Longitude, shot$Latitude, shot$Shot)
   }
 }
+
+
 
 # Renders radio buttons based on number of clicks
 create_radio_buttons <- function(num_clicks=1) {
@@ -237,5 +245,59 @@ get_folders_vector <- function(date, tournament, player, round) {
   folders_vector[!is_empty(folders_vector)]
 }
 
+# form for metadata pin locations
+pin_form <- function(input, for_report=FALSE) {
+  if (for_report) {
+    suffix <- "_report"
+    button <- actionButton("search", "Search")
+  } else {
+    suffix <- ""
+    button <- actionButton("submit_pin", "Submit Metadata")
+  }
+  date_label <- str_interp("date_pin${suffix}")
+  tournament_label <- str_interp("tournament_pin${suffix}")
+  round_label <- str_interp("round_pin${suffix}")
+  hole_label <- str_interp("hole_pin${suffix}")
+  renderUI({
+    box(
+      title = "Metadata Entry",
+      width = "100%",
+      fluidRow(
+        column(3, dateInput(date_label, "Date:", value = Sys.Date(), width="100px")),
+        column(9, selectInput(tournament_label, "Tournament name:", c("", load_data("data/tournaments.csv")$Tournaments), width="70%"))
+      ),
+      fluidRow(
+        column(6, selectInput(round_label, "Round Number:", c("", 1:3))),
+        column(6, selectInput(hole_label,
+                              "Choose the hole:",
+                              list(`not chosen` = "", `front half` = 1:9, `back half` = 10:18),
+                              width="150px"))
+      ),
+      
+      # Submission button only appears when all fields are filled
+      renderUI({
+        if (is_empty(input[[tournament_label]]) || 
+            is_empty(input[[round_label]]) || is_empty(input[[hole_label]])) {
+          return(NULL)
+        } else {
+          button
+        }
+      })
+    )
+  })
+}
 
+# To convert pin data into a filepath
+pindata_to_filepath <- function(pindata) {
+  folders_path <- c(
+    "data",
+    "shot_data",
+    as.character(pindata$date),
+    as.character(pindata$tournament),
+    as.character("Pin Locations"),
+    str_interp("Round ${pindata$round}"),
+    str_interp("hole_${pindata$hole}.csv")
+  )
+  paste0(folders_path, collapse="/")
+}
 

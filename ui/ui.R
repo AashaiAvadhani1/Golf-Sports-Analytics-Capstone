@@ -18,13 +18,43 @@ ui <- dashboardPage(
       menuItem("Golf-Map", tabName = "Golf-Map", icon = icon("dashboard")),
       menuItem("Information Entry", tabName = "Metainfo", icon = icon("golf-ball")),
       menuItem("Report", tabName = "Report", icon = icon("th")),
-      menuItem("Data Compilation", tabName = "Data-Compilation", icon = icon("file-alt"))
+      menuItem("Data Compilation", tabName = "Data-Compilation", icon = icon("file-alt")),
+      menuItem("Pin Location", tabName = "Pin_Location", icon = icon("th")) # pick icon later
     )
   ),
   
   # Main panel for displaying outputs 
   dashboardBody(
     tabItems( 
+      
+      # Metainformation entry tab content
+      tabItem(
+        tabName = "Metainfo",
+        h2("New Metainformation Entry", align="center"), 
+        br(),
+        fluidRow(
+          column(12, new_player_box)
+        ),
+        fluidRow(
+          column(12, new_tournament_box)
+        )
+      ),
+      
+      # Pin Location Tab
+      tabItem(
+        tabName = "Pin_Location",
+        h2("Pin Location Input", align="center"),
+        uiOutput("pin_form"),
+        br(), br(),
+        
+        # Leaflet map
+        textOutput("pin_description"),
+        leafletOutput("pinmap", width="100%", height="500px"),
+        br(),
+        
+        # Map interaction buttons
+        uiOutput("pin_buttons")
+      ),
       
       # Data entry tab content
       tabItem(
@@ -47,19 +77,6 @@ ui <- dashboardPage(
         uiOutput("map_buttons")
       ),
       
-      # Metainformation entry tab content
-      tabItem(
-        tabName = "Metainfo",
-        h2("New Metainformation Entry", align="center"), 
-        br(),
-        fluidRow(
-          column(12, new_player_box)
-        ),
-        fluidRow(
-          column(12, new_tournament_box)
-        )
-      ),
-      
       # Report tab content
       tabItem(
         tabName = "Report",
@@ -78,7 +95,7 @@ ui <- dashboardPage(
           column(12, uiOutput("compile_form"))
         ),
         htmlOutput("compile_message")
-      ) 
+      )
     )
   )
 )
