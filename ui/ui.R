@@ -17,7 +17,8 @@ ui <- dashboardPage(
     sidebarMenu(
       menuItem("Golf-Map", tabName = "Golf-Map", icon = icon("dashboard")),
       menuItem("Information Entry", tabName = "Metainfo", icon = icon("golf-ball")),
-      menuItem("Report", tabName = "Report", icon = icon("th"))
+      menuItem("Report", tabName = "Report", icon = icon("th")),
+      menuItem("Data Compilation", tabName = "Data-Compilation", icon = icon("file-alt"))
     )
   ),
   
@@ -37,7 +38,10 @@ ui <- dashboardPage(
         textOutput("description"),
         leafletOutput("mymap", width="100%", height="500px"),
         br(), 
-        
+        fluidRow(
+          column(12, uiOutput("radio_buttons"))
+        ),
+        br(),
         
         # Map interaction buttons
         uiOutput("map_buttons")
@@ -62,7 +66,19 @@ ui <- dashboardPage(
         h2("Report", align="center"),
         uiOutput("search_form"),
         dataTableOutput("click_dataframe")
-      )    
+      ),
+      
+      # Data Compilation tab content
+      tabItem(
+        tabName = "Data-Compilation",
+        h2("Data Compilation", align="center"),
+        br(),
+        h3("Use the dropdowns to select the data that you want to compile:"),
+        fluidRow(
+          column(12, uiOutput("compile_form"))
+        ),
+        htmlOutput("compile_message")
+      ) 
     )
   )
 )

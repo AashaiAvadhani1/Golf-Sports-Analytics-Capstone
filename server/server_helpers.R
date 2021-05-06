@@ -81,6 +81,32 @@ load_data <- function(path, num_cols=1, headers=TRUE) {
   }
 }
 
+# Reads all CSV files in a folder to a single dataframe
+rbind_all <- function(path) {
+  level_ids <- c("Date", "Tournament", "Player", "Round", "Hole")
+  level_id <- level_ids[str_count(path, "/")]
+  if(level_id != "Hole") {
+    # Recurse
+    for(dir in list.dirs(here(path), full.names=FALSE)[-1]) {
+      new_path <- str_interp("${path}/${dir}")
+      print(new_path)
+      rbind_all(new_path)
+    }
+    
+    pattern <- str_interp(".*/${path}/[^/]+/all_data\\.csv")
+  } else {
+    print("level_id is hole")
+    pattern <- "(.+\\.csv)(?<!all_data\\.csv)"
+  }
+  
+  files <- grep(pattern, list.files(here(path), full.names=TRUE, recursive=T), perl=T, value=T)
+  aggregated_data <- sapply(files, read_csv, simplify=FALSE) %>% 
+    bind_rows(.id = level_id) %>% 
+    mutate("{level_id}" := gsub(str_interp("(${here(path)})|(\\.csv)|(Hole )|(Round )|(all_data)"), "", .[[level_id]])) %>% 
+    mutate("{level_id}" := gsub("/", "", .[[level_id]]))
+  save_data(aggregated_data, unlist(strsplit(path, split="/")), "all_data.csv")
+}
+
 
 ### Map interaction
 
@@ -98,6 +124,30 @@ populate_map <- function(map, shot_df) {
   }
 }
 
+# Renders radio buttons based on number of clicks
+create_radio_buttons <- function(num_clicks=1) {
+  renderUI({
+    box(
+      title = "Use these buttons to select shot types. Select after plotting all shots on the map.",
+      lapply(1:num_clicks, function(i) {
+        radioButtons(str_interp("shot_${i}_type"), str_interp("Shot ${i} Type:"),
+                     c("Fairway" = "Fairway",
+                       "Green" = "Green",
+                       "Rough" = "Rough",
+                       "Sand" = "Sand",
+                       "Water" = "Water"
+                     ), inline=TRUE)
+      })
+    )
+  })
+}
+
+# Extracts a shot type vector from input
+get_shot_type_vector <- function(input, num_shots) {
+  sapply(1:num_shots, function(shot_num) {
+    input[[str_interp("shot_${shot_num}_type")]]
+  })
+}
 
 ### Miscellaneous helper functions
 
@@ -130,11 +180,11 @@ metadata_form <- function(input, for_report=FALSE) {
       title = "Metadata Entry",
       width = "100%",
       fluidRow(
-        column(3, dateInput(date_label, "Date:", value = Sys.Date(), width="100px")),
-        column(9, selectInput(tournament_label, "Tournament name:", c("", load_data("data/tournaments.csv")$Tournaments), width="70%"))
+        column(3, dateInput(date_label, "Tournament Start Date:", value = Sys.Date(), width="100px")),
+        column(9, selectInput(tournament_label, "Tournament Name:", c("", load_data("data/tournaments.csv")$Tournaments), width="70%"))
       ),
       fluidRow(
-        column(6, selectInput(player_label, "Player name:", c("", "Set Markers", load_data("data/players.csv")$Players))),
+        column(6, selectInput(player_label, "Player Name:", c("", "Set Markers", load_data("data/players.csv")$Players))),
         column(3, selectInput(round_label, "Round Number:", c("", 1:3))),
         column(3, selectInput(hole_label,
                               "Choose the hole:",
@@ -157,14 +207,41 @@ metadata_form <- function(input, for_report=FALSE) {
 
 # To convert metadata into a filepath
 metadata_to_filepath <- function(metadata) {
+  round <- if(is.null(metadata$round)) {
+    NULL
+  } else {
+    str_interp("Round ${metadata$round}")
+  }
+  hole <- if(is.null(metadata$hole)) {
+    NULL
+  } else {
+    str_interp("Hole ${metadata$hole}.csv")
+  }
   folders_path <- c(
     "data",
     "shot_data",
     as.character(metadata$date),
     as.character(metadata$tournament),
     as.character(metadata$player),
-    str_interp("Round ${metadata$round}"),
-    str_interp("hole_${metadata$hole}.csv")
+    round,
+    hole
   )
   paste0(folders_path, collapse="/")
 }
+
+# Creates a vector for folders
+get_folders_vector <- function(date, tournament, player, round) {
+  folders_vector <- c(
+    date = date, 
+    tournament = tournament, 
+    player = player,
+    round = round
+  )
+  if(!is_empty(folders_vector["round"])) {
+    folders_vector["round"] <- str_interp("Round ${round}")
+  }
+  folders_vector[!is_empty(folders_vector)]
+}
+
+
+

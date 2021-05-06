@@ -16,16 +16,16 @@ lat_long_hole <- function(hole_num) {
 }
 
 new_player_box <- box(
-  title = "Add a new player",
+  title = "Add New Player",
   width = "100%",
-  textInput("new_player", "Enter a new player:", ""),
+  textInput("new_player", "Enter New Player:", ""),
   actionButton("submit_new_player", "Submit New Player")
 )
 
 new_tournament_box <- box(
-  title = "Add a new tournament",
+  title = "Add New Tournament",
   width = "100%",
-  textInput("new_tournament", "Enter a new tournament:", ""),
+  textInput("new_tournament", "Enter New Tournament:", ""),
   lat_long_hole(1),
   lat_long_hole(2),
   lat_long_hole(3),
@@ -48,6 +48,10 @@ new_tournament_box <- box(
 )
 
 ### Reports Tab
+
+
+
+### Data Complilation Tab
 
 
 

@@ -3,6 +3,7 @@
 library(shiny)
 library(sp)
 library(tidyverse)  
+library(here)
 library(leaflet)
 library(leaflet.extras)
 library(DT)
@@ -13,7 +14,8 @@ source("server/server_helpers.R")
 dataframe_column_names <- c(
   "Shot",
   "Latitude",
-  "Longitude"
+  "Longitude",
+  "Shot Type"
 )
 click_dataframe <- initialize_click_dataframe(dataframe_column_names)
 
@@ -36,12 +38,16 @@ server <- function(input, output) {
         addDrawToolbar(circleOptions=NA, markerOptions=NA, polygonOptions=NA,
                        rectangleOptions=NA, polylineOptions=NA, circleMarkerOptions=NA) %>%
         addProviderTiles('Esri.WorldImagery') %>%
-        # setView(lat = 40.47942168506459, lng=-79.85795114512402, zoom=17)
+        # setView(lat = 40.47942168506459, lng=-79.85795114512402, zoom=17
         setView(
           lat = hole_locations[metadata()$hole, "Latitude", drop=TRUE],
           lng = hole_locations[metadata()$hole, "Longitude", drop=TRUE],
           zoom=17
         )
+    })
+    output$radio_buttons <- renderUI({
+      dummy <- metadata()$date
+      NULL
     })
     output$map_buttons <- renderUI({
       dummy <- metadata()$date
@@ -78,6 +84,8 @@ server <- function(input, output) {
         Latitude = click$lat,
         Longitude = click$lng
       ))
+    
+    output$radio_buttons <- create_radio_buttons(shot_num)
   })
   
   # Observe event for dragging markers after initializing them
@@ -102,10 +110,13 @@ server <- function(input, output) {
     leafletProxy("mymap") %>% 
       clearGroup("new_point")
     click_dataframe <<- initialize_click_dataframe(dataframe_column_names)
+    output$radio_buttons <- NULL
   })
   
   # When "submit_data" button is clicked
   observeEvent(input$submit_data, {
+    click_dataframe <<- click_dataframe %>% 
+      mutate(`Shot Type` = get_shot_type_vector(input, nrow(.)))
     folders_path <- c(
       "data",
       "shot_data",
@@ -114,7 +125,7 @@ server <- function(input, output) {
       as.character(metadata()$player),
       str_interp("Round ${metadata()$round}")
     )
-    file_name <- str_interp("hole_${metadata()$hole}.csv")
+    file_name <- str_interp("Hole ${metadata()$hole}.csv")
     save_data(click_dataframe, folders=folders_path, filename=file_name)
   })
   
@@ -178,6 +189,7 @@ server <- function(input, output) {
     }
   })
   
+  
   ################## Reports Tab Logic #######################
   
   # Search form 
@@ -185,7 +197,7 @@ server <- function(input, output) {
   
   # When "search" button is clicked
   observeEvent(input$search, {
-    # This lets reports tab know what to render (to be changed maybe)
+    # This lets reports tab know what to render
     output$click_dataframe <- renderDataTable(load_data(report_filepath()))
   })
   report_filepath <- eventReactive(input$search, {
@@ -196,8 +208,62 @@ server <- function(input, output) {
       as.character(input$tournament_report),
       as.character(input$player_report),
       str_interp("Round ${input$round_report}"),
-      str_interp("hole_${input$hole_report}.csv")
+      str_interp("Hole ${input$hole_report}.csv")
     )
     paste0(folders_path, collapse="/")
   })
+  
+  ############## Data Compilation Tab Logic ###################
+  
+  # Form to select
+  output$compile_form <- renderUI({
+    box(
+      selectInput("date_compile", "Tournament Start Date:", c("", list.dirs(here("data/shot_data"), full.names=FALSE, recursive=FALSE))),
+      selectInput("tournament_compile", "Tournament Name:", c("", load_data("data/tournaments.csv")$Tournaments)),
+      selectInput("player_compile", "Player Name:", c("", load_data("data/players.csv")$Players)),
+      selectInput("round_compile", "Round Number:", c("", 1:3)),
+      actionButton("submit_compile", "Submit")
+    )
+  })
+  
+  # When "submit" button is clicked
+  observeEvent(input$submit_compile, {
+    if(dir.exists(compile_file_location())) {
+      data <- rbind_all(compile_file_location())
+      output$compile_message <- renderText({
+        dummy <- paste0(compile_file_location(), " ", collapse="")
+        str_interp(
+          '<font color="green">Success! Your file can be found at ${compile_file_location()}/all_data.csv!</font>'
+        )
+      })
+    }
+    else {
+      output$compile_message <- renderText({
+        dummy <- paste0(compile_file_location(), " ", collapse="")
+        '<font color="red">This data does not exist.</font>'
+      })
+    }
+  })
+  compile_file_location <- eventReactive(input$submit_compile, {
+    inputs <- list()
+    if(!is_empty(input$date_compile)) {
+      inputs$date <- input$date_compile
+    }
+    if(!is_empty(input$tournament_compile)) {
+      inputs$tournament <- input$tournament_compile
+    }
+    if(!is_empty(input$player_compile)) {
+      inputs$player <- input$player_compile
+    }
+    if(!is_empty(input$round_compile)) {
+      inputs$round <- input$round_compile
+    }
+    metadata_to_filepath(inputs)
+  })
 }
+
+
+
+
+
+
