@@ -15,11 +15,11 @@ ui <- dashboardPage(
   ## Sidebar content
   dashboardSidebar(
     sidebarMenu(
-      menuItem("Golf-Map", tabName = "Golf-Map", icon = icon("dashboard")),
-      menuItem("Information Entry", tabName = "Metainfo", icon = icon("golf-ball")),
-      menuItem("Report", tabName = "Report", icon = icon("th")),
+      menuItem("Player + Tournament Entry", tabName = "Metainfo", icon = icon("golf-ball")),
+      menuItem("Tournament Pin Locations", tabName = "Pin-Locations", icon = icon("map-marker-alt")),
+      menuItem("Golf Map", tabName = "Golf-Map", icon = icon("dashboard")),
       menuItem("Data Compilation", tabName = "Data-Compilation", icon = icon("file-alt")),
-      menuItem("Pin Location", tabName = "Pin_Location", icon = icon("th")) # pick icon later
+      menuItem("Report", tabName = "Report", icon = icon("th"))
     )
   ),
   
@@ -30,7 +30,7 @@ ui <- dashboardPage(
       # Metainformation entry tab content
       tabItem(
         tabName = "Metainfo",
-        h2("New Metainformation Entry", align="center"), 
+        h2("New Player/Tournament Entry", align="center"), 
         br(),
         fluidRow(
           column(12, new_player_box)
@@ -40,9 +40,9 @@ ui <- dashboardPage(
         )
       ),
       
-      # Pin Location Tab
+      # Pin location entry tab content
       tabItem(
-        tabName = "Pin_Location",
+        tabName = "Pin-Locations",
         h2("Pin Location Input", align="center"),
         uiOutput("pin_form"),
         br(), br(),
@@ -77,14 +77,6 @@ ui <- dashboardPage(
         uiOutput("map_buttons")
       ),
       
-      # Report tab content
-      tabItem(
-        tabName = "Report",
-        h2("Report", align="center"),
-        uiOutput("search_form"),
-        dataTableOutput("click_dataframe")
-      ),
-      
       # Data Compilation tab content
       tabItem(
         tabName = "Data-Compilation",
@@ -95,6 +87,15 @@ ui <- dashboardPage(
           column(12, uiOutput("compile_form"))
         ),
         htmlOutput("compile_message")
+      ),
+      
+      
+      # Report tab content
+      tabItem(
+        tabName = "Report",
+        h2("Report", align="center"),
+        uiOutput("search_form"),
+        dataTableOutput("click_dataframe")
       )
     )
   )
