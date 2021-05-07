@@ -18,12 +18,13 @@ dataframe_column_names <- c(
   "Shot Type"
 )
 click_dataframe <- initialize_click_dataframe(dataframe_column_names)
+pin_vector <- initialize_pin_vector()
 
 server <- function(input, output) {
   ################## Main Tab Logic #######################
   
   # Metadata entry form 
-  output$metadata_form <- metadata_form(input)
+  output$metadata_form <- shot_metadata_form(input)
 
   # When "submit-metadata" button is clicked
   observeEvent(input$submit_meta, {
@@ -33,8 +34,8 @@ server <- function(input, output) {
       dummy <- metadata()$date
       "Click anywhere to draw a circle"
     })
-    output$mymap <- renderLeaflet({
-      m = leaflet(initialize_spatial(), width="100%", height="100%") %>%
+    output$shot_input_map <- renderLeaflet({
+      leaflet(width="100%", height="100%") %>%
         addDrawToolbar(circleOptions=NA, markerOptions=NA, polygonOptions=NA,
                        rectangleOptions=NA, polylineOptions=NA, circleMarkerOptions=NA) %>%
         addProviderTiles('Esri.WorldImagery') %>%
@@ -56,9 +57,17 @@ server <- function(input, output) {
         column(10, actionButton("submit_data", "Submit Markers"))
       )
     })
+    
+    # populating markers
     file_to_check <- metadata_to_filepath(metadata())
     click_dataframe <<- initialize_click_dataframe(dataframe_column_names, file_to_check)
-    populate_map(leafletProxy("mymap"), click_dataframe)
+    populate_map(leafletProxy("shot_input_map"), click_dataframe)
+    
+    # populating pin locations
+    metadata() %>%
+      metadata_to_filepath(for_pins=TRUE) %>% 
+      initialize_pin_vector %>% 
+      add_pin_to_map(leafletProxy("shot_input_map"), .)
   })
   metadata <- eventReactive(input$submit_meta, {
     data <- list()
@@ -71,12 +80,12 @@ server <- function(input, output) {
   })
   
   # Clicking to add a marker
-  observeEvent(input$mymap_click, {
+  observeEvent(input$shot_input_map_click, {
     
-    click <- input$mymap_click
+    click <- input$shot_input_map_click
     shot_num <- nrow(click_dataframe) + 1
     
-    add_shot_to_map(leafletProxy("mymap"), click$lng, click$lat, shot_num)
+    add_shot_to_map(leafletProxy("shot_input_map"), click$lng, click$lat, shot_num)
     
     click_dataframe <<- click_dataframe %>% 
       add_shot(list(
@@ -89,8 +98,8 @@ server <- function(input, output) {
   })
   
   # Observe event for dragging markers after initializing them
-  observeEvent(input$mymap_marker_dragend, {
-    drag <- input$mymap_marker_dragend
+  observeEvent(input$shot_input_map_marker_dragend, {
+    drag <- input$shot_input_map_marker_dragend
     
     update <- tibble(
       Shot = drag$id,
@@ -105,7 +114,7 @@ server <- function(input, output) {
 
   # When "clear" button is clicked
   observeEvent(input$clear, {
-    leafletProxy("mymap") %>% 
+    leafletProxy("shot_input_map") %>% 
       clearGroup("new_point")
     click_dataframe <<- initialize_click_dataframe(dataframe_column_names)
     output$radio_buttons <- NULL
@@ -191,7 +200,7 @@ server <- function(input, output) {
   ################## Reports Tab Logic #######################
   
   # Search form 
-  output$search_form <- metadata_form(input, for_report=TRUE)
+  output$search_form <- report_metadata_form(input)
   
   # When "search" button is clicked
   observeEvent(input$search, {
@@ -258,10 +267,89 @@ server <- function(input, output) {
     }
     metadata_to_filepath(inputs)
   })
+
+  #################### Pin Entry Tab Logic #########################
+  
+  # Metadata entry form 
+  output$pin_form <- pin_metadata_form(input)
+  
+  # When "submit_pin_metadata" button is clicked
+  observeEvent(input$submit_pin_metadata, {
+    hole_locations_filename <- str_interp("data/tournament_hole_locations/${pin_metadata()$tournament}.csv")
+    hole_locations <- load_data(hole_locations_filename)
+    output$pin_description <- renderText({
+      dummy <- pin_metadata()$date
+      "Click/drag to drop pin"
+    })
+    output$pin_input_map <- renderLeaflet({
+      leaflet(width="100%", height="100%") %>%
+        addDrawToolbar(circleOptions=NA, markerOptions=NA, polygonOptions=NA,
+                       rectangleOptions=NA, polylineOptions=NA, circleMarkerOptions=NA) %>%
+        addProviderTiles('Esri.WorldImagery') %>%
+        setView(
+          lat = hole_locations[pin_metadata()$hole, "Latitude", drop=TRUE],
+          lng = hole_locations[pin_metadata()$hole, "Longitude", drop=TRUE],
+          zoom=17
+        )
+    })
+    output$pin_buttons <- renderUI({
+      dummy <- pin_metadata()$date
+      fluidRow(
+        column(3, actionButton("clear_pin", "Clear Pin")),
+        column(9, actionButton("submit_pin", "Submit Pins"))
+      )
+    })
+    
+    # Checks if pin has been inputted previously, displays if it does
+    pin_vector <<- pin_metadata() %>% 
+      metadata_to_filepath(for_pins=TRUE) %>% 
+      initialize_pin_vector
+    add_pin_to_map(leafletProxy("pin_input_map"), pin_vector, draggable = TRUE)
+  })
+  pin_metadata <- eventReactive(input$submit_pin_metadata, {
+    data <- list()
+    data$date <- input$date_pin
+    data$tournament <- input$tournament_pin
+    data$round <- input$round_pin
+    data$hole <- input$hole_pin
+    data
+  })
+  
+  # Clicking to set a pin
+  observeEvent(input$pin_input_map_click, {
+    click <- input$pin_input_map_click
+
+    if (pin_vector %>% is.na %>% any) {
+      pin_vector <<- c(Latitude = click$lat, Longitude = click$lng)
+      add_pin_to_map(leafletProxy("pin_input_map"), pin_vector, draggable = TRUE)
+    }
+  })
+  
+  # Observe event for dragging pins after initializing them
+  observeEvent(input$pin_input_map_marker_dragend, {
+    drag <- input$pin_input_map_marker_dragend
+    pin_vector <- c(Latitude = drag$lat, Longitude = drag$lng)
+  })
+  
+  # When "clear_pin" button is clicked
+  observeEvent(input$clear_pin, {
+    leafletProxy("pin_input_map") %>% 
+      clearGroup("pin")
+    pin_vector <<- initialize_pin_vector()
+  })
+  
+  # When "submit_pin" button is clicked
+  observeEvent(input$submit_pin, {
+    folders_path <- c(
+      "data",
+      "shot_data",
+      as.character(pin_metadata()$date),
+      as.character(pin_metadata()$tournament),
+      as.character("Pin Locations"),
+      str_interp("Round ${pin_metadata()$round}")
+    )
+    file_name <- str_interp("Hole ${pin_metadata()$hole}.csv")
+    save_data(pin_vector %>% as.list %>% data.frame, folders=folders_path, filename=file_name)
+  })
+  
 }
-
-
-
-
-
-
