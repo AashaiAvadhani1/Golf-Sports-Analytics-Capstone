@@ -37,13 +37,49 @@ total_new.data <- read.csv("total_new.csv")
 
 ```
 
+## Visualization
+
+```{r}
+sample.size <- nrow(total_new.data)
+print(sample.size)
+
+
+total_new.data$putt.col <- total_new.data$Putts + 1
+total_new.data$putt.col
+
+
+# plot data and f(x)
+plot(interploated_data$midpoint, interploated_data$fairway )
+plot(interploated_data$midpoint, interploated_data$rough )
+ggplot(data = interploated_data, aes(x = yards)) +
+  scale_y_continuous(
+    
+    # Features of the first axis
+    name = "Fairway Strokes Gained",
+    
+    # Add a second axis and specify its features
+    sec.axis = sec_axis(~., name="Rough Strokes Gained")
+    
+  ) + geom_line( aes(y=fairway), color= "darkgreen")+ geom_line( aes(y=rough), color = "red") + theme(
+    axis.title.y = element_text(color = "darkgreen", size=13),
+    axis.title.y.right = element_text(color = "red", size=13)
+  ) + ggtitle("Temperature down, price up")
+```
+From the interpolation of the fairway and the rough strokes gained. We see that there is a clear difference such that each shot in the rough clearer has a higher expected strokes value. 
+
+
+For the Basic stroked gained model of what we can model so far, is modeling the number of putts that we could expect land on the green depending on the 
 
 ## Modeling
 
 ```{r}
+total_new.data$putt.col
+```
+
+```{r}
 #strokes remanining until the approach list 
-new.model <- smooth.spline((putt) ~  Approach.Dist, data = total_new.data)
-plot(new.model)
+model <- lm(total_new.data$putt.col ~ total_new.data$Approach.Dist, data = total_new.data)
+summary(model)
 
 (prelim.plot.strokes.gained <- ggplot(total_new.data, aes(x = Approach.Dist, y = strokesgained)) +
         geom_jitter() +
@@ -53,12 +89,23 @@ plot(new.model)
 ```
 
 
-## Including Plots
 
-You can also embed plots, for example:
+From each approach distance, this model was built off of 1044 sample sizes for different approach games. 
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+We believe that we could have a better model if we were to use 
+
+
+
+If we use a non parametric model, this is the time of smoothing we get
+
+```{r}
+
+new.model <- loess(fairway ~ yards, data = interploated_data, span = 0.25)
+summary(new.model)
+plot(new.model)
+
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+
