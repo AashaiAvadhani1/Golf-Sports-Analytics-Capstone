@@ -49,7 +49,7 @@ ui <- dashboardPage(
         
         # Leaflet map
         textOutput("pin_description"),
-        leafletOutput("pinmap", width="100%", height="500px"),
+        leafletOutput("pin_input_map", width="100%", height="500px"),
         br(),
         
         # Map interaction buttons
@@ -66,7 +66,7 @@ ui <- dashboardPage(
         
         # Leaflet map
         textOutput("description"),
-        leafletOutput("mymap", width="100%", height="500px"),
+        leafletOutput("shot_input_map", width="100%", height="500px"),
         br(), 
         fluidRow(
           column(12, uiOutput("radio_buttons"))
