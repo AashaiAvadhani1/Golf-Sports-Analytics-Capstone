@@ -102,10 +102,14 @@ If we use a non parametric model, this is the time of smoothing we get
 
 new.model <- loess(fairway ~ yards, data = interploated_data, span = 0.25)
 summary(new.model)
-plot(new.model)
+plot(new.model,main = "Rough Expected Strokes Green", xlab = "Approach Distance to Green (yards)", ylab = "Expected Stroked Remaining")
 
+
+new.model <- loess(rough ~ yards, data = interploated_data, span = 0.25)
+summary(new.model)
+plot(new.model,main = "Rough Expected Strokes Gained", xlab = "Approach Distance to Green (yards)", ylab = "Expected Stroked Remaining")
 ```
 
 
 
-
+Then we have a basic model here that is bale to show the expected strokes based on yards as what we could 
