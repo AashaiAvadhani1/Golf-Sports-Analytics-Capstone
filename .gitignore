@@ -45,4 +45,3 @@ server/.DS_Store
 # Don't need to push sample data
 server/data/*
 data/*
-metainfo/*

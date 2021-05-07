@@ -5,23 +5,25 @@ library(here)
 
 ### Initialization
 
-# Make a spatial data frame for initialization purposes
-initialize_spatial <- function() {
-  lats <- c(37,38,39)
-  lons <- c(-94,-95,-96)
-  df <- data.frame(cbind(lons,lats))
-  coordinates(df) <-~ lons+lats
-  df
-}
-
 # Initialize the click dataframe
-initialize_click_dataframe <- function(col_names=c('Longitude', 'Latitude'),
+initialize_click_dataframe <- function(col_names = c('Shot Type', 'Longitude', 'Latitude', 'Shot Type'),
                                        file_to_check = "") {
   dataframe_click <- load_data(file_to_check, num_cols=length(col_names))
   names(dataframe_click) <- col_names
   dataframe_click %>% mutate_all(as.numeric)
 }
 
+# Extracts pin location information from file or initializes empty vector
+initialize_pin_vector <- function(file_to_check = "") {
+  loaded_data <- load_data(file_to_check, num_cols = 2)
+  if (nrow(loaded_data) == 0) {
+    c(Latitude = NA, Longitude = NA)
+  } else {
+    pin_vector <- loaded_data %>% unlist %>% as.numeric
+    names(pin_vector) <- c("Latitude", "Longitude")
+    pin_vector
+  }
+}
 
 ### For updating the click dataframe
 
@@ -85,9 +87,9 @@ load_data <- function(path, num_cols=1, headers=TRUE) {
 rbind_all <- function(path) {
   level_ids <- c("Date", "Tournament", "Player", "Round", "Hole")
   level_id <- level_ids[str_count(path, "/")]
-  if(level_id != "Hole") {
+  if (level_id != "Hole") {
     # Recurse
-    for(dir in list.dirs(here(path), full.names=FALSE)[-1]) {
+    for (dir in list.dirs(here(path), full.names=FALSE)[-1]) {
       new_path <- str_interp("${path}/${dir}")
       print(new_path)
       rbind_all(new_path)
@@ -113,12 +115,20 @@ rbind_all <- function(path) {
 # To add a shot to the map
 add_shot_to_map <- function(map, lon, lat, shot_num) {
   map %>% addCircleMarkers(lon, lat, radius=4, color="black", group="new_point",
-                     layerId=shot_num, options=markerOptions(draggable = TRUE))
+                           layerId=shot_num, options=markerOptions(draggable = TRUE))
+}
+
+# Add pin location to the map
+add_pin_to_map <- function(map, pin, draggable=FALSE) {
+  if (!(pin %>% is.na %>% any)) {
+    map %>% addAwesomeMarkers(pin["Longitude"], pin["Latitude"], group="pin", 
+                              options=markerOptions(draggable = draggable))
+  }
 }
 
 # To populate the map using a dataframe
 populate_map <- function(map, shot_df) {
-  for(row in 1:(nrow(shot_df))) {
+  for (row in 1:(nrow(shot_df))) {
     shot <- shot_df %>% slice(row)
     add_shot_to_map(map, shot$Longitude, shot$Latitude, shot$Shot)
   }
@@ -149,44 +159,85 @@ get_shot_type_vector <- function(input, num_shots) {
   })
 }
 
-### Miscellaneous helper functions
+### Metadata forms
 
-# Checks if a string is empty
-is_empty <- function(str) {
-  str == ""
-}
-
-# Checks if a dataframe is empty
-is_empty_df <- function(df) {
-  nrow(df) == 0
-}
-
-# Form for metadata
-metadata_form <- function(input, for_report=FALSE) {
-  if (for_report) {
-    suffix <- "_report"
-    button <- actionButton("search", "Search")
-  } else {
-    suffix <- ""
-    button <- actionButton("submit_meta", "Submit Metadata")
-  }
-  date_label <- str_interp("date${suffix}")
-  tournament_label <- str_interp("tournament${suffix}")
-  player_label <- str_interp("player${suffix}")
-  round_label <- str_interp("round${suffix}")
-  hole_label <- str_interp("hole${suffix}")
+# Form for metadata on shot input tab
+shot_metadata_form <- function(input) {
   renderUI({
     box(
       title = "Metadata Entry",
       width = "100%",
       fluidRow(
-        column(3, dateInput(date_label, "Tournament Start Date:", value = Sys.Date(), width="100px")),
-        column(9, selectInput(tournament_label, "Tournament Name:", c("", load_data("data/tournaments.csv")$Tournaments), width="70%"))
+        column(3, dateInput("date", "Tournament Start Date:", value = Sys.Date(), width="100px")),
+        column(9, selectInput("tournament", "Tournament Name:", c("", load_data("data/tournaments.csv")$Tournaments), width="70%"))
       ),
       fluidRow(
-        column(6, selectInput(player_label, "Player Name:", c("", "Set Markers", load_data("data/players.csv")$Players))),
-        column(3, selectInput(round_label, "Round Number:", c("", 1:3))),
-        column(3, selectInput(hole_label,
+        column(6, selectInput("player", "Player Name:", c("", load_data("data/players.csv")$Players))),
+        column(3, selectInput("round", "Round Number:", c("", 1:3))),
+        column(3, selectInput("hole",
+                             "Choose the hole:",
+                             list(`not chosen` = "", `front half` = 1:9, `back half` = 10:18),
+                             width="150px"))
+      ),
+      
+      # Submission button only appears when all fields are filled
+      renderUI({
+        if (is_empty(input$tournament) || is_empty(input$player) || 
+            is_empty(input$round) || is_empty(input$hole)) {
+          NULL
+        } else {
+          button <- actionButton("submit_meta", "Submit Metadata")
+        }
+      })
+    )
+  })
+}
+
+# Form for metadata on reports tab
+report_metadata_form <- function(input) {
+  renderUI({
+    box(
+      title = "Metadata Entry",
+      width = "100%",
+      fluidRow(
+        column(3, dateInput("date_report", "Tournament Start Date:", value = Sys.Date(), width="100px")),
+        column(9, selectInput("tournament_report", "Tournament Name:", c("", load_data("data/tournaments.csv")$Tournaments), width="70%"))
+      ),
+      fluidRow(
+        column(6, selectInput("player_report", "Player Name:", c("", load_data("data/players.csv")$Players))),
+        column(3, selectInput("round_report", "Round Number:", c("", 1:3))),
+        column(3, selectInput("hole_report",
+                             "Choose the hole:",
+                             list(`not chosen` = "", `front half` = 1:9, `back half` = 10:18),
+                             width="150px"))
+      ),
+      
+      # Submission button only appears when all fields are filled
+      renderUI({
+        if (is_empty(input$tournament_report) || is_empty(input$player_report) || 
+            is_empty(input$round_report) || is_empty(input$hole_report)) {
+          NULL
+        } else {
+          actionButton("search", "Search")
+        }
+      })
+    )
+  })
+}
+
+# Form for metadata on pin locations entry tab
+pin_metadata_form <- function(input) {
+  renderUI({
+    box(
+      title = "Metadata Entry",
+      width = "100%",
+      fluidRow(
+        column(3, dateInput("date_pin", "Date:", value = Sys.Date(), width="100px")),
+        column(9, selectInput("tournament_pin", "Tournament name:", c("", load_data("data/tournaments.csv")$Tournaments), width="70%"))
+      ),
+      fluidRow(
+        column(6, selectInput("round_pin", "Round Number:", c("", 1:3))),
+        column(6, selectInput("hole_pin",
                               "Choose the hole:",
                               list(`not chosen` = "", `front half` = 1:9, `back half` = 10:18),
                               width="150px"))
@@ -194,25 +245,32 @@ metadata_form <- function(input, for_report=FALSE) {
       
       # Submission button only appears when all fields are filled
       renderUI({
-        if (is_empty(input[[tournament_label]]) || is_empty(input[[player_label]]) || 
-            is_empty(input[[round_label]]) || is_empty(input[[hole_label]])) {
-          return(NULL)
+        if (is_empty(input$tournament_pin) || is_empty(input$round_pin) || 
+            is_empty(input$hole_pin)) {
+          NULL
         } else {
-          button
+          actionButton("submit_pin_metadata", "Submit Metadata")
         }
       })
     )
   })
 }
 
+### Miscellaneous helper functions
+
+# Checks if a string is empty
+is_empty <- function(str) {
+  str == ""
+}
+
 # To convert metadata into a filepath
-metadata_to_filepath <- function(metadata) {
-  round <- if(is.null(metadata$round)) {
+metadata_to_filepath <- function(metadata, for_pins=FALSE) {
+  round <- if (is.null(metadata$round)) {
     NULL
   } else {
     str_interp("Round ${metadata$round}")
   }
-  hole <- if(is.null(metadata$hole)) {
+  hole <- if (is.null(metadata$hole)) {
     NULL
   } else {
     str_interp("Hole ${metadata$hole}.csv")
@@ -222,14 +280,14 @@ metadata_to_filepath <- function(metadata) {
     "shot_data",
     as.character(metadata$date),
     as.character(metadata$tournament),
-    as.character(metadata$player),
+    ifelse(for_pins, "Pin Locations", as.character(metadata$player)),
     round,
     hole
   )
   paste0(folders_path, collapse="/")
 }
 
-# Creates a vector for folders
+# Creates a vector for folders from metadata
 get_folders_vector <- function(date, tournament, player, round) {
   folders_vector <- c(
     date = date, 
@@ -237,11 +295,9 @@ get_folders_vector <- function(date, tournament, player, round) {
     player = player,
     round = round
   )
-  if(!is_empty(folders_vector["round"])) {
+  if (!is_empty(folders_vector["round"])) {
     folders_vector["round"] <- str_interp("Round ${round}")
   }
   folders_vector[!is_empty(folders_vector)]
 }
-
-
 
