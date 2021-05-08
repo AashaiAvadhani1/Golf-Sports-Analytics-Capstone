@@ -84,14 +84,6 @@ qqline(resid(model.midpoint.fairway.add))
 summary.lm(model.midpoint.fairway)
 plot(model.midpoint.fairway.add)
 
-
-#making a new midpoint column based on approach game
-
-
-##replacing the values in the strokes to add grouping based on shot length in midpoint
-#data <-replace(data$midpoint, (df$midpoint > 38 & df$midpoint < 63),"Short Approach")
-
-
 qqnorm(resid(model.midpoint.fairway.mult))
 qqline(resid(model.midpoint.fairway.mult)) 
 summary.lm(model.midpoint.fairway.mult)

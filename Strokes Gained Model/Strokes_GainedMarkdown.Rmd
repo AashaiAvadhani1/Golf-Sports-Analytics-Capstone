@@ -27,11 +27,10 @@ library(ggplot2)
 ```
 
 ## Reading In Data
-
 ```{r}
 
 ## The Script where the strokes gained model is giong to be built
-interploated_data <- read.csv("strokesGainedInterpolated.csv")
+interpolated_data <- read.csv("strokesGainedInterpolated.csv")
 golf_data <-  read.csv("GolfData.csv")
 total_new.data <- read.csv("total_new.csv")
 
@@ -41,17 +40,15 @@ total_new.data <- read.csv("total_new.csv")
 
 ```{r}
 sample.size <- nrow(total_new.data)
-print(sample.size)
-
 
 total_new.data$putt.col <- total_new.data$Putts + 1
 total_new.data$putt.col
 
 
 # plot data and f(x)
-plot(interploated_data$midpoint, interploated_data$fairway )
-plot(interploated_data$midpoint, interploated_data$rough )
-ggplot(data = interploated_data, aes(x = yards)) +
+plot(interpolated_data$midpoint, interpolated_data$fairway )
+plot(interpolated_data$midpoint, interpolated_data$rough )
+ggplot(data = interpolated_data, aes(x = yards)) +
   scale_y_continuous(
     
     # Features of the first axis
@@ -100,12 +97,12 @@ If we use a non parametric model, this is the time of smoothing we get
 
 ```{r}
 
-new.model <- loess(fairway ~ yards, data = interploated_data, span = 0.25)
+new.model <- loess(fairway ~ yards, data = interpolated_data, span = 0.25)
 summary(new.model)
 plot(new.model,main = "Rough Expected Strokes Green", xlab = "Approach Distance to Green (yards)", ylab = "Expected Stroked Remaining")
 
 
-new.model <- loess(rough ~ yards, data = interploated_data, span = 0.25)
+new.model <- loess(rough ~ yards, data = interpolated_data, span = 0.25)
 summary(new.model)
 plot(new.model,main = "Rough Expected Strokes Gained", xlab = "Approach Distance to Green (yards)", ylab = "Expected Stroked Remaining")
 ```
