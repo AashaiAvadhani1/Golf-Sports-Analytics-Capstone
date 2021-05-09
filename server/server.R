@@ -18,6 +18,7 @@ pin_vector <- initialize_pin_vector()
 server <- function(input, output) {
   ################## Main Tab Logic #######################
   
+  #Reading in the interpolated dataset from the strokes gained formulas
   strokes.gained.interpolated <- read.csv(here("server", "strokesGainedInterpolated.csv"))
 
   
@@ -91,6 +92,7 @@ server <- function(input, output) {
       pin_long <- map_pin_vector()["Longitude"]
       dis <- distance(pin_long, pin_lat, click$lng, click$lat)
       
+      #querying strokes gained from the interpolated dataset
       if(as.integer(dis) > 237 || as.integer(dis) < 40) {
         interpolated_strokes_gained_fairway <- -1
         interpolated_strokes_gained_rough <- -1
@@ -131,19 +133,34 @@ server <- function(input, output) {
       pin_lat <- map_pin_vector()["Latitude"]
       pin_long <- map_pin_vector()["Longitude"]
       dis2 <- distance(pin_long, pin_lat, drag$lng, drag$lat)
+      
+      #updating strokes gained when dragging the marker
+      if(as.integer(dis2) > 237 || as.integer(dis2) < 40) {
+        interpolated_strokes_gained_fairway.drag <- -1
+        interpolated_strokes_gained_rough.drag <- -1
+      } else {
+        subsetted.data.drag <- filter(strokes.gained.interpolated, yards == as.integer(dis2))
+        interpolated_strokes_gained_fairway.drag <-  subsetted.data.drag$fairway
+        interpolated_strokes_gained_rough.drag <- subsetted.data.drag$rough
+      }
+      
     } else {
       dis2 <- -1
+      interpolated_strokes_gained_fairway.drag <- -1
+      interpolated_strokes_gained_rough.drag <- -1
     }
     
     update <- tibble(
       Shot = drag$id,
       Latitude = drag$lat,
       Longitude = drag$lng,
-      Distance = dis2
+      Distance = dis2,
+      Strokes.Gained.Fairway = interpolated_strokes_gained_fairway.drag,
+      Strokes.Gained.Rough = interpolated_strokes_gained_rough.drag
     )
     
     click_dataframe <<- click_dataframe %>% 
-      update_shot(update, c("Latitude", "Longitude", "Distance"))
+      update_shot(update, c("Latitude", "Longitude", "Distance", "Strokes.Gained.Fairway", "Strokes.Gained.Rough"))
 
   })
 
