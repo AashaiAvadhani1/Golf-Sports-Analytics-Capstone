@@ -15,24 +15,20 @@ When you click the **Knit** button a document will be generated that includes bo
 
 ```{r}
 library(lme4)
-library(ggplot2)  # load the package
-library("ggplot2")                     # Load ggplot2 package
-library("GGally") 
+library(GGally) 
 library(tidyverse)
 library(ISLR)
-library(dplyr)
-library(knitr)
 library(mgcv)
-library(ggplot2)
+library(here)
 ```
 
 ## Reading In Data
 ```{r}
 
 ## The Script where the strokes gained model is giong to be built
-interpolated_data <- read.csv("strokesGainedInterpolated.csv")
-golf_data <-  read.csv("GolfData.csv")
-total_new.data <- read.csv("total_new.csv")
+interpolated_data <- read.csv(here("Strokes Gained Model/strokesGainedInterpolated.csv"))
+golf_data <-  read.csv(here("Strokes Gained Model/GolfData.csv"))
+total_new.data <- read.csv(here("Strokes Gained Model/total_new.csv"))
 
 ```
 
