@@ -15,7 +15,8 @@ dataframe_column_names <- c(
   "Shot",
   "Latitude",
   "Longitude",
-  "Shot Type"
+  "Shot Type",
+  "Distance"
 )
 click_dataframe <- initialize_click_dataframe(dataframe_column_names)
 pin_vector <- initialize_pin_vector()
@@ -85,13 +86,24 @@ server <- function(input, output) {
     click <- input$shot_input_map_click
     shot_num <- nrow(click_dataframe) + 1
     
-    add_shot_to_map(leafletProxy("shot_input_map"), click$lng, click$lat, shot_num)
+    # print(pin_vector)
+    
+    if (!(is.na(pin_vector["Latitude"])) && !(is.na(pin_vector["Longitude"]))) {
+      pin_lat <- pin_vector["Latitude"]
+      pin_long <- pin_vector["Longitude"]
+      dis <- distance(pin_long, pin_lat, click$lng, click$lat)
+    } else {
+      dis <- -1
+    }
+    
+    add_shot_to_map(leafletProxy("shot_input_map"), click$lng, click$lat, shot_num, dis)
     
     click_dataframe <<- click_dataframe %>% 
       add_shot(list(
         Shot = shot_num,
         Latitude = click$lat,
-        Longitude = click$lng
+        Longitude = click$lng,
+        Distance = dis
       ))
     
     output$radio_buttons <- create_radio_buttons(shot_num)
@@ -101,14 +113,23 @@ server <- function(input, output) {
   observeEvent(input$shot_input_map_marker_dragend, {
     drag <- input$shot_input_map_marker_dragend
     
+    if (!(is.na(pin_vector["Latitude"])) && !(is.na(pin_vector["Longitude"]))) {
+      pin_lat <- pin_vector["Latitude"]
+      pin_long <- pin_vector["Longitude"]
+      dis2 <- distance(pin_long, pin_lat, drag$lng, drag$lat)
+    } else {
+      dis2 <- -1
+    }
+    
     update <- tibble(
       Shot = drag$id,
       Latitude = drag$lat,
-      Longitude = drag$lng
+      Longitude = drag$lng,
+      Distance = dis2
     )
     
     click_dataframe <<- click_dataframe %>% 
-      update_shot(update, c("Latitude", "Longitude"))
+      update_shot(update, c("Latitude", "Longitude", "Distance"))
 
   })
 
@@ -122,8 +143,9 @@ server <- function(input, output) {
   
   # When "submit_data" button is clicked
   observeEvent(input$submit_data, {
-    click_dataframe <<- click_dataframe %>% 
-      mutate(`Shot Type` = get_shot_type_vector(input, nrow(.)))
+    click_dataframe <<- click_dataframe %>%
+    mutate(`Shot Type` = get_shot_type_vector(input, nrow(.))) #%>%
+      #mutate(`Distance` = get_distance_vector(input, nrow(.)))
     folders_path <- c(
       "data",
       "shot_data",
@@ -328,7 +350,7 @@ server <- function(input, output) {
   # Observe event for dragging pins after initializing them
   observeEvent(input$pin_input_map_marker_dragend, {
     drag <- input$pin_input_map_marker_dragend
-    pin_vector <- c(Latitude = drag$lat, Longitude = drag$lng)
+    pin_vector <<- c(Latitude = drag$lat, Longitude = drag$lng)
   })
   
   # When "clear_pin" button is clicked

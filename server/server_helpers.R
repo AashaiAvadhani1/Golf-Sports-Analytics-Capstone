@@ -2,11 +2,13 @@
 
 library(tidyverse)
 library(here)
+library(measurements)
+library(geosphere)
 
 ### Initialization
 
 # Initialize the click dataframe
-initialize_click_dataframe <- function(col_names = c('Shot Type', 'Longitude', 'Latitude', 'Shot Type'),
+initialize_click_dataframe <- function(col_names = c('Longitude', 'Latitude', 'Distance'), # add in shot type later on
                                        file_to_check = "") {
   dataframe_click <- load_data(file_to_check, num_cols=length(col_names))
   names(dataframe_click) <- col_names
@@ -107,9 +109,10 @@ rbind_all <- function(path) {
 ### Map interaction
 
 # To add a shot to the map
-add_shot_to_map <- function(map, lon, lat, shot_num) {
+add_shot_to_map <- function(map, lon, lat, shot_num, dis) {
   map %>% addCircleMarkers(lon, lat, radius=4, color="black", group="new_point",
-                           layerId=shot_num, options=markerOptions(draggable = TRUE))
+                           layerId=shot_num, options=markerOptions(draggable = TRUE),
+                           label = paste("Shot ID: ", shot_num, "distance: ", dis))
 }
 
 # Add pin location to the map
@@ -124,7 +127,7 @@ add_pin_to_map <- function(map, pin, draggable=FALSE) {
 populate_map <- function(map, shot_df) {
   for (row in 1:(nrow(shot_df))) {
     shot <- shot_df %>% slice(row)
-    add_shot_to_map(map, shot$Longitude, shot$Latitude, shot$Shot)
+    add_shot_to_map(map, shot$Longitude, shot$Latitude, shot$Shot, shot$Distance)
   }
 }
 
@@ -151,6 +154,14 @@ get_shot_type_vector <- function(input, num_shots) {
   sapply(1:num_shots, function(shot_num) {
     input[[str_interp("shot_${shot_num}_type")]]
   })
+}
+
+# Finding distance method using built in R method
+
+distance <- function(long1, lat1, long2, lat2) {
+  dis <- distm(c(long1, lat1), c(long2, lat2), fun = distHaversine)
+  to_yards <- conv_unit(dis, "m", "yd")
+  return(to_yards)
 }
 
 ### Metadata forms
