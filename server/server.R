@@ -12,7 +12,6 @@ source("server/server_helpers.R")
 
 
 click_dataframe <- initialize_click_dataframe()
-
 pin_vector <- initialize_pin_vector()
 
 server <- function(input, output) {
@@ -34,7 +33,7 @@ server <- function(input, output) {
         addDrawToolbar(circleOptions=NA, markerOptions=NA, polygonOptions=NA,
                        rectangleOptions=NA, polylineOptions=NA, circleMarkerOptions=NA) %>%
         addProviderTiles('Esri.WorldImagery') %>%
-        # setView(lat = 40.47942168506459, lng=-79.85795114512402, zoom=17
+        # setView(lat = 40.47942168506459, lng=-79.85795114512402, zoom=17)
         setView(
           lat = hole_locations[metadata()$hole, "Latitude", drop=TRUE],
           lng = hole_locations[metadata()$hole, "Longitude", drop=TRUE],
@@ -82,23 +81,16 @@ server <- function(input, output) {
     
     click <- input$shot_input_map_click
     shot_num <- nrow(click_dataframe) + 1
+    distance <- pin_distance(map_pin_vector(), click)
     
-    if (!(is.na(map_pin_vector()["Latitude"])) && !(is.na(map_pin_vector()["Longitude"]))) {
-      pin_lat <- map_pin_vector()["Latitude"]
-      pin_long <- map_pin_vector()["Longitude"]
-      dis <- distance(pin_long, pin_lat, click$lng, click$lat)
-    } else {
-      dis <- -1
-    }
-    
-    add_shot_to_map(leafletProxy("shot_input_map"), click$lng, click$lat, shot_num, dis)
+    add_shot_to_map(leafletProxy("shot_input_map"), click$lng, click$lat, shot_num, distance)
     
     click_dataframe <<- click_dataframe %>% 
       add_shot(list(
         Shot = shot_num,
         Latitude = click$lat,
         Longitude = click$lng,
-        Distance = dis
+        Distance = distance
       ))
     
     output$radio_buttons <- create_radio_buttons(shot_num)
@@ -108,19 +100,11 @@ server <- function(input, output) {
   observeEvent(input$shot_input_map_marker_dragend, {
     drag <- input$shot_input_map_marker_dragend
     
-    if (!(is.na(map_pin_vector()["Latitude"])) && !(is.na(map_pin_vector()["Longitude"]))) {
-      pin_lat <- map_pin_vector()["Latitude"]
-      pin_long <- map_pin_vector()["Longitude"]
-      dis2 <- distance(pin_long, pin_lat, drag$lng, drag$lat)
-    } else {
-      dis2 <- -1
-    }
-    
     update <- tibble(
       Shot = drag$id,
       Latitude = drag$lat,
       Longitude = drag$lng,
-      Distance = dis2
+      Distance = pin_distance(map_pin_vector(), drag)
     )
     
     click_dataframe <<- click_dataframe %>% 
@@ -139,8 +123,7 @@ server <- function(input, output) {
   # When "submit_data" button is clicked
   observeEvent(input$submit_data, {
     click_dataframe <<- click_dataframe %>%
-    mutate(`Shot Type` = get_shot_type_vector(input, nrow(.))) #%>%
-      #mutate(`Distance` = get_distance_vector(input, nrow(.)))
+    mutate(`Shot Type` = get_shot_type_vector(input, nrow(.)))
     folders_path <- c(
       "data",
       "shot_data",

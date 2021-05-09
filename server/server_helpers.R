@@ -179,11 +179,14 @@ get_shot_type_vector <- function(input, num_shots) {
 }
 
 # Finding distance method using built in R method
-
-distance <- function(long1, lat1, long2, lat2) {
-  dis <- distm(c(long1, lat1), c(long2, lat2), fun = distHaversine)
-  to_yards <- conv_unit(dis, "m", "yd")
-  return(to_yards)
+pin_distance <- function(pin_vector, shot) {
+  if (!(is.na(pin_vector["Latitude"])) && !(is.na(pin_vector["Longitude"]))) {
+    distm(c(pin_vector["Longitude"], pin_vector["Latitude"]), 
+          c(shot$lng, shot$lat), fun = distHaversine) %>% 
+      conv_unit("m", "yd")
+  } else {
+    -1
+  }
 }
 
 ### Metadata forms
