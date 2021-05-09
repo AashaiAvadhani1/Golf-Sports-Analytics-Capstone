@@ -58,10 +58,11 @@ server <- function(input, output) {
     populate_map(leafletProxy("shot_input_map"), click_dataframe)
     
     # populating pin locations
-    metadata() %>%
-      metadata_to_filepath(for_pins=TRUE) %>% 
-      initialize_pin_vector %>% 
-      add_pin_to_map(leafletProxy("shot_input_map"), .)
+    # metadata() %>%
+    #   metadata_to_filepath(for_pins=TRUE) %>% 
+    #   initialize_pin_vector %>% 
+    #   add_pin_to_map(leafletProxy("shot_input_map"), .)
+    add_pin_to_map(leafletProxy("shot_input_map"), map_pin_vector())
   })
   metadata <- eventReactive(input$submit_meta, {
     data <- list()
@@ -71,6 +72,11 @@ server <- function(input, output) {
     data$player <- input$player
     data$hole <- input$hole
     data
+  })
+  map_pin_vector <- eventReactive(input$submit_meta, {
+    metadata() %>%
+      metadata_to_filepath(for_pins=TRUE) %>% 
+      initialize_pin_vector
   })
   
   # Clicking to add a marker
