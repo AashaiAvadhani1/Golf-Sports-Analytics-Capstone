@@ -18,6 +18,9 @@ pin_vector <- initialize_pin_vector()
 server <- function(input, output) {
   ################## Main Tab Logic #######################
   
+  strokes.gained.interpolated <- read.csv(here("server", "strokesGainedInterpolated.csv"))
+
+  
   # Metadata entry form 
   output$metadata_form <- shot_metadata_form(input)
 
@@ -87,8 +90,22 @@ server <- function(input, output) {
       pin_lat <- map_pin_vector()["Latitude"]
       pin_long <- map_pin_vector()["Longitude"]
       dis <- distance(pin_long, pin_lat, click$lng, click$lat)
+      
+      if(as.integer(dis) > 237 || as.integer(dis) < 40) {
+        interpolated_strokes_gained_fairway <- -1
+        interpolated_strokes_gained_rough <- -1
+      } else {
+        subsetted.data <- filter(strokes.gained.interpolated, yards == as.integer(dis))
+        interpolated_strokes_gained_fairway <-  subsetted.data$fairway
+        print(interpolated_strokes_gained_fairway)
+        interpolated_strokes_gained_rough <- subsetted.data$rough
+        print(interpolated_strokes_gained_rough)
+      }
+      
     } else {
       dis <- -1
+      interpolated_strokes_gained_fairway <- -1
+      interpolated_strokes_gained_rough <- -1
     }
     
     add_shot_to_map(leafletProxy("shot_input_map"), click$lng, click$lat, shot_num, dis)
@@ -98,7 +115,9 @@ server <- function(input, output) {
         Shot = shot_num,
         Latitude = click$lat,
         Longitude = click$lng,
-        Distance = dis
+        Distance = dis,
+        Strokes.Gained.Fairway = interpolated_strokes_gained_fairway,
+        Strokes.Gained.Rough = interpolated_strokes_gained_rough
       ))
     
     output$radio_buttons <- create_radio_buttons(shot_num)
