@@ -156,38 +156,32 @@ server <- function(input, output) {
   observeEvent(input$submit_new_player, {
     new_player_name <- input$new_player
     
-    players <- load_data("data/players.csv")
-    if(nrow(players) == 0) {
-      players <- data.frame(new_player_name)
-      colnames(players) <- "Players"
+    if (is_empty(new_player_name)) {
+      showModal(modalDialog(
+        title = "Player Name is Empty",
+        "Please enter a valid player name.",
+        easyClose = TRUE,
+        footer = NULL
+      ))
     } else {
-      if(!(new_player_name %in% players$Players)) {
-        players <- rbind(players, new_player_name)
+      players <- load_data("data/players.csv")
+      if(nrow(players) == 0) {
+        players <- data.frame(new_player_name)
+        colnames(players) <- "Players"
+      } else {
+        if(!(new_player_name %in% players$Players)) {
+          players <- rbind(players, new_player_name)
+        }
       }
+      save_data(players, folders="data", filename="players.csv")
+      updateTextInput(inputId="new_player", value="")
+      showNotification("New player submitted!", type="message")
     }
-    save_data(players, folders="data", filename="players.csv")
-    updateTextInput(inputId="new_player", value="")
-    showNotification("New player submitted!", type="message")
   })
   
   # Button for adding a new tournament
   observeEvent(input$submit_new_tournament, {
     new_tournament_name <- input$new_tournament
-    
-    # Add tournament name to tournaments list
-    tournaments <- load_data("data/tournaments.csv")
-    if(nrow(tournaments) == 0) {
-      tournaments <- data.frame(new_tournament_name)
-      colnames(tournaments) <- "Tournaments"
-    } else {
-      if(!(new_tournament_name %in% tournaments$Tournaments)) {
-        tournaments <- rbind(tournaments, new_tournament_name)
-      }
-    }
-    save_data(tournaments, folders="data", filename="tournaments.csv")
-    
-    # Save hole locations
-    holes_filename <- paste0(new_tournament_name, ".csv")
     hole_locations <- data.frame(matrix(NA, nrow=0, ncol=3))
     names(hole_locations) <- c("Hole Number", "Latitude", "Longitude")
     for (hole_num in 1:18) {
@@ -201,16 +195,40 @@ server <- function(input, output) {
         )
     }
     
-    save_data(hole_locations, folders=c("data", "tournament_hole_locations"), filename=holes_filename)
-    
-    # Clear all inputs
-    updateTextInput(inputId="new_tournament", value="")
-    for (hole_num in 1:18) {
-      updateTextInput(inputId=paste0("hole", hole_num, "_lat"), value="")
-      updateTextInput(inputId=paste0("hole", hole_num, "_lon"), value="")
+    if (is_empty(new_tournament_name) || any(is.na(hole_locations))) {
+      showModal(modalDialog(
+        title = "Tournament Field(s) are Empty",
+        "Please enter a valid tournament name and fill out all latitude/longitude
+          values for each hole.",
+        easyClose = TRUE,
+        footer = NULL
+      ))
+    } else {
+      # Add tournament name to tournaments list
+      tournaments <- load_data("data/tournaments.csv")
+      if(nrow(tournaments) == 0) {
+        tournaments <- data.frame(new_tournament_name)
+        colnames(tournaments) <- "Tournaments"
+      } else {
+        if(!(new_tournament_name %in% tournaments$Tournaments)) {
+          tournaments <- rbind(tournaments, new_tournament_name)
+        }
+      }
+      save_data(tournaments, folders="data", filename="tournaments.csv")
+      
+      # Save hole locations
+      holes_filename <- paste0(new_tournament_name, ".csv")
+      save_data(hole_locations, folders=c("data", "tournament_hole_locations"), filename=holes_filename)
+      
+      # Clear all inputs
+      updateTextInput(inputId="new_tournament", value="")
+      for (hole_num in 1:18) {
+        updateTextInput(inputId=paste0("hole", hole_num, "_lat"), value="")
+        updateTextInput(inputId=paste0("hole", hole_num, "_lon"), value="")
+      }
+      
+      showNotification("New tournament submitted!", type="message")
     }
-    
-    showNotification("New tournament submitted!", type="message")
   })
   
   
