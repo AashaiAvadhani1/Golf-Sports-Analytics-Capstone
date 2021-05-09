@@ -122,6 +122,20 @@ rbind_all <- function(path) {
   save_data(aggregated_data, unlist(strsplit(path, split="/")), "all_data.csv")
 }
 
+# Checks if data exists for the pin's metadata
+check_if_data_exists <- function(pin_metadata) {
+  date <- pin_metadata$date
+  tournament <- pin_metadata$tournament
+  round <- pin_metadata$round
+  hole <- pin_metadata$hole
+  
+  pattern <- str_interp("${as.character(date)}/${tournament}/[^/]+(?<!Pin Locations)/Round ${round}/Hole ${hole}\\.csv")
+  print(pattern)
+  pin_files <- grep(pattern, list.files(here("data/shot_data"), recursive=T), perl=T, value=T)
+  length(pin_files) > 0
+}
+
+
 ### Map interaction
 
 # To add a shot to the map

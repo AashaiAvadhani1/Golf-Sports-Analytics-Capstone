@@ -294,10 +294,6 @@ server <- function(input, output) {
   observeEvent(input$submit_pin_metadata, {
     hole_locations_filename <- str_interp("data/tournament_hole_locations/${pin_metadata()$tournament}.csv")
     hole_locations <- load_data(hole_locations_filename)
-    output$pin_description <- renderText({
-      dummy <- pin_metadata()$date
-      "Click/drag to drop pin"
-    })
     output$pin_input_map <- renderLeaflet({
       leaflet(width="100%", height="100%") %>%
         addDrawToolbar(circleOptions=NA, markerOptions=NA, polygonOptions=NA,
@@ -309,19 +305,37 @@ server <- function(input, output) {
           zoom=17
         )
     })
-    output$pin_buttons <- renderUI({
-      dummy <- pin_metadata()$date
-      fluidRow(
-        column(3, actionButton("clear_pin", "Clear Pin")),
-        column(9, actionButton("submit_pin", "Submit Pins"))
-      )
-    })
     
-    # Checks if pin has been inputted previously, displays if it does
     pin_vector <<- pin_metadata() %>% 
       metadata_to_filepath(for_pins=TRUE) %>% 
       initialize_pin_vector
-    add_pin_to_map(leafletProxy("pin_input_map"), pin_vector, draggable = TRUE)
+    
+    if (check_if_data_exists(pin_metadata())) {
+      output$pin_description <- NULL
+      output$pin_buttons <- NULL
+      add_pin_to_map(leafletProxy("pin_input_map"), pin_vector, draggable = FALSE)
+      
+      showModal(modalDialog(
+        title = "Data Exists For This Pin",
+        "Data has already been entered and saved for this pin. Therefore, it cannot
+         be moved, or else the data would be made invalid.",
+        easyClose = TRUE,
+        footer = NULL
+      ))
+    } else {
+      output$pin_description <- renderText({
+        dummy <- pin_metadata()$date
+        "Click/drag to drop pin"
+      })
+      output$pin_buttons <- renderUI({
+        dummy <- pin_metadata()$date
+        fluidRow(
+          column(3, actionButton("clear_pin", "Clear Pin")),
+          column(9, actionButton("submit_pin", "Submit Pin"))
+        )
+      })
+      add_pin_to_map(leafletProxy("pin_input_map"), pin_vector, draggable = TRUE)
+    }
   })
   pin_metadata <- eventReactive(input$submit_pin_metadata, {
     data <- list()
