@@ -15,7 +15,9 @@ initialize_click_dataframe <- function(file_to_check = "") {
     "Latitude",
     "Longitude",
     "Shot Type",
-    "Distance"
+    "Distance",
+    "Strokes.Gained.Fairway",
+    "Strokes.Gained.Rough"
   )
 
   dataframe_click <- load_data(file_to_check, num_cols=length(col_names))
@@ -25,7 +27,9 @@ initialize_click_dataframe <- function(file_to_check = "") {
     mutate(Latitude = as.numeric(dataframe_click$Latitude)) %>%
     mutate(Longitude = as.numeric(dataframe_click$Longitude)) %>%
     mutate(`Shot Type` = as.character(dataframe_click$`Shot Type`)) %>%
-    mutate(Distance = as.numeric(dataframe_click$Distance))
+    mutate(Distance = as.numeric(dataframe_click$Distance)) %>%
+    mutate(Strokes.Gained.Fairway = as.numeric(dataframe_click$Strokes.Gained.Fairway)) %>%
+    mutate(Strokes.Gained.Rough = as.numeric(dataframe_click$Strokes.Gained.Rough))
 }
 
 # Extracts pin location information from file or initializes empty vector
