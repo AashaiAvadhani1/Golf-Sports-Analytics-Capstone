@@ -22,44 +22,57 @@ server <- function(input, output) {
 
   # When "submit-metadata" button is clicked
   observeEvent(input$submit_meta, {
-    hole_locations_filename <- str_interp("data/tournament_hole_locations/${metadata()$tournament}.csv")
-    hole_locations <- load_data(hole_locations_filename)
-    output$description <- renderText({
-      dummy <- metadata()$date
-      "Click anywhere to draw a circle"
-    })
-    output$shot_input_map <- renderLeaflet({
-      leaflet(width="100%", height="100%") %>%
-        addDrawToolbar(circleOptions=NA, markerOptions=NA, polygonOptions=NA,
-                       rectangleOptions=NA, polylineOptions=NA, circleMarkerOptions=NA) %>%
-        addProviderTiles('Esri.WorldImagery') %>%
-        # setView(lat = 40.47942168506459, lng=-79.85795114512402, zoom=17)
-        setView(
-          lat = hole_locations[metadata()$hole, "Latitude", drop=TRUE],
-          lng = hole_locations[metadata()$hole, "Longitude", drop=TRUE],
-          zoom=17
+    if (is_uninitialized_pin_vector(map_pin_vector())) {
+      output$shot_input_map <- NULL
+      output$radio_buttons <- NULL
+      
+      showModal(modalDialog(
+        title = "Pin Marker Has not been Set",
+        "It seems like the pin marker has not been set. Please go to the 'Tournament
+         Pin Locations' tab and set the pin for this hole before proceeding.",
+        easyClose = TRUE,
+        footer = NULL
+      ))
+    } else {
+      hole_locations_filename <- str_interp("data/tournament_hole_locations/${metadata()$tournament}.csv")
+      hole_locations <- load_data(hole_locations_filename)
+      output$description <- renderText({
+        dummy <- metadata()$date
+        "Click anywhere to draw a circle"
+      })
+      output$shot_input_map <- renderLeaflet({
+        leaflet(width="100%", height="100%") %>%
+          addDrawToolbar(circleOptions=NA, markerOptions=NA, polygonOptions=NA,
+                         rectangleOptions=NA, polylineOptions=NA, circleMarkerOptions=NA) %>%
+          addProviderTiles('Esri.WorldImagery') %>%
+          # setView(lat = 40.47942168506459, lng=-79.85795114512402, zoom=17)
+          setView(
+            lat = hole_locations[metadata()$hole, "Latitude", drop=TRUE],
+            lng = hole_locations[metadata()$hole, "Longitude", drop=TRUE],
+            zoom=17
+          )
+      })
+      output$map_buttons <- renderUI({
+        dummy <- metadata()$date
+        fluidRow(
+          column(2, actionButton("clear", "Clear Markers")),
+          column(10, actionButton("submit_data", "Submit Markers"))
         )
-    })
-    output$map_buttons <- renderUI({
-      dummy <- metadata()$date
-      fluidRow(
-        column(2, actionButton("clear", "Clear Markers")),
-        column(10, actionButton("submit_data", "Submit Markers"))
-      )
-    })
-    
-    # populating markers
-    file_to_check <- metadata_to_filepath(metadata())
-    click_dataframe <<- initialize_click_dataframe(file_to_check)
-    output$radio_buttons <- {
-      dummy <- metadata()$date
-      shot_type_vector <- click_dataframe %>% pull(`Shot Type`)
-      create_radio_buttons(length(shot_type_vector), current_shots = shot_type_vector)
+      })
+      
+      # populating markers
+      file_to_check <- metadata_to_filepath(metadata())
+      click_dataframe <<- initialize_click_dataframe(file_to_check)
+      output$radio_buttons <- {
+        dummy <- metadata()$date
+        shot_type_vector <- click_dataframe %>% pull(`Shot Type`)
+        create_radio_buttons(length(shot_type_vector), current_shots = shot_type_vector)
+      }
+      populate_map(leafletProxy("shot_input_map"), click_dataframe)
+      
+      # populating pin locations
+      add_pin_to_map(leafletProxy("shot_input_map"), map_pin_vector())
     }
-    populate_map(leafletProxy("shot_input_map"), click_dataframe)
-    
-    # populating pin locations
-    add_pin_to_map(leafletProxy("shot_input_map"), map_pin_vector())
   })
   metadata <- eventReactive(input$submit_meta, {
     data <- list()
@@ -134,6 +147,7 @@ server <- function(input, output) {
     )
     file_name <- str_interp("Hole ${metadata()$hole}.csv")
     save_data(click_dataframe, folders=folders_path, filename=file_name)
+    showNotification("Data successfully submitted!", type="message")
   })
   
   ################## Metadata Entry Tab Logic #######################
@@ -153,6 +167,7 @@ server <- function(input, output) {
     }
     save_data(players, folders="data", filename="players.csv")
     updateTextInput(inputId="new_player", value="")
+    showNotification("New player submitted!", type="message")
   })
   
   # Button for adding a new tournament
@@ -194,6 +209,8 @@ server <- function(input, output) {
       updateTextInput(inputId=paste0("hole", hole_num, "_lat"), value="")
       updateTextInput(inputId=paste0("hole", hole_num, "_lon"), value="")
     }
+    
+    showNotification("New tournament submitted!", type="message")
   })
   
   
@@ -350,6 +367,7 @@ server <- function(input, output) {
     )
     file_name <- str_interp("Hole ${pin_metadata()$hole}.csv")
     save_data(pin_vector %>% as.list %>% data.frame, folders=folders_path, filename=file_name)
+    showNotification("Pin location data successfully submitted!", type="message")
   })
   
 }

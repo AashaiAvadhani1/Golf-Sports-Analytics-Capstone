@@ -40,6 +40,11 @@ initialize_pin_vector <- function(file_to_check = "") {
   }
 }
 
+# Checks if a pin vector is uninitialized
+is_uninitialized_pin_vector <- function(pin_vector) {
+  is.na(pin_vector[1]) && is.na(pin_vector[2])
+}
+
 ### For updating the click dataframe
 
 # To add a new shot
@@ -116,7 +121,6 @@ rbind_all <- function(path) {
     mutate("{level_id}" := gsub("/", "", .[[level_id]]))
   save_data(aggregated_data, unlist(strsplit(path, split="/")), "all_data.csv")
 }
-
 
 ### Map interaction
 
