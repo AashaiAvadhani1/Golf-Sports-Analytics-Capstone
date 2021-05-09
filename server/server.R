@@ -17,12 +17,16 @@ pin_vector <- initialize_pin_vector()
 server <- function(input, output) {
   ################## Main Tab Logic #######################
   
+  #Reading in the interpolated dataset from the strokes gained formulas
+  strokes.gained.interpolated <- read.csv(here("server", "strokesGainedInterpolated.csv"))
+
   # Metadata entry form 
   output$metadata_form <- shot_metadata_form(input)
 
   # When "submit-metadata" button is clicked
   observeEvent(input$submit_meta, {
     if (is_uninitialized_pin_vector(map_pin_vector())) {
+      output$description <- NULL
       output$shot_input_map <- NULL
       output$radio_buttons <- NULL
       
@@ -94,16 +98,38 @@ server <- function(input, output) {
     
     click <- input$shot_input_map_click
     shot_num <- nrow(click_dataframe) + 1
-    distance <- pin_distance(map_pin_vector(), click)
+
+    if (!(is.na(map_pin_vector()["Latitude"])) && !(is.na(map_pin_vector()["Longitude"]))) {
+      pin_lat <- map_pin_vector()["Latitude"]
+      pin_long <- map_pin_vector()["Longitude"]
+      distance <- yard_distance(pin_long, pin_lat, click$lng, click$lat)
+      
+      # Querying strokes gained from the interpolated dataset
+      if(as.integer(distance) > 237 || as.integer(distance) < 40) {
+        interpolated_strokes_gained_fairway <- -1
+        interpolated_strokes_gained_rough <- -1
+      } else {
+        subsetted.data <- filter(strokes.gained.interpolated, yards == as.integer(distance))
+        interpolated_strokes_gained_fairway <-  subsetted.data$fairway
+        interpolated_strokes_gained_rough <- subsetted.data$rough
+      }
+      
+    } else {
+      distance <- -1
+      interpolated_strokes_gained_fairway <- -1
+      interpolated_strokes_gained_rough <- -1
+    }
     
     add_shot_to_map(leafletProxy("shot_input_map"), click$lng, click$lat, shot_num, distance)
-    
+
     click_dataframe <<- click_dataframe %>% 
       add_shot(list(
         Shot = shot_num,
         Latitude = click$lat,
         Longitude = click$lng,
-        Distance = distance
+        Distance = distance,
+        Strokes.Gained.Fairway = interpolated_strokes_gained_fairway,
+        Strokes.Gained.Rough = interpolated_strokes_gained_rough
       ))
     
     output$radio_buttons <- create_radio_buttons(shot_num, current_shots = click_dataframe %>% pull(`Shot Type`))
@@ -113,15 +139,38 @@ server <- function(input, output) {
   observeEvent(input$shot_input_map_marker_dragend, {
     drag <- input$shot_input_map_marker_dragend
     
+    if (!(is.na(map_pin_vector()["Latitude"])) && !(is.na(map_pin_vector()["Longitude"]))) {
+      pin_lat <- map_pin_vector()["Latitude"]
+      pin_long <- map_pin_vector()["Longitude"]
+      distance <- yard_distance(pin_long, pin_lat, drag$lng, drag$lat)
+      
+      # updating strokes gained when dragging the marker
+      if(as.integer(distance) > 237 || as.integer(distance) < 40) {
+        interpolated_strokes_gained_fairway.drag <- -1
+        interpolated_strokes_gained_rough.drag <- -1
+      } else {
+        subsetted.data.drag <- filter(strokes.gained.interpolated, yards == as.integer(distance))
+        interpolated_strokes_gained_fairway.drag <-  subsetted.data.drag$fairway
+        interpolated_strokes_gained_rough.drag <- subsetted.data.drag$rough
+      }
+      
+    } else {
+      distance <- -1
+      interpolated_strokes_gained_fairway.drag <- -1
+      interpolated_strokes_gained_rough.drag <- -1
+    }
+    
     update <- tibble(
       Shot = drag$id,
       Latitude = drag$lat,
       Longitude = drag$lng,
-      Distance = pin_distance(map_pin_vector(), drag)
+      Distance = distance,
+      Strokes.Gained.Fairway = interpolated_strokes_gained_fairway.drag,
+      Strokes.Gained.Rough = interpolated_strokes_gained_rough.drag
     )
     
     click_dataframe <<- click_dataframe %>% 
-      update_shot(update, c("Latitude", "Longitude", "Distance"))
+      update_shot(update, c("Latitude", "Longitude", "Distance", "Strokes.Gained.Fairway", "Strokes.Gained.Rough"))
 
   })
 
