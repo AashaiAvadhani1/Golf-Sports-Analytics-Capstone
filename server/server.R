@@ -106,7 +106,7 @@ server <- function(input, output) {
         Distance = distance
       ))
     
-    output$radio_buttons <- create_radio_buttons(shot_num)
+    output$radio_buttons <- create_radio_buttons(shot_num, current_shots = click_dataframe %>% pull(`Shot Type`))
   })
   
   # Observe event for dragging markers after initializing them
@@ -135,19 +135,31 @@ server <- function(input, output) {
   
   # When "submit_data" button is clicked
   observeEvent(input$submit_data, {
-    click_dataframe <<- click_dataframe %>%
-    mutate(`Shot Type` = get_shot_type_vector(input, nrow(.)))
-    folders_path <- c(
-      "data",
-      "shot_data",
-      as.character(metadata()$date),
-      as.character(metadata()$tournament),
-      as.character(metadata()$player),
-      str_interp("Round ${metadata()$round}")
-    )
-    file_name <- str_interp("Hole ${metadata()$hole}.csv")
-    save_data(click_dataframe, folders=folders_path, filename=file_name)
-    showNotification("Data successfully submitted!", type="message")
+    number_shots <- nrow(click_dataframe)
+    shot_type_vector <- get_shot_type_vector(input, number_shots)
+    
+    if (length(shot_type_vector) != number_shots) {
+      showModal(modalDialog(
+        title = "Shot Type Empty",
+        "Make sure to fill out shot type for each shot.",
+        easyClose = TRUE,
+        footer = NULL
+      ))
+    } else {
+      click_dataframe <<- click_dataframe %>%
+        mutate(`Shot Type` = shot_type_vector)
+      folders_path <- c(
+        "data",
+        "shot_data",
+        as.character(metadata()$date),
+        as.character(metadata()$tournament),
+        as.character(metadata()$player),
+        str_interp("Round ${metadata()$round}")
+      )
+      file_name <- str_interp("Hole ${metadata()$hole}.csv")
+      save_data(click_dataframe, folders=folders_path, filename=file_name)
+      showNotification("Data successfully submitted!", type="message")
+    }
   })
   
   ################## Metadata Entry Tab Logic #######################

@@ -170,6 +170,11 @@ create_radio_buttons <- function(num_clicks=1, current_shots=character(0)) {
       box(
         title = "Use these buttons to select shot types. Select after plotting all shots on the map.",
         lapply(1:num_clicks, function(i) {
+          selection <- if (i > length(current_shots)) {
+            character(0)
+          } else {
+            current_shots[i]
+          }
           radioButtons(
             str_interp("shot_${i}_type"), 
             str_interp("Shot ${i} Type:"),
@@ -180,7 +185,7 @@ create_radio_buttons <- function(num_clicks=1, current_shots=character(0)) {
               "Sand" = "Sand",
               "Water" = "Water"
             ), 
-            selected = current_shots[i],
+            selected = selection,
             inline = TRUE
           )
         })
@@ -193,7 +198,7 @@ create_radio_buttons <- function(num_clicks=1, current_shots=character(0)) {
 get_shot_type_vector <- function(input, num_shots) {
   sapply(1:num_shots, function(shot_num) {
     input[[str_interp("shot_${shot_num}_type")]]
-  })
+  }) %>% unlist
 }
 
 # Finding distance method using built in R method
