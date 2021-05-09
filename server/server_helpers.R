@@ -8,11 +8,24 @@ library(geosphere)
 ### Initialization
 
 # Initialize the click dataframe
-initialize_click_dataframe <- function(col_names = c('Longitude', 'Latitude', 'Distance'), # add in shot type later on
-                                       file_to_check = "") {
+initialize_click_dataframe <- function(file_to_check = "") {
+  # Columns in the data frame
+  col_names <- c(
+    "Shot",
+    "Latitude",
+    "Longitude",
+    "Shot Type",
+    "Distance"
+  )
+
   dataframe_click <- load_data(file_to_check, num_cols=length(col_names))
   names(dataframe_click) <- col_names
-  dataframe_click %>% mutate_all(as.numeric)
+  dataframe_click %>%
+    mutate(Shot = as.numeric(dataframe_click$Shot)) %>%
+    mutate(Latitude = as.numeric(dataframe_click$Latitude)) %>%
+    mutate(Longitude = as.numeric(dataframe_click$Longitude)) %>%
+    mutate(`Shot Type` = as.character(dataframe_click$`Shot Type`)) %>%
+    mutate(Distance = as.numeric(dataframe_click$Distance))
 }
 
 # Extracts pin location information from file or initializes empty vector
@@ -87,13 +100,11 @@ rbind_all <- function(path) {
     # Recurse
     for (dir in list.dirs(here(path), full.names=FALSE)[-1]) {
       new_path <- str_interp("${path}/${dir}")
-      print(new_path)
       rbind_all(new_path)
     }
     
     pattern <- str_interp(".*/${path}/[^/]+/all_data\\.csv")
   } else {
-    print("level_id is hole")
     pattern <- "(.+\\.csv)(?<!all_data\\.csv)"
   }
   
@@ -132,20 +143,30 @@ populate_map <- function(map, shot_df) {
 }
 
 # Renders radio buttons based on number of clicks
-create_radio_buttons <- function(num_clicks=1) {
+create_radio_buttons <- function(num_clicks=1, current_shots=character(0)) {
   renderUI({
-    box(
-      title = "Use these buttons to select shot types. Select after plotting all shots on the map.",
-      lapply(1:num_clicks, function(i) {
-        radioButtons(str_interp("shot_${i}_type"), str_interp("Shot ${i} Type:"),
-                     c("Fairway" = "Fairway",
-                       "Green" = "Green",
-                       "Rough" = "Rough",
-                       "Sand" = "Sand",
-                       "Water" = "Water"
-                     ), inline=TRUE)
-      })
-    )
+    if (num_clicks < 1) {
+      NULL
+    } else {
+      box(
+        title = "Use these buttons to select shot types. Select after plotting all shots on the map.",
+        lapply(1:num_clicks, function(i) {
+          radioButtons(
+            str_interp("shot_${i}_type"), 
+            str_interp("Shot ${i} Type:"),
+            c(
+              "Fairway" = "Fairway",
+              "Green" = "Green",
+              "Rough" = "Rough",
+              "Sand" = "Sand",
+              "Water" = "Water"
+            ), 
+            selected = current_shots[i],
+            inline = TRUE
+          )
+        })
+      )
+    }
   })
 }
 

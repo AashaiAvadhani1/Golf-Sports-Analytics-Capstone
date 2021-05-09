@@ -10,15 +10,9 @@ library(DT)
 
 source("server/server_helpers.R")
 
-# This is the dataframe in which data from each click is stored
-dataframe_column_names <- c(
-  "Shot",
-  "Latitude",
-  "Longitude",
-  "Shot Type",
-  "Distance"
-)
-click_dataframe <- initialize_click_dataframe(dataframe_column_names)
+
+click_dataframe <- initialize_click_dataframe()
+
 pin_vector <- initialize_pin_vector()
 
 server <- function(input, output) {
@@ -47,10 +41,6 @@ server <- function(input, output) {
           zoom=17
         )
     })
-    output$radio_buttons <- renderUI({
-      dummy <- metadata()$date
-      NULL
-    })
     output$map_buttons <- renderUI({
       dummy <- metadata()$date
       fluidRow(
@@ -61,14 +51,16 @@ server <- function(input, output) {
     
     # populating markers
     file_to_check <- metadata_to_filepath(metadata())
-    click_dataframe <<- initialize_click_dataframe(dataframe_column_names, file_to_check)
+    click_dataframe <<- initialize_click_dataframe(file_to_check)
+    output$radio_buttons <- {
+      dummy <- metadata()$date
+      shot_type_vector <- click_dataframe %>% pull(`Shot Type`)
+      create_radio_buttons(length(shot_type_vector), current_shots = shot_type_vector)
+    }
     populate_map(leafletProxy("shot_input_map"), click_dataframe)
     
     # populating pin locations
-    metadata() %>%
-      metadata_to_filepath(for_pins=TRUE) %>% 
-      initialize_pin_vector %>% 
-      add_pin_to_map(leafletProxy("shot_input_map"), .)
+    add_pin_to_map(leafletProxy("shot_input_map"), map_pin_vector())
   })
   metadata <- eventReactive(input$submit_meta, {
     data <- list()
@@ -79,6 +71,11 @@ server <- function(input, output) {
     data$hole <- input$hole
     data
   })
+  map_pin_vector <- eventReactive(input$submit_meta, {
+    metadata() %>%
+      metadata_to_filepath(for_pins=TRUE) %>% 
+      initialize_pin_vector
+  })
   
   # Clicking to add a marker
   observeEvent(input$shot_input_map_click, {
@@ -86,11 +83,9 @@ server <- function(input, output) {
     click <- input$shot_input_map_click
     shot_num <- nrow(click_dataframe) + 1
     
-    # print(pin_vector)
-    
-    if (!(is.na(pin_vector["Latitude"])) && !(is.na(pin_vector["Longitude"]))) {
-      pin_lat <- pin_vector["Latitude"]
-      pin_long <- pin_vector["Longitude"]
+    if (!(is.na(map_pin_vector()["Latitude"])) && !(is.na(map_pin_vector()["Longitude"]))) {
+      pin_lat <- map_pin_vector()["Latitude"]
+      pin_long <- map_pin_vector()["Longitude"]
       dis <- distance(pin_long, pin_lat, click$lng, click$lat)
     } else {
       dis <- -1
@@ -113,9 +108,9 @@ server <- function(input, output) {
   observeEvent(input$shot_input_map_marker_dragend, {
     drag <- input$shot_input_map_marker_dragend
     
-    if (!(is.na(pin_vector["Latitude"])) && !(is.na(pin_vector["Longitude"]))) {
-      pin_lat <- pin_vector["Latitude"]
-      pin_long <- pin_vector["Longitude"]
+    if (!(is.na(map_pin_vector()["Latitude"])) && !(is.na(map_pin_vector()["Longitude"]))) {
+      pin_lat <- map_pin_vector()["Latitude"]
+      pin_long <- map_pin_vector()["Longitude"]
       dis2 <- distance(pin_long, pin_lat, drag$lng, drag$lat)
     } else {
       dis2 <- -1
@@ -137,7 +132,7 @@ server <- function(input, output) {
   observeEvent(input$clear, {
     leafletProxy("shot_input_map") %>% 
       clearGroup("new_point")
-    click_dataframe <<- initialize_click_dataframe(dataframe_column_names)
+    click_dataframe <<- initialize_click_dataframe()
     output$radio_buttons <- NULL
   })
   
