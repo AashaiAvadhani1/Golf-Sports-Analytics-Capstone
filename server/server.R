@@ -10,14 +10,7 @@ library(DT)
 
 source("server/server_helpers.R")
 
-# This is the dataframe in which data from each click is stored
-dataframe_column_names <- c(
-  "Shot",
-  "Latitude",
-  "Longitude",
-  "Shot Type"
-)
-click_dataframe <- initialize_click_dataframe(dataframe_column_names)
+click_dataframe <- initialize_click_dataframe()
 pin_vector <- initialize_pin_vector()
 
 server <- function(input, output) {
@@ -46,10 +39,6 @@ server <- function(input, output) {
           zoom=17
         )
     })
-    output$radio_buttons <- renderUI({
-      dummy <- metadata()$date
-      NULL
-    })
     output$map_buttons <- renderUI({
       dummy <- metadata()$date
       fluidRow(
@@ -60,7 +49,12 @@ server <- function(input, output) {
     
     # populating markers
     file_to_check <- metadata_to_filepath(metadata())
-    click_dataframe <<- initialize_click_dataframe(dataframe_column_names, file_to_check)
+    click_dataframe <<- initialize_click_dataframe(file_to_check)
+    output$radio_buttons <- {
+      dummy <- metadata()$date
+      shot_type_vector <- click_dataframe %>% pull(`Shot Type`)
+      create_radio_buttons(length(shot_type_vector), current_shots = shot_type_vector)
+    }
     populate_map(leafletProxy("shot_input_map"), click_dataframe)
     
     # populating pin locations
@@ -116,7 +110,7 @@ server <- function(input, output) {
   observeEvent(input$clear, {
     leafletProxy("shot_input_map") %>% 
       clearGroup("new_point")
-    click_dataframe <<- initialize_click_dataframe(dataframe_column_names)
+    click_dataframe <<- initialize_click_dataframe()
     output$radio_buttons <- NULL
   })
   
