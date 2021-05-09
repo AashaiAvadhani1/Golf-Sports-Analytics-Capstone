@@ -12,7 +12,6 @@ source("server/server_helpers.R")
 
 
 click_dataframe <- initialize_click_dataframe()
-
 pin_vector <- initialize_pin_vector()
 
 server <- function(input, output) {
@@ -21,50 +20,63 @@ server <- function(input, output) {
   #Reading in the interpolated dataset from the strokes gained formulas
   strokes.gained.interpolated <- read.csv(here("server", "strokesGainedInterpolated.csv"))
 
-  
   # Metadata entry form 
   output$metadata_form <- shot_metadata_form(input)
 
   # When "submit-metadata" button is clicked
   observeEvent(input$submit_meta, {
-    hole_locations_filename <- str_interp("data/tournament_hole_locations/${metadata()$tournament}.csv")
-    hole_locations <- load_data(hole_locations_filename)
-    output$description <- renderText({
-      dummy <- metadata()$date
-      "Click anywhere to draw a circle"
-    })
-    output$shot_input_map <- renderLeaflet({
-      leaflet(width="100%", height="100%") %>%
-        addDrawToolbar(circleOptions=NA, markerOptions=NA, polygonOptions=NA,
-                       rectangleOptions=NA, polylineOptions=NA, circleMarkerOptions=NA) %>%
-        addProviderTiles('Esri.WorldImagery') %>%
-        # setView(lat = 40.47942168506459, lng=-79.85795114512402, zoom=17
-        setView(
-          lat = hole_locations[metadata()$hole, "Latitude", drop=TRUE],
-          lng = hole_locations[metadata()$hole, "Longitude", drop=TRUE],
-          zoom=17
+    if (is_uninitialized_pin_vector(map_pin_vector())) {
+      output$description <- NULL
+      output$shot_input_map <- NULL
+      output$radio_buttons <- NULL
+      
+      showModal(modalDialog(
+        title = "Pin Marker Has not been Set",
+        "It seems like the pin marker has not been set. Please go to the 'Tournament
+         Pin Locations' tab and set the pin for this hole before proceeding.",
+        easyClose = TRUE,
+        footer = NULL
+      ))
+    } else {
+      hole_locations_filename <- str_interp("data/tournament_hole_locations/${metadata()$tournament}.csv")
+      hole_locations <- load_data(hole_locations_filename)
+      output$description <- renderText({
+        dummy <- metadata()$date
+        "Click anywhere to draw a circle"
+      })
+      output$shot_input_map <- renderLeaflet({
+        leaflet(width="100%", height="100%") %>%
+          addDrawToolbar(circleOptions=NA, markerOptions=NA, polygonOptions=NA,
+                         rectangleOptions=NA, polylineOptions=NA, circleMarkerOptions=NA) %>%
+          addProviderTiles('Esri.WorldImagery') %>%
+          # setView(lat = 40.47942168506459, lng=-79.85795114512402, zoom=17)
+          setView(
+            lat = hole_locations[metadata()$hole, "Latitude", drop=TRUE],
+            lng = hole_locations[metadata()$hole, "Longitude", drop=TRUE],
+            zoom=17
+          )
+      })
+      output$map_buttons <- renderUI({
+        dummy <- metadata()$date
+        fluidRow(
+          column(2, actionButton("clear", "Clear Markers")),
+          column(10, actionButton("submit_data", "Submit Markers"))
         )
-    })
-    output$map_buttons <- renderUI({
-      dummy <- metadata()$date
-      fluidRow(
-        column(2, actionButton("clear", "Clear Markers")),
-        column(10, actionButton("submit_data", "Submit Markers"))
-      )
-    })
-    
-    # populating markers
-    file_to_check <- metadata_to_filepath(metadata())
-    click_dataframe <<- initialize_click_dataframe(file_to_check)
-    output$radio_buttons <- {
-      dummy <- metadata()$date
-      shot_type_vector <- click_dataframe %>% pull(`Shot Type`)
-      create_radio_buttons(length(shot_type_vector), current_shots = shot_type_vector)
+      })
+      
+      # populating markers
+      file_to_check <- metadata_to_filepath(metadata())
+      click_dataframe <<- initialize_click_dataframe(file_to_check)
+      output$radio_buttons <- {
+        dummy <- metadata()$date
+        shot_type_vector <- click_dataframe %>% pull(`Shot Type`)
+        create_radio_buttons(length(shot_type_vector), current_shots = shot_type_vector)
+      }
+      populate_map(leafletProxy("shot_input_map"), click_dataframe)
+      
+      # populating pin locations
+      add_pin_to_map(leafletProxy("shot_input_map"), map_pin_vector())
     }
-    populate_map(leafletProxy("shot_input_map"), click_dataframe)
-    
-    # populating pin locations
-    add_pin_to_map(leafletProxy("shot_input_map"), map_pin_vector())
   })
   metadata <- eventReactive(input$submit_meta, {
     data <- list()
@@ -86,43 +98,41 @@ server <- function(input, output) {
     
     click <- input$shot_input_map_click
     shot_num <- nrow(click_dataframe) + 1
-    
+
     if (!(is.na(map_pin_vector()["Latitude"])) && !(is.na(map_pin_vector()["Longitude"]))) {
       pin_lat <- map_pin_vector()["Latitude"]
       pin_long <- map_pin_vector()["Longitude"]
-      dis <- distance(pin_long, pin_lat, click$lng, click$lat)
+      distance <- yard_distance(pin_long, pin_lat, click$lng, click$lat)
       
-      #querying strokes gained from the interpolated dataset
-      if(as.integer(dis) > 237 || as.integer(dis) < 40) {
+      # Querying strokes gained from the interpolated dataset
+      if(as.integer(distance) > 237 || as.integer(distance) < 40) {
         interpolated_strokes_gained_fairway <- -1
         interpolated_strokes_gained_rough <- -1
       } else {
-        subsetted.data <- filter(strokes.gained.interpolated, yards == as.integer(dis))
+        subsetted.data <- filter(strokes.gained.interpolated, yards == as.integer(distance))
         interpolated_strokes_gained_fairway <-  subsetted.data$fairway
-        print(interpolated_strokes_gained_fairway)
         interpolated_strokes_gained_rough <- subsetted.data$rough
-        print(interpolated_strokes_gained_rough)
       }
       
     } else {
-      dis <- -1
+      distance <- -1
       interpolated_strokes_gained_fairway <- -1
       interpolated_strokes_gained_rough <- -1
     }
     
-    add_shot_to_map(leafletProxy("shot_input_map"), click$lng, click$lat, shot_num, dis)
-    
+    add_shot_to_map(leafletProxy("shot_input_map"), click$lng, click$lat, shot_num, distance)
+
     click_dataframe <<- click_dataframe %>% 
       add_shot(list(
         Shot = shot_num,
         Latitude = click$lat,
         Longitude = click$lng,
-        Distance = dis,
+        Distance = distance,
         Strokes.Gained.Fairway = interpolated_strokes_gained_fairway,
         Strokes.Gained.Rough = interpolated_strokes_gained_rough
       ))
     
-    output$radio_buttons <- create_radio_buttons(shot_num)
+    output$radio_buttons <- create_radio_buttons(shot_num, current_shots = click_dataframe %>% pull(`Shot Type`))
   })
   
   # Observe event for dragging markers after initializing them
@@ -132,20 +142,20 @@ server <- function(input, output) {
     if (!(is.na(map_pin_vector()["Latitude"])) && !(is.na(map_pin_vector()["Longitude"]))) {
       pin_lat <- map_pin_vector()["Latitude"]
       pin_long <- map_pin_vector()["Longitude"]
-      dis2 <- distance(pin_long, pin_lat, drag$lng, drag$lat)
+      distance <- yard_distance(pin_long, pin_lat, drag$lng, drag$lat)
       
-      #updating strokes gained when dragging the marker
-      if(as.integer(dis2) > 237 || as.integer(dis2) < 40) {
+      # updating strokes gained when dragging the marker
+      if(as.integer(distance) > 237 || as.integer(distance) < 40) {
         interpolated_strokes_gained_fairway.drag <- -1
         interpolated_strokes_gained_rough.drag <- -1
       } else {
-        subsetted.data.drag <- filter(strokes.gained.interpolated, yards == as.integer(dis2))
+        subsetted.data.drag <- filter(strokes.gained.interpolated, yards == as.integer(distance))
         interpolated_strokes_gained_fairway.drag <-  subsetted.data.drag$fairway
         interpolated_strokes_gained_rough.drag <- subsetted.data.drag$rough
       }
       
     } else {
-      dis2 <- -1
+      distance <- -1
       interpolated_strokes_gained_fairway.drag <- -1
       interpolated_strokes_gained_rough.drag <- -1
     }
@@ -154,7 +164,7 @@ server <- function(input, output) {
       Shot = drag$id,
       Latitude = drag$lat,
       Longitude = drag$lng,
-      Distance = dis2,
+      Distance = distance,
       Strokes.Gained.Fairway = interpolated_strokes_gained_fairway.drag,
       Strokes.Gained.Rough = interpolated_strokes_gained_rough.drag
     )
@@ -174,19 +184,31 @@ server <- function(input, output) {
   
   # When "submit_data" button is clicked
   observeEvent(input$submit_data, {
-    click_dataframe <<- click_dataframe %>%
-    mutate(`Shot Type` = get_shot_type_vector(input, nrow(.))) #%>%
-      #mutate(`Distance` = get_distance_vector(input, nrow(.)))
-    folders_path <- c(
-      "data",
-      "shot_data",
-      as.character(metadata()$date),
-      as.character(metadata()$tournament),
-      as.character(metadata()$player),
-      str_interp("Round ${metadata()$round}")
-    )
-    file_name <- str_interp("Hole ${metadata()$hole}.csv")
-    save_data(click_dataframe, folders=folders_path, filename=file_name)
+    number_shots <- nrow(click_dataframe)
+    shot_type_vector <- get_shot_type_vector(input, number_shots)
+    
+    if (length(shot_type_vector) != number_shots) {
+      showModal(modalDialog(
+        title = "Shot Type Empty",
+        "Make sure to fill out shot type for each shot.",
+        easyClose = TRUE,
+        footer = NULL
+      ))
+    } else {
+      click_dataframe <<- click_dataframe %>%
+        mutate(`Shot Type` = shot_type_vector)
+      folders_path <- c(
+        "data",
+        "shot_data",
+        as.character(metadata()$date),
+        as.character(metadata()$tournament),
+        as.character(metadata()$player),
+        str_interp("Round ${metadata()$round}")
+      )
+      file_name <- str_interp("Hole ${metadata()$hole}.csv")
+      save_data(click_dataframe, folders=folders_path, filename=file_name)
+      showNotification("Data successfully submitted!", type="message")
+    }
   })
   
   ################## Metadata Entry Tab Logic #######################
@@ -195,37 +217,32 @@ server <- function(input, output) {
   observeEvent(input$submit_new_player, {
     new_player_name <- input$new_player
     
-    players <- load_data("data/players.csv")
-    if(nrow(players) == 0) {
-      players <- data.frame(new_player_name)
-      colnames(players) <- "Players"
+    if (is_empty(new_player_name)) {
+      showModal(modalDialog(
+        title = "Player Name is Empty",
+        "Please enter a valid player name.",
+        easyClose = TRUE,
+        footer = NULL
+      ))
     } else {
-      if(!(new_player_name %in% players$Players)) {
-        players <- rbind(players, new_player_name)
+      players <- load_data("data/players.csv")
+      if(nrow(players) == 0) {
+        players <- data.frame(new_player_name)
+        colnames(players) <- "Players"
+      } else {
+        if(!(new_player_name %in% players$Players)) {
+          players <- rbind(players, new_player_name)
+        }
       }
+      save_data(players, folders="data", filename="players.csv")
+      updateTextInput(inputId="new_player", value="")
+      showNotification("New player submitted!", type="message")
     }
-    save_data(players, folders="data", filename="players.csv")
-    updateTextInput(inputId="new_player", value="")
   })
   
   # Button for adding a new tournament
   observeEvent(input$submit_new_tournament, {
     new_tournament_name <- input$new_tournament
-    
-    # Add tournament name to tournaments list
-    tournaments <- load_data("data/tournaments.csv")
-    if(nrow(tournaments) == 0) {
-      tournaments <- data.frame(new_tournament_name)
-      colnames(tournaments) <- "Tournaments"
-    } else {
-      if(!(new_tournament_name %in% tournaments$Tournaments)) {
-        tournaments <- rbind(tournaments, new_tournament_name)
-      }
-    }
-    save_data(tournaments, folders="data", filename="tournaments.csv")
-    
-    # Save hole locations
-    holes_filename <- paste0(new_tournament_name, ".csv")
     hole_locations <- data.frame(matrix(NA, nrow=0, ncol=3))
     names(hole_locations) <- c("Hole Number", "Latitude", "Longitude")
     for (hole_num in 1:18) {
@@ -239,13 +256,39 @@ server <- function(input, output) {
         )
     }
     
-    save_data(hole_locations, folders=c("data", "tournament_hole_locations"), filename=holes_filename)
-    
-    # Clear all inputs
-    updateTextInput(inputId="new_tournament", value="")
-    for (hole_num in 1:18) {
-      updateTextInput(inputId=paste0("hole", hole_num, "_lat"), value="")
-      updateTextInput(inputId=paste0("hole", hole_num, "_lon"), value="")
+    if (is_empty(new_tournament_name) || any(is.na(hole_locations))) {
+      showModal(modalDialog(
+        title = "Tournament Field(s) are Empty",
+        "Please enter a valid tournament name and fill out all latitude/longitude
+          values for each hole.",
+        easyClose = TRUE,
+        footer = NULL
+      ))
+    } else {
+      # Add tournament name to tournaments list
+      tournaments <- load_data("data/tournaments.csv")
+      if(nrow(tournaments) == 0) {
+        tournaments <- data.frame(new_tournament_name)
+        colnames(tournaments) <- "Tournaments"
+      } else {
+        if(!(new_tournament_name %in% tournaments$Tournaments)) {
+          tournaments <- rbind(tournaments, new_tournament_name)
+        }
+      }
+      save_data(tournaments, folders="data", filename="tournaments.csv")
+      
+      # Save hole locations
+      holes_filename <- paste0(new_tournament_name, ".csv")
+      save_data(hole_locations, folders=c("data", "tournament_hole_locations"), filename=holes_filename)
+      
+      # Clear all inputs
+      updateTextInput(inputId="new_tournament", value="")
+      for (hole_num in 1:18) {
+        updateTextInput(inputId=paste0("hole", hole_num, "_lat"), value="")
+        updateTextInput(inputId=paste0("hole", hole_num, "_lon"), value="")
+      }
+      
+      showNotification("New tournament submitted!", type="message")
     }
   })
   
@@ -330,10 +373,6 @@ server <- function(input, output) {
   observeEvent(input$submit_pin_metadata, {
     hole_locations_filename <- str_interp("data/tournament_hole_locations/${pin_metadata()$tournament}.csv")
     hole_locations <- load_data(hole_locations_filename)
-    output$pin_description <- renderText({
-      dummy <- pin_metadata()$date
-      "Click/drag to drop pin"
-    })
     output$pin_input_map <- renderLeaflet({
       leaflet(width="100%", height="100%") %>%
         addDrawToolbar(circleOptions=NA, markerOptions=NA, polygonOptions=NA,
@@ -345,19 +384,37 @@ server <- function(input, output) {
           zoom=17
         )
     })
-    output$pin_buttons <- renderUI({
-      dummy <- pin_metadata()$date
-      fluidRow(
-        column(3, actionButton("clear_pin", "Clear Pin")),
-        column(9, actionButton("submit_pin", "Submit Pins"))
-      )
-    })
     
-    # Checks if pin has been inputted previously, displays if it does
     pin_vector <<- pin_metadata() %>% 
       metadata_to_filepath(for_pins=TRUE) %>% 
       initialize_pin_vector
-    add_pin_to_map(leafletProxy("pin_input_map"), pin_vector, draggable = TRUE)
+    
+    if (check_if_data_exists(pin_metadata())) {
+      output$pin_description <- NULL
+      output$pin_buttons <- NULL
+      add_pin_to_map(leafletProxy("pin_input_map"), pin_vector, draggable = FALSE)
+      
+      showModal(modalDialog(
+        title = "Data Exists For This Pin",
+        "Data has already been entered and saved for this pin. Therefore, it cannot
+         be moved, or else the data would be made invalid.",
+        easyClose = TRUE,
+        footer = NULL
+      ))
+    } else {
+      output$pin_description <- renderText({
+        dummy <- pin_metadata()$date
+        "Click/drag to drop pin"
+      })
+      output$pin_buttons <- renderUI({
+        dummy <- pin_metadata()$date
+        fluidRow(
+          column(3, actionButton("clear_pin", "Clear Pin")),
+          column(9, actionButton("submit_pin", "Submit Pin"))
+        )
+      })
+      add_pin_to_map(leafletProxy("pin_input_map"), pin_vector, draggable = TRUE)
+    }
   })
   pin_metadata <- eventReactive(input$submit_pin_metadata, {
     data <- list()
@@ -403,6 +460,7 @@ server <- function(input, output) {
     )
     file_name <- str_interp("Hole ${pin_metadata()$hole}.csv")
     save_data(pin_vector %>% as.list %>% data.frame, folders=folders_path, filename=file_name)
+    showNotification("Pin location data successfully submitted!", type="message")
   })
   
 }

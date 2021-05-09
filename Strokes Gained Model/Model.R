@@ -1,19 +1,15 @@
 
 library(lme4)
-library(ggplot2)  # load the package
-library("ggplot2")                     # Load ggplot2 package
-library("GGally") 
+library(GGally) 
 library(tidyverse)
 library(ISLR)
-library(dplyr)
-library(knitr)
 library(mgcv)
-library(ggplot2)
+library(here)
 
-## The Script where the strokes gained model is giong to be built
-data <- read.csv("strokesGainedInterpolated.csv")
-golf_data <-  read.csv("GolfData.csv")
-total_new.data <- read.csv("total_new.csv")
+## The Script where the strokes gained model is going to be built
+data <- read.csv(here("Strokes Gained Model/strokesGainedInterpolated.csv"))
+golf_data <-  read.csv(here("Strokes Gained Model/GolfData.csv"))
+total_new.data <- read.csv(here("Strokes Gained Model/total_new.csv"))
 
 #add a total strokes gained column
 golf_data

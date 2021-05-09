@@ -44,6 +44,11 @@ initialize_pin_vector <- function(file_to_check = "") {
   }
 }
 
+# Checks if a pin vector is uninitialized
+is_uninitialized_pin_vector <- function(pin_vector) {
+  is.na(pin_vector[1]) && is.na(pin_vector[2])
+}
+
 ### For updating the click dataframe
 
 # To add a new shot
@@ -121,6 +126,19 @@ rbind_all <- function(path) {
   save_data(aggregated_data, unlist(strsplit(path, split="/")), "all_data.csv")
 }
 
+# Checks if data exists for the pin's metadata
+check_if_data_exists <- function(pin_metadata) {
+  date <- pin_metadata$date
+  tournament <- pin_metadata$tournament
+  round <- pin_metadata$round
+  hole <- pin_metadata$hole
+  
+  pattern <- str_interp("${as.character(date)}/${tournament}/[^/]+(?<!Pin Locations)/Round ${round}/Hole ${hole}\\.csv")
+  print(pattern)
+  pin_files <- grep(pattern, list.files(here("data/shot_data"), recursive=T), perl=T, value=T)
+  length(pin_files) > 0
+}
+
 
 ### Map interaction
 
@@ -156,6 +174,11 @@ create_radio_buttons <- function(num_clicks=1, current_shots=character(0)) {
       box(
         title = "Use these buttons to select shot types. Select after plotting all shots on the map.",
         lapply(1:num_clicks, function(i) {
+          selection <- if (i > length(current_shots)) {
+            character(0)
+          } else {
+            current_shots[i]
+          }
           radioButtons(
             str_interp("shot_${i}_type"), 
             str_interp("Shot ${i} Type:"),
@@ -166,7 +189,7 @@ create_radio_buttons <- function(num_clicks=1, current_shots=character(0)) {
               "Sand" = "Sand",
               "Water" = "Water"
             ), 
-            selected = current_shots[i],
+            selected = selection,
             inline = TRUE
           )
         })
@@ -179,15 +202,13 @@ create_radio_buttons <- function(num_clicks=1, current_shots=character(0)) {
 get_shot_type_vector <- function(input, num_shots) {
   sapply(1:num_shots, function(shot_num) {
     input[[str_interp("shot_${shot_num}_type")]]
-  })
+  }) %>% unlist
 }
 
 # Finding distance method using built in R method
-
-distance <- function(long1, lat1, long2, lat2) {
-  dis <- distm(c(long1, lat1), c(long2, lat2), fun = distHaversine)
-  to_yards <- conv_unit(dis, "m", "yd")
-  return(to_yards)
+yard_distance <- function(lon1, lat1, lon2, lat2) {
+  distm(c(lon1, lat1), c(lon2, lat2)) %>% 
+    conv_unit("m", "yd")
 }
 
 ### Metadata forms
